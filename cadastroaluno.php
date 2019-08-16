@@ -15,7 +15,7 @@
 		include("cabecalho.php"); 
 		?>
     <div class="container">
-        <form action="teste_tabela.php" method="POST">
+        <form action="inserirAluno.php" method="POST">
 
             <fieldset>
                 <legend>Cadastro Aluno</legend>
