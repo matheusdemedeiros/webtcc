@@ -19,7 +19,7 @@
 		include("cabecalho.php"); 
 		?>
 
-    <table width="100%" border="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
+    <table class="container" width="100%" border="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
                 <strog>Nome</strog>
@@ -49,8 +49,8 @@ while ($aluno = mysqli_fetch_array($dados)){?>
                 <?=$aluno["email"]?>
             </td>
             
-            <td align="center"><a href="editar.php?editaid=<?aluno["id"]?>"> <span class="glyphicon glyphicon-edit"></span></a></td>
-            <td align= "center"><a href="#" onclick="verifica(<?=$aluno["id"]?>)"><span class="glyphicon glyphicon-trash" ></span></a></td>
+            <td align="center"><a href="editar.php?editaid=<?=$aluno['id']?>"> <span class="glyphicon glyphicon-edit"></span></a></td>
+            <td align= "center"><a href="#" onclick="verifica(<?=$aluno['id']?>)"><span class="glyphicon glyphicon-trash" ></span></a></td>
         </tr>
         <?php } ?>
 
@@ -62,4 +62,3 @@ while ($aluno = mysqli_fetch_array($dados)){?>
 
 </html>
 
-<

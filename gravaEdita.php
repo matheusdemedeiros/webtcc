@@ -1,7 +1,7 @@
 <?php 
     include("conecta.php");
     
-    $recid = $POST["fid"];
+    $recid = $_POST['fid'];
     $recnome = $_POST['nome'];
     $recemail = $_POST['email'];
     $recsenha = $_POST['password'];

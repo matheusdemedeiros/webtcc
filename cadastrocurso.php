@@ -19,9 +19,9 @@
 
             <fieldset>
                 <legend>Cadastro Curso</legend>
-
+                  <label for="nome">Nome do Curso</label>
                 <div>
-                    <label for="nome">Nome do Curso</label>
+                  
                     <input type="text" id="nome" name="nome" autofocus required>
                 </div>
                 <input type="submit" name="Cadastrar" value="Cadastrar" />

@@ -5,3 +5,4 @@ function verifica(recid) {
         alert("Cadastro excluido com sucesso!");
     }
 }
+

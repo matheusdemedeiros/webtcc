@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina de Cadastro</title>
-  
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/bootstrap.css">
 </head>
@@ -13,8 +12,9 @@
     <?php 
 		$cabecalho_title = "Cadastro Aluno";
 		include("cabecalho.php");
-        $recid = $POST["editaid"];
-        $seleciona = mysqli_query($conexao, "SELECT * FROM aluno WHERE id = $recid");
+        include("conecta.php");
+        $recid = $_GET['editaid'];
+        $seleciona = mysqli_query($conexao, "SELECT * FROM aluno WHERE id = '$recid'");
         $campo = mysqli_fetch_array($seleciona);
 		?>
     <div class="container">
@@ -22,25 +22,31 @@
 
             <fieldset>
                 <legend>Edição de aluno</legend>
-                
-                    <input type="hidden" name="fid" value="<?=$campo["id"]?>">
+
+                <input type="hidden" name="fid" value="<?=$campo["id"]?>">
+                <label for="nome">Nome completo</label>
                 <div>
-                    <label for="nome">Nome completo</label>
-                    <input type="text" id="nome" name="nome" autofocus required value= "<?=$campo["nome"]?>"><br>
+
+                    <input type="text" id="nome" name="nome" autofocus required value="<?=$campo["nome"]?>">
                 </div>
 
-
+                <label for="email">Email</label>
                 <div>
-                    <label for="email">Email</label>
+
                     <div class="input-group">
                         <span class="input-group-addon">@</span>
-                        <input type="email" id="email" name="email" autofocus required value= "<?=$campo["email"]?>"><br>>
+                        <input type="email" id="email" name="email" value="<?=$campo["email"]?>" autofocus required>
                     </div>
                 </div>
-
+                <label for="senha">Senha</label>
                 <div>
-                    <label for="senha">Senha</label>
-                    <input type="password" id="password" name="password" autofocus required value= "<?=$campo["senha"]?>"><br>>
+
+                    <input type="password" id="password" name="password" autofocus required value="<?=$campo["senha"]?>">
+                </div>
+                <label for="senha">Confirmar Senha</label>
+                <div>
+
+                    <input type="password" id="password" name="password2" autofocus required>
                 </div>
 
 
@@ -49,7 +55,7 @@
 
         </form>
     </div>
-<!--    <?php include("rodape.php"); ?>-->
+    <!--    <?php include("rodape.php"); ?>-->
 </body>
 
 </html>
