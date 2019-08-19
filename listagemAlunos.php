@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <script type="text/jscript" src="script.js"></script>
+    
 </head>
 
 <body>
@@ -46,6 +48,9 @@ while ($aluno = mysqli_fetch_array($dados)){?>
             <td>
                 <?=$aluno["email"]?>
             </td>
+            
+            <td align="center"><a href="editar.php?editaid=<?aluno["id"]?>"> <span class="glyphicon glyphicon-edit"></span></a></td>
+            <td align= "center"><a href="#" onclick="verifica(<?=$aluno["id"]?>)"><span class="glyphicon glyphicon-trash" ></span></a></td>
         </tr>
         <?php } ?>
 
@@ -56,3 +61,5 @@ while ($aluno = mysqli_fetch_array($dados)){?>
 </body>
 
 </html>
+
+<
