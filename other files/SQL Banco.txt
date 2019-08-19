@@ -1,0 +1,10 @@
+//criando a base de dados
+create database webtcc;
+
+
+//Criando a tabela aluno com os seguintes parâmetros: id, nome, email e senha.
+CREATE TABLE `webtcc`.`aluno` ( `id` INT NOT NULL AUTO_INCREMENT , 
+`nome` VARCHAR(50) NOT NULL , 
+`email` VARCHAR(50) NOT NULL ,
+`senha` VARCHAR(50) NOT NULL ,
+PRIMARY KEY (`id`)) ENGINE = InnoDB;
