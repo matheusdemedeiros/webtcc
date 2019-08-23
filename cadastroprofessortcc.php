@@ -4,9 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina de Cadastro</title>
-
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <script type ="text/javascript">
+        function validar(){
+            var senha = formuser.password.value;
+            var confirmarsenha= formuser.password2.value;
+            if(senha == "" || senha.length <=5){
+                alert('prencha o campo com no mínimo 6 caracteres');
+                formuser.password.focus();
+                return false;
+            }
+            if(confirmarsenha == "" || confirmarsenha.length <=5){
+                alert('prencha o campo com no mínimo 6 caracteres');
+                formuser.password2.focus();
+                return false;
+            }
+
+            if(senha!=confirmarsenha){
+                alert('Senhas diferentes!');
+                formuser.password2.focus();
+                return false;
+            }
+}
+    </script>
 </head>
 
 <body>
@@ -16,7 +37,7 @@
 		?>
     <div class="container">
 
-        <form>
+        <form name="formuser" method="POST">
 
             <fieldset>
                 <legend>Cadastro Professor de TCC</legend>
@@ -46,7 +67,7 @@
                     <input type="password2" id="password2" name="password2" autofocus required>
                 </div>
 
-                <input type="submit" name="Cadastrar" value="Cadastrar" />
+                <input type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
             </fieldset>
 
 

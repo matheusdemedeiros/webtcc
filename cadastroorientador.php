@@ -7,6 +7,28 @@
 
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/bootstrap.css">
+    <script type ="text/javascript">
+        function validar(){
+            var senha = formuser.password.value;
+            var confirmarsenha= formuser.password2.value;
+            if(senha == "" || senha.length <=5){
+                alert('prencha o campo com no mínimo 6 caracteres');
+                formuser.password.focus();
+                return false;
+            }
+            if(confirmarsenha == "" || confirmarsenha.length <=5){
+                alert('prencha o campo com no mínimo 6 caracteres');
+                formuser.password2.focus();
+                return false;
+            }
+
+            if(senha!=confirmarsenha){
+                alert('Senhas diferentes!');
+                formuser.password2.focus();
+                return false;
+            }
+}
+    </script>
 </head>
 
 <body>
@@ -15,7 +37,7 @@
 		include("cabecalho.php"); 
 		?>
     <div class="container">
-        <form>
+        <form name="formuser" method="POST">
 
             <fieldset>
                 <legend>Cadastro Orientador</legend>
@@ -50,7 +72,7 @@
 
                 
                 <div>
-                    <label for="numero_vagas">Numero Vagas</label>
+                    <label for="numero_vagas">Numero de Vagas</label>
                     <select name="tipo_usuario">
                         <option value=""></option>
                         <option value="1">0</option>
@@ -62,7 +84,7 @@
                     </select>
                 </div>
 
-                <input type="submit" name="Cadastrar" value="Cadastrar" />
+                <input type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
             </fieldset>
 
         </form>
