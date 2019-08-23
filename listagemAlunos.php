@@ -31,12 +31,9 @@
     <div class="container">
         <form name="formuser" action="pesquisarNome.php" method="POST">
             <fieldset>
-               
                 <label for="nome">Nome completo</label>
                     <input type="text" id="nome" name="nome" autofocus required>
                     <input type="submit" name="Pesquisar" value="Pesquisar"  onclick="return validar()" />
-                
-               
             </fieldset>
 
         </form>
