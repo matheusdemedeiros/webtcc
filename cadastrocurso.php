@@ -6,7 +6,7 @@
     <title>Pagina de Cadastro</title>
   
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+   
 </head>
 
 <body>
@@ -15,16 +15,16 @@
 		include("cabecalho.php"); 
 		?>
     <div class="container">
-        <form action="teste.php" method="POST">
-
-            <fieldset>
-                <legend>Cadastro Curso</legend>
-                  <label for="nome">Nome do Curso</label>
-                <div>
-                  
-                    <input type="text" id="nome" name="nome" autofocus required>
-                </div>
-                <input type="submit" name="Cadastrar" value="Cadastrar" />
+        <form class="container" action="teste.php" method="POST">
+            <fieldset class="container">
+            <h5>Cadastro Curso</h5>
+               <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="nome" name="nome" autofocus required>
+                        <label for="nome">Nome do Curso</label>
+                    </div>
+               </div>
+                <input  class="btn" style = "background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" />
             </fieldset>
         </form>
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Pagina de Cadastro</title>
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
+    
     <script type ="text/javascript">
         function validar(){
             var senha = formuser.password.value;
@@ -37,43 +37,38 @@
 		?>
     <div class="container">
 
-        <form name="formuser" method="POST">
+        <form class="container" name="formuser" method="POST">
 
-            <fieldset>
-                <legend>Cadastro Professor de TCC</legend>
-                <label for="nome">Nome completo</label>
-                <div>
-
+            <fieldset class="container">
+                <h5>Cadastro Professor de TCC</h5>
+                <div class="row">
+                
+                </div>
+                <div class="input-field col s12">
                     <input type="text" id="nome" name="nome" autofocus required>
+                    <label for="nome">Nome completo</label>
                 </div>
 
-                <label for="email">Email</label>
-
-                <div>
-
-                    <div class="input-group">
-                        <span class="input-group-addon">@</span>
+                <div class="row">
+                    <div class="input-field col s12">
                         <input type="email" id="email" name="email" autofocus required>
+                        <label for="email">Email</label>
                     </div>
                 </div>
-
-                <label for="senha">Senha</label>
-                <div>
+                <div class="row">
+                <div class="input-field col s12">
                     <input type="password" id="password" name="password" autofocus required>
+                    <label for="senha">Senha</label>
                 </div>
-
-                <label for="senha2">Confirmar Senha</label>
-                <div>
-                    <input type="password2" id="password2" name="password2" autofocus required>
                 </div>
-
-                <input type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
+               <div class="row">
+               <div class="input-field col s12">
+                    <input type="password" id="password2" name="password2" autofocus required>
+                    <label for="password2">Confirmar Senha</label>
+                </div>
+               </div>
+                <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
             </fieldset>
-
-
-
-
-
         </form>
 
 
