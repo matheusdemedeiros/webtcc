@@ -6,7 +6,7 @@
     <title>Pagina de Cadastro</title>
 
     <link rel="stylesheet" href="css/estilos.css">
-    
+
     <script type="text/javascript">
         function validar() {
             var senha = formuser.password.value;
@@ -58,10 +58,10 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                       
-                            <input type="email" id="email" name="email" class="validate" autofocus required>
-                            <label for="email">Email</label>
-                        
+
+                        <input type="email" id="email" name="email" class="validate" autofocus required>
+                        <label for="email">Email</label>
+
                     </div>
                 </div>
 
@@ -96,7 +96,7 @@
                         </select>
                     </div>
 
-                </div> --> 
+                </div> -->
 
                 <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
             </fieldset>
