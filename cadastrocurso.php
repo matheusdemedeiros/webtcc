@@ -20,7 +20,7 @@
                 <h5>Cadastro Curso</h5>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome" autofocus required>
+                        <input type="text" id="nome" name="nome" class="validate" autofocus required>
                         <label for="nome">Nome do Curso</label>
                     </div>
                 </div>

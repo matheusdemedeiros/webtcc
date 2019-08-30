@@ -43,7 +43,7 @@
                 <h5>Cadastro Orientador</h5>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome" autofocus required>
+                        <input type="text" id="nome" name="nome" class="validate" autofocus required>
                         <label for="nome">Nome completo</label>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="area_atuacao" name="area_atuacao" autofocus required>
+                        <input type="text" id="area_atuacao" name="area_atuacao" class="validate" autofocus required>
                         <label for="area_atuacao">Área de Atuação</label>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password" name="password" autofocus required>
+                        <input type="password" id="password" name="password" class="validate" autofocus required>
                         <label for="senha">Senha</label>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password2" name="password2" autofocus required>
+                        <input type="password" id="password2" name="password2" class="validate" autofocus required>
                         <label for="password2">Confirmar Senha</label>
                     </div>
                 </div>

@@ -46,25 +46,25 @@
 
                 </div>
                 <div class="input-field col s12">
-                    <input type="text" id="nome" name="nome" autofocus required>
+                    <input type="text" id="nome" name="nome" class="validate" autofocus required>
                     <label for="nome">Nome completo</label>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="email" id="email" name="email" autofocus required>
+                        <input type="email" id="email" name="email" class="validate" autofocus required>
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password" name="password" autofocus required>
+                        <input type="password" id="password" name="password" class="validate" autofocus required>
                         <label for="senha">Senha</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password2" name="password2" autofocus required>
+                        <input type="password" id="password2" name="password2" class="validate" autofocus required>
                         <label for="password2">Confirmar Senha</label>
                     </div>
                 </div>
