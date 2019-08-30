@@ -1,4 +1,4 @@
-<footer  class="page-footer" style="background-color: #00e676">
+<footer class="page-footer" style="background-color: #00e676">
 <div class="container">
             <div class="row">
               <div class="col l6 s12">

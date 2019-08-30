@@ -30,3 +30,8 @@ header {
     color: #867dc6;
 }
 
+footer{
+    position: relative;
+    bottom: -120px;
+    width: 100%;
+}

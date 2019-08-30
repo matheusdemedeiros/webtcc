@@ -45,29 +45,31 @@
 
             <fieldset class="container">
                 <h5>Edição de aluno</h5>
+                <input type="hidden" name="fid" value="<?=$campo["id"]?>">
+
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome" class="validate" autofocus required>
+                        <input type="text" id="nome" name="nome"  autofocus required value="<?=$campo["nome"]?>">
                         <label for="nome">Nome completo</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
 
-                        <input type="email" id="email" name="email" class="validate" autofocus required>
+                        <input type="email" id="email" name="email"  autofocus required value="<?=$campo["email"]?>">
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password" name="password" class="validate" autofocus required>
-                        <label for="senha">Senha</label>
+                        <input type="password" id="password" name="password"  autofocus required value="<?=$campo["senha"]?>">
+                        <label for="password">Senha</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password2" name="password2" class="validate" autofocus required>
-                        <label for="senha2">Confirmar Senha</label>
+                        <input type="password" id="password2" name="password2"  autofocus required>
+                        <label for="password2">Confirmar Senha</label>
                     </div>
                 </div>
                 <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
