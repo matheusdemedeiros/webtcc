@@ -1,13 +1,6 @@
 body {
     font-family: "Arial", "Helvetica", sans-serif;
 }
-
-.container {
-    margin-right: auto;
-    margin-left: auto;
-}
-
-
 .menu-opcoes ul li {
     font-size: 15px;
     display: inline;
@@ -16,11 +9,6 @@ body {
 
 .menu-opcoes a {
     color: #003366;
-}
-
-.container {
-    margin: 0 auto;
-    width: 940px;
 }
 
 header {
@@ -34,24 +22,6 @@ header {
 }
 
 
-
-footer {
-    background-color: black;
-}
-
-
-
-
-footer {
-    padding: 20px 0;
-}
-
-footer .container {
-    position: absolute;
-}
-
-
-
 .menu-opcoes a:hover {
     color: #007dc6;
 }
@@ -60,13 +30,3 @@ footer .container {
     color: #867dc6;
 }
 
-
-footer{
-    clear: both;
-}
-
-.centro {
-    margin-left: auto;
-    margin-right: auto;
-
-}

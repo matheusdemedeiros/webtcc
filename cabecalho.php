@@ -13,15 +13,20 @@
         <?php print $cabecalho_title; ?>
     </title>
 
-    <img src="img/ifsc.jpg">
 
 
-    <nav class="menu-opcoes" style="background-color: #00e676">
-        <ul>
-            <li><a href="cadastroaluno.php">Cadastrar Aluno</a></li>
-            <li><a href="cadastrocurso.php">Cadastrar Curso</a></li>
-            <li><a href="cadastroorientador.php">Cadastrar Orientador</a></li>
-            <li><a href="cadastroprofessortcc.php">Cadastrar Professor de TCC</a></li>
-        </ul>
-    </nav>
+    <div class="navbar-fixed">
+        <nav style="background-color: #00e676">
+            <div class="nav-wrapper">
+                <!-- <img src="img/IFSC.png" class="brand-logo"> -->
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="cadastroaluno.php">Cadastrar Aluno</a></li>
+                    <li><a href="cadastrocurso.php">Cadastrar Curso</a></li>
+                    <li><a href="cadastroorientador.php">Cadastrar Orientador</a></li>
+                    <li><a href="cadastroprofessortcc.php">Cadastrar Professor de TCC</a></li>
+                </ul>
+            </div>
+
+        </nav>
+    </div>
 </header>

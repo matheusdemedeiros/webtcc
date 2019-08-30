@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>Listagem de alunos</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
     <script type="text/jscript" src="script.js"></script>
 
@@ -74,7 +74,7 @@ while ($aluno = mysqli_fetch_array($dados)){?>
 
 
     </table>
-
+    <?php include("rodape.php"); ?>
 
 </body>
 

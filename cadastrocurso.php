@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Pagina de Cadastro</title>
 
-    <link rel="stylesheet" href="css/estilos.css">
+    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
 </head>
 
@@ -33,7 +33,7 @@
 
 
 
-    <!--    <?php include("rodape.php"); ?>-->
+    <?php include("rodape.php"); ?>
 </body>
 
 </html>
