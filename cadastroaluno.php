@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Pagina de Cadastro</title>
 
-     <!-- <link rel="stylesheet" href="css/estilos.css">  -->
+    <!-- <link rel="stylesheet" href="css/estilos.css">  -->
     <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
     <script type="text/javascript">
         function validar() {
@@ -80,10 +80,10 @@
 
         </form>
     </div>
-   
+
     <?php include("rodape.php"); ?>
 
-   
+
 </body>
 
 </html>

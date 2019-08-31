@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Listagem de alunos</title>
-    
+
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
 </head>
@@ -56,7 +56,7 @@ while ($aluno = mysqli_fetch_array($dados)){?>
             <td>
                 <?=$aluno["NameArea"]?>
             </td>
-            
+
 
             <td align="center"><a href="editarAreaAtuacao.php?editaid=<?=$aluno['IdArea']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             <td align="center"><a href="#" onclick="excluirArea(<?=$aluno['IdArea']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>

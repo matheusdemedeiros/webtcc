@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina de Cadastro</title>
-    
+
 
     <script type="text/javascript">
         function validar() {
@@ -43,12 +43,12 @@
             <fieldset class="container">
                 <h5>Cadastro Professor de TCC</h5>
                 <div class="row">
-                <div class="input-field col s12">
-                    <input type="text" id="nome" name="nome" class="validate" autofocus required>
-                    <label for="nome">Nome completo</label>
+                    <div class="input-field col s12">
+                        <input type="text" id="nome" name="nome" class="validate" autofocus required>
+                        <label for="nome">Nome completo</label>
+                    </div>
                 </div>
-                </div>
-                
+
 
                 <div class="row">
                     <div class="input-field col s12">

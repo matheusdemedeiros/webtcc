@@ -31,7 +31,9 @@ header {
 }
 
 footer{
-    position: relative;
-    bottom: -120px;
+    position:relative;
+    bottom: 140px;
     width: 100%;
+   
 }
+

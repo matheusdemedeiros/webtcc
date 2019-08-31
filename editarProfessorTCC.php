@@ -45,32 +45,32 @@
 
             <fieldset class="container">
                 <h5>Edição de aluno</h5>
-                <input type="hidden" name="fid" value="<?=$campo["IdTermPaperTeacher"]?>">
+                <input type="hidden" name="fid" value="<?=$campo[" IdTermPaperTeacher"]?>">
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome"  autofocus required value="<?=$campo["NameTermPaperTeacher"]?>">
+                        <input type="text" id="nome" name="nome" autofocus required value="<?=$campo[" NameTermPaperTeacher"]?>">
                         <label for="nome">Nome completo</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
 
-                        <input type="email" id="email" name="email"  autofocus required value="<?=$campo["Email"]?>">
+                        <input type="email" id="email" name="email" autofocus required value="<?=$campo[" Email"]?>">
                         <label for="email">Email</label>
                     </div>
                 </div>
-               
+
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password" name="password"  autofocus required value="<?=$campo["Password"]?>">
+                        <input type="password" id="password" name="password" autofocus required value="<?=$campo[" Password"]?>">
                         <label for="password">Senha</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password2" name="password2"  autofocus required>
+                        <input type="password" id="password2" name="password2" autofocus required>
                         <label for="password2">Confirmar Senha</label>
                     </div>
                 </div>

@@ -6,7 +6,7 @@
     <title>Pagina de Cadastro</title>
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
-    
+
 </head>
 
 <body>
@@ -23,18 +23,18 @@
 
             <fieldset class="container">
                 <h5>Edição Área Atuação</h5>
-                <input type="hidden" name="fid" value="<?=$campo["IdArea"]?>">
+                <input type="hidden" name="fid" value="<?=$campo[" IdArea"]?>">
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome"  autofocus required value="<?=$campo["NameArea"]?>">
+                        <input type="text" id="nome" name="nome" autofocus required value="<?=$campo[" NameArea"]?>">
                         <label for="nome">Área Atuação</label>
                     </div>
                 </div>
-               
-            
-                
-                <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar"/>
+
+
+
+                <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" />
             </fieldset>
 
         </form>

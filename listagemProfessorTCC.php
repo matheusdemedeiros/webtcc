@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>Listagem de alunos</title>
 
-  
+
     <script type="text/javascript">
         function validar() {
             var nome = formuser.nome.value;

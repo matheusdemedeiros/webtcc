@@ -75,7 +75,7 @@ while ($aluno = mysqli_fetch_array($dados)){?>
                 <?=$aluno["NameStudent"]?>
             </td>
             <td>
-              <?=$aluno["Registration"]?>
+                <?=$aluno["Registration"]?>
 
             </td>
             <td>
