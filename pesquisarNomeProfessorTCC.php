@@ -6,19 +6,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Listagem de alunos</title>
-    
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
+  
+    <script type="text/javascript">
+        function validar() {
+            var nome = formuser.nome.value;
+            if (nome == "") {
+                alert('O campo não pode ser nulo!');
+                formuser.nome.focus();
+                return false;
+            }
+        }
+
+    </script>
 </head>
 
 <body>
     <?php 
-		$cabecalho_title = "Áreas de Atuação";
+		$cabecalho_title = "Listagem de Professores de TCC";
 		include("cabecalho.php"); 
 		?>
 
     <div class="container">
-        <form name="formuser" action="pesquisarNomeArea.php" method="POST">
+        <form name="formuser" action="pesquisarNomeProfessorTCC.php" method="POST">
             <fieldset>
                 <div class="row">
                     <div class="input-field col s12">
@@ -38,6 +48,9 @@
             <td>
                 <strog>Nome</strog>
             </td>
+            <td>
+                <strog>E-mail</strog>
+            </td>
             <td width="10">
                 <strog>Alterar</strog>
             </td>
@@ -48,18 +61,20 @@
 
         <?php
 include("conecta.php");
-            
-$dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
+$nome = $_POST["nome"];          
+$dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher Where NameTermPaperTeacher like '$nome%' ORDER BY NameTermPaperTeacher");
 while ($aluno = mysqli_fetch_array($dados)){?>
 
         <tr>
             <td>
-                <?=$aluno["NameArea"]?>
+                <?=$aluno["NameTermPaperTeacher"]?>
             </td>
-            
+            <td>
+                <?=$aluno["Email"]?>
+            </td>
 
-            <td align="center"><a href="editarAreaAtuacao.php?editaid=<?=$aluno['IdArea']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="excluirArea(<?=$aluno['IdArea']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td align="center"><a href="editarProfessorTCC.php?editaid=<?=$aluno['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td align="center"><a href="#" onclick="excluirProfessorTCC(<?=$aluno['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 
