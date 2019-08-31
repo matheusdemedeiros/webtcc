@@ -7,6 +7,8 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+    <script src="js/script.js"></script>
 
 </head>
 <header>
@@ -22,6 +24,7 @@
                 <!-- <img src="img/IFSC.png" class="brand-logo"> -->
                 <ul class="right hide-on-med-and-down">
                     <li><a href="cadastroaluno.php">Cadastrar Aluno</a></li>
+                    <li><a href="cadastrarareaatuacao.php">Cadastrar Área Atuação</a></li>
                     <li><a href="cadastrocurso.php">Cadastrar Curso</a></li>
                     <li><a href="cadastroorientador.php">Cadastrar Orientador</a></li>
                     <li><a href="cadastroprofessortcc.php">Cadastrar Professor de TCC</a></li>
