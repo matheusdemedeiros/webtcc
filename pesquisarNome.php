@@ -43,6 +43,9 @@
                 <strog>Nome</strog>
             </td>
             <td>
+                <strog>Matricula</strog>
+            </td>
+            <td>
                 <strog>E-mail</strog>
             </td>
             <td width="10">
@@ -56,19 +59,22 @@
         <?php
 include("conecta.php");
 $nome = $_POST["nome"];
-$dados = mysqli_query($conexao, "SELECT * FROM aluno WHERE nome like '%$nome%'  ORDER BY nome");
+$dados = mysqli_query($conexao, "SELECT * FROM student WHERE NameStudent like '$nome%'  ORDER BY NameStudent");
 while ($aluno = mysqli_fetch_array($dados)){?>
 
         <tr>
             <td>
-                <?=$aluno["nome"]?>
+                <?=$aluno["NameStudent"]?>
             </td>
             <td>
-                <?=$aluno["email"]?>
+                <?=$aluno["Registration"]?>
+            </td>
+            <td>
+                <?=$aluno["Email"]?>
             </td>
 
-            <td align="center"><a href="editar.php?editaid=<?=$aluno['id']?>"><i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="verifica(<?=$aluno['id']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td align="center"><a href="editar.php?editaid=<?=$aluno['IdStudent']?>"><i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td align="center"><a href="#" onclick="verifica(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 

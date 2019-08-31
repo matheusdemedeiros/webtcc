@@ -3,7 +3,7 @@
     
     $recid=$_GET["idexc"];
 
-    mysqli_query($conexao, "DELETE FROM aluno WHERE id = $recid");
+    mysqli_query($conexao, "DELETE FROM student WHERE IdStudent = $recid");
     
     header("location:listagemAlunos.php");
 

@@ -55,6 +55,14 @@
                         <label for="email">Email</label>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="registration" name="registration" class="validate" autofocus required>
+                        <label for="registration">Número Matrícula</label>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="password" id="password" name="password" class="validate" autofocus required>

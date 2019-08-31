@@ -2,20 +2,17 @@
 
 include("conecta.php");
 
-//require_once "Usuario.php";
-//require_once "Aluno.php";
 
-
-//$aluno = new Aluno($_POST['email'], $_POST['password'] , $_POST['nome']);
 $nome = $_POST['nome'];
 $email = $_POST['email'];
+$matricula = $_POST['registration'];
 $senha = $_POST['password'];
 
 //mysqli_query($conexao,"insert into aluno(nome, email,senha) values($aluno->getNome(),$aluno->getEmail(),$aluno->getSenha())");
 
 
 
-mysqli_query($conexao,"insert into aluno(nome, email,senha) values('$nome', '$email','$senha')");
+mysqli_query($conexao,"insert into student(NameStudent, Registration ,Email, Password) values('$nome', '$matricula','$email','$senha')");
  
 header('Location:listagemAlunos.php');
 /*
