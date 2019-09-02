@@ -47,14 +47,6 @@
                     </div>
                 </div>
 
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="text" id="area_atuacao" name="area_atuacao" class="validate" autofocus required>
-                        <label for="area_atuacao">Área de Atuação</label>
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="input-field col s12">
 
@@ -67,12 +59,14 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <select class="browser-default">
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
+                            <option value="" disabled selected>Área de Atuação</option>
+                            <?php
+                                include("conecta.php");
+                                $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
+                                while ($area = mysqli_fetch_array($dados)){?>
+                                    <option value="<?=$area["IdArea"]?>"><?=$area["NameArea"]?></option>
+                            <?php } ?>
                         </select>
-                      
                     </div>
                 </div>
 
