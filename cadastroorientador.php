@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Pagina de Cadastro</title>
 
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
@@ -64,7 +63,18 @@
 
                     </div>
                 </div>
-
+               
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select class="browser-default">
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                        </select>
+                      
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="input-field col s12">
@@ -81,32 +91,11 @@
                     </div>
                 </div>
 
-                <!--  <div class="row">
-
-                    <div>
-                        <label for="numero_vagas">Numero de Vagas</label>
-                        <select name="tipo_usuario">
-                            <option value=""></option>
-                            <option value="1">0</option>
-                            <option value="2">1</option>
-                            <option value="2">2</option>
-                            <option value="2">3</option>
-                            <option value="2">4</option>
-                            <option value="2">5</option>
-                        </select>
-                    </div>
-
-                </div> -->
-
                 <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
             </fieldset>
 
         </form>
     </div>
-
-
-
-
     <?php include("rodape.php"); ?>
 </body>
 

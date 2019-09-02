@@ -27,7 +27,7 @@
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome" autofocus required value="<?=$campo[" NameArea"]?>">
+                        <input type="text" id="nome" name="nome" autofocus required value="<?=$campo["NameArea"]?>">
                         <label for="nome">Área Atuação</label>
                     </div>
                 </div>

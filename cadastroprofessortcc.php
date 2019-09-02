@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Pagina de Cadastro</title>
+    
 
 
     <script type="text/javascript">
