@@ -37,7 +37,7 @@
 		include("cabecalho.php"); 
 		?>
     <div class="container">
-        <form class="container" name="formuser" method="POST">
+        <form class="container" name="formuser" action="inserirOrientador.php" method="POST">
             <fieldset class="container">
                 <h5>Cadastro Orientador</h5>
                 <div class="row">
@@ -58,13 +58,15 @@
                
                 <div class="row">
                     <div class="input-field col s12">
-                        <select class="browser-default">
+                        <select id="area_atuacao" name="area_atuacao" class="browser-default">
                             <option value="" disabled selected>Área de Atuação</option>
                             <?php
                                 include("conecta.php");
                                 $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
                                 while ($area = mysqli_fetch_array($dados)){?>
+                                
                                     <option value="<?=$area["IdArea"]?>"><?=$area["NameArea"]?></option>
+                                   
                             <?php } ?>
                         </select>
                     </div>
