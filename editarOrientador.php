@@ -33,23 +33,23 @@
 
 <body>
     <?php 
-		$cabecalho_title = "Cadastro Aluno";
+		$cabecalho_title = "Editar Orientador";
 		include("cabecalho.php");
         include("conecta.php");
         $recid = $_GET['editaid'];
-        $seleciona = mysqli_query($conexao, "SELECT * FROM student WHERE IdStudent = '$recid'");
+        $seleciona = mysqli_query($conexao, "SELECT * FROM advisor WHERE IdAdvisor = '$recid'");
         $campo = mysqli_fetch_array($seleciona);
 		?>
     <div class="container">
-        <form class="container" name="formuser" action="gravaEdita.php" method="POST">
+        <form class="container" name="formuser" action="gravaEditaOrientador.php" method="POST">
 
             <fieldset class="container">
-                <h5>Edição de aluno</h5>
-                <input type="hidden" name="fid" value="<?=$campo["IdStudent"]?>">
+                <h5>Edição de Orientador</h5>
+                <input type="hidden" name="fid" value="<?=$campo["IdAdvisor"]?>">
 
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome" autofocus required value="<?=$campo["NameStudent"]?>">
+                        <input type="text" id="nome" name="nome" autofocus required value="<?=$campo["NameAdvisor"]?>">
                         <label for="nome">Nome completo</label>
                     </div>
                 </div>
@@ -62,8 +62,8 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="registration" name="registration" autofocus required value="<?=$campo["Registration"]?>">
-                        <label for="registration">Matrícula</label>
+                        <input type="text" id="areaOcupacao" name="areaOcupacao" autofocus required value="<?=$campo["OccupationArea"]?>">
+                        <label for="areaOcupacao">Área de Atuação</label>
                     </div>
                 </div>
                 <div class="row">

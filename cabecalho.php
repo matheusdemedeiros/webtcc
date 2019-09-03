@@ -20,11 +20,11 @@
             <div class="nav-wrapper">
                 <!-- <img src="img/IFSC.png" class="brand-logo"> -->
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="cadastroaluno.php">Cadastrar Aluno</a></li>
-                    <li><a href="cadastrarareaatuacao.php">Cadastrar Área Atuação</a></li>
-                    <li><a href="cadastrocurso.php">Cadastrar Curso</a></li>
-                    <li><a href="cadastroorientador.php">Cadastrar Orientador</a></li>
-                    <li><a href="cadastroprofessortcc.php">Cadastrar Professor de TCC</a></li>
+                    <li><a href="cadastroAluno.php">Cadastrar Aluno</a></li>
+                    <li><a href="cadastroAreaAtuacao.php">Cadastrar Área Atuação</a></li>
+                    <li><a href="cadastroCurso.php">Cadastrar Curso</a></li>
+                    <li><a href="cadastroOrientador.php">Cadastrar Orientador</a></li>
+                    <li><a href="cadastroProfessorTCC.php">Cadastrar Professor de TCC</a></li>
                 </ul>
             </div>
 

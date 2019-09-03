@@ -50,16 +50,16 @@
 include("conecta.php");
             
 $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
-while ($aluno = mysqli_fetch_array($dados)){?>
+while ($area = mysqli_fetch_array($dados)){?>
 
         <tr>
             <td>
-                <?=$aluno["NameArea"]?>
+                <?=$area["NameArea"]?>
             </td>
 
 
-            <td align="center"><a href="editarAreaAtuacao.php?editaid=<?=$aluno['IdArea']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="excluirArea(<?=$aluno['IdArea']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td align="center"><a href="editarAreaAtuacao.php?editaid=<?=$area['IdArea']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td align="center"><a href="#" onclick="excluirArea(<?=$area['IdArea']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 

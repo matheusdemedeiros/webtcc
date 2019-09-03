@@ -10,17 +10,7 @@
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
     <script type="text/jscript" src="script.js"></script>
-    <script type="text/javascript">
-        function validar() {
-            var nome = formuser.nome.value;
-            if (nome == "") {
-                alert('O campo não pode ser nulo!');
-                formuser.nome.focus();
-                return false;
-            }
-        }
 
-    </script>
 </head>
 
 <body>
@@ -30,7 +20,7 @@
 		?>
 
     <div class="container">
-        <form name="formuser" action="pesquisarNomeAluno.php" method="POST">
+        <form name="formuser" action="pesquisarNomeOrientador.php" method="POST">
             <fieldset>
                 <div class="row">
                     <div class="input-field col s12">
@@ -45,17 +35,35 @@
         </form>
 
     </div>
+
+
     <table class="container" width="100%" border="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
+       
         <tr>
-            <td>
-                <strog>Nome</strog>
-            </td>
-            <td>
-                <strog>Matrícula</strog>
-            </td>
-            <td>
-                <strog>E-mail</strog>
-            </td>
+ 
+ <td>
+
+     <strog>Nome</strog>
+
+ </td>
+
+ <td>
+
+     <strog>E-mail</strog>
+
+ </td>
+
+ <td>
+
+     <strog>Area de atuacao</strog>
+
+ </td>
+
+ <td>
+
+     <strog>Senha</strog>
+
+ </td>
             <td width="10">
                 <strog>Alterar</strog>
             </td>
@@ -66,31 +74,53 @@
 
         <?php
 include("conecta.php");
+$nome = $_POST["nome"];
+$dados = mysqli_query($conexao, "SELECT * FROM advisor WHERE NameAdvisor like '$nome%'  ORDER BY NameAdvisor");
+while ($advisor = mysqli_fetch_array($dados)){?>
+
+<tr>
             
-$dados = mysqli_query($conexao, "SELECT * FROM student ORDER BY NameStudent");
-while ($aluno = mysqli_fetch_array($dados)){?>
-
-        <tr>
             <td>
-                <?=$aluno["NameStudent"]?>
+                
+                <?
+                    =$advisor["NameAdvisor"]
+                ?>
+            
             </td>
+            
             <td>
-                <?=$aluno["Registration"]?>
-
+            
+                <?
+                    =$advisor["Email"]
+                ?>
+            
             </td>
+
             <td>
-                <?=$aluno["Email"]?>
+            
+                <?
+                    =$advisor["OccupationArea"]
+                ?>
+            
+            </td>
+            
+            <td>
+            
+                <?
+                    =$advisor["Password"]
+                ?>
+            
             </td>
 
-            <td align="center"><a href="editarAluno.php?editaid=<?=$aluno['IdStudent']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="excluirAluno(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td align="center"><a href="editarOrientador.php?editaid=<?=$advisor['IdAdvisor']?>"><i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td align="center"><a href="#" onclick="verifica(<?=$advisor['IdAdvisor']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 
 
     </table>
-
     <?php include("rodape.php"); ?>
+
 </body>
 
 </html>

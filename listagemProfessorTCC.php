@@ -28,7 +28,7 @@
 		?>
 
     <div class="container">
-        <form name="formuser" action="pesquisarNomeProfessorTCC.php" method="POST">
+        <form name="formuser" action="/pesquisarNomeProfessorTCC.php" method="POST">
             <fieldset>
                 <div class="row">
                     <div class="input-field col s12">
@@ -63,18 +63,18 @@
 include("conecta.php");
             
 $dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher ORDER BY NameTermPaperTeacher");
-while ($aluno = mysqli_fetch_array($dados)){?>
+while ($teacher = mysqli_fetch_array($dados)){?>
 
         <tr>
             <td>
-                <?=$aluno["NameTermPaperTeacher"]?>
+                <?=$teacher["NameTermPaperTeacher"]?>
             </td>
             <td>
-                <?=$aluno["Email"]?>
+                <?=$teacher["Email"]?>
             </td>
 
-            <td align="center"><a href="editarProfessorTCC.php?editaid=<?=$aluno['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="excluirProfessorTCC(<?=$aluno['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td align="center"><a href="editarProfessorTCC.php?editaid=<?=$teacher['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td align="center"><a href="#" onclick="excluirProfessorTCC(?=$teacher['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 

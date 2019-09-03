@@ -16,7 +16,7 @@
 		?>
     <div class="container">
 
-        <form class="container" action="cadastroorientador.php" method="POST">
+        <form class="container" action="/orientador/cadastroOrientador.php" method="POST">
             <fieldset class="container">
                 <div class="row">
                     <div class="input-field col s12">
@@ -32,7 +32,7 @@
                 </div>
                 <div class="row">
                     <input class="btn" style="background-color: #00e676" type="submit" name="enviar" value="Login" />
-                    <a href="cadastroorientador.php">Sem cadastro?</a>
+                    <a href="/orientador/cadastroOrientador.php">Sem cadastro?</a>
                 </div>
 
             </fieldset>

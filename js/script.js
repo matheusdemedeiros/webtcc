@@ -19,12 +19,16 @@ function excluirProfessorTCC(recid) {
     }
 }
 
-/* document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
- */
- $(document).ready(function(){
-    $('select').formSelect();
-  }); 
-       
+function excluirOrientador(recid) {
+    if (confirm("Tem certeza de que deseja excluir permanentemente este cadastro?")) {
+        window.location = "excluirOrientador.php?idexc=" + recid
+        alert("Cadastro excluido com sucesso!");
+    }
+}
+function excluirCurso(recid) {
+    if (confirm("Tem certeza de que deseja excluir permanentemente este cadastro?")) {
+        window.location = "excluirCurso.php?idexc=" + recid
+        alert("Cadastro excluido com sucesso!");
+    }
+}
+
