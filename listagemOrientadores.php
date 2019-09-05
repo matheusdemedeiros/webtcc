@@ -29,7 +29,7 @@
 
     <div class="container">
  
-        <form name="formuser" action="pesquisarNome.php" method="POST">
+        <form name="formuser" action="pesquisarNomeOrientador.php" method="POST">
  
             <fieldset>
  
@@ -97,7 +97,9 @@
         <?php
             
             include("conecta.php");
-            $dados = mysqli_query($conexao, "SELECT * FROM advisor ORDER BY NameAdvisor");
+            $dados = mysqli_query($conexao, "SELECT * FROM advisor INNER JOIN  area 
+            WHERE OccupationArea=IdArea
+            ORDER BY NameAdvisor");
             while ($advisor = mysqli_fetch_array($dados)){
                 
             ?>
@@ -123,7 +125,7 @@
             <td>
             
                 <?=
-                    $advisor["OccupationArea"]
+                    $advisor["NameArea"]
                 ?>
             
             </td>

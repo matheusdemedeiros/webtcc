@@ -61,11 +61,36 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input type="text" id="areaOcupacao" name="areaOcupacao" autofocus required value="<?=$campo["OccupationArea"]?>">
-                        <label for="areaOcupacao">Área de Atuação</label>
-                    </div>
-                </div>
+    
+    <div class="input-field col s12">
+
+        <select id="area_atuacao" name="area_atuacao" class="browser-default">
+
+            <option value="" disabled selected>Área de Atuação</option>
+
+            <?php
+
+                include("conecta.php");
+                $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
+                
+                while ($area = mysqli_fetch_array($dados)){
+                
+            ?>
+                
+            <option value="<?=$area["IdArea"]?>"><?=$area["NameArea"]?></option>
+                   
+            <?php
+            
+            }
+            
+            ?>
+
+        </select>
+    
+    </div>
+
+</div>
+
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="password" id="password" name="password" autofocus required value="<?=$campo["Password"]?>">
