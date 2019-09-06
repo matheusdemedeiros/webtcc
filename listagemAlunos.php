@@ -5,8 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de alunos</title>
-
+   
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
     <script type="text/jscript" src="script.js"></script>
@@ -89,8 +88,9 @@ while ($aluno = mysqli_fetch_array($dados)){?>
 
 
     </table>
+
     <div class="container">
-        <button class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" 
+        <button class="btn" style="background-color: #00e676"  name="Cadastrar" value="Cadastrar" 
        > <a href="cadastroaluno.php">Cadastrar Aluno</a></button>
     </div>
     <?php include("rodape.php"); ?>

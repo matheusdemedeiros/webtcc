@@ -20,7 +20,7 @@
 		?>
 
     <div class="container">
-        <form name="formuser" action="pesquisarNome.php" method="POST">
+        <form name="formuser" action="pesquisarNomeAluno.php" method="POST">
             <fieldset>
                 <div class="row">
                     <div class="input-field col s12">
@@ -73,8 +73,8 @@ while ($aluno = mysqli_fetch_array($dados)){?>
                 <?=$aluno["Email"]?>
             </td>
 
-            <td align="center"><a href="editar.php?editaid=<?=$aluno['IdStudent']?>"><i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="verifica(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td align="center"><a href="editarAluno.php?editaid=<?=$aluno['IdStudent']?>"><i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td align="center"><a href="#" onclick="excluirAluno(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 

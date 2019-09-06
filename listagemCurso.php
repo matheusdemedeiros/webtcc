@@ -5,20 +5,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de alunos</title>
-
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
 </head>
 
 <body>
     <?php 
-		$cabecalho_title = "Áreas de Atuação";
+		$cabecalho_title = "Cursos";
 		include("cabecalho.php"); 
 		?>
 
     <div class="container">
-        <form name="formuser" action="pesquisarNomeArea.php" method="POST">
+        <form name="formuser" action="pesquisarNomeCurso.php" method="POST">
             <fieldset>
                 <div class="row">
                     <div class="input-field col s12">
@@ -58,8 +56,8 @@ while ($course = mysqli_fetch_array($dados)){?>
             </td>
 
 
-            <td align="center"><a href="editarCourse.php?editaid=<?=$course['IdCourse']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="excluirArea(<?=$course['IdCourse']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td align="center"><a href="editarCurso.php?editaid=<?=$course['IdCourse']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td align="center"><a href="#" onclick="excluirCurso(<?=$course['IdCourse']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 

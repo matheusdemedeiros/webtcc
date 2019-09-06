@@ -7,9 +7,7 @@ body {
     margin-left: 20px;
 }
 
-.menu-opcoes a {
-    color: #003366;
-}
+
 
 header {
     position: absolute;
@@ -19,15 +17,6 @@ header {
     position: absolute;
     bottom: 0;
     right: 0;
-}
-
-
-.menu-opcoes a:hover {
-    color: #007dc6;
-}
-
-.menu-opcoes a:active {
-    color: #867dc6;
 }
 
 footer{
