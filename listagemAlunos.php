@@ -89,7 +89,10 @@ while ($aluno = mysqli_fetch_array($dados)){?>
 
 
     </table>
-
+    <div class="container">
+        <button class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" 
+       > <a href="cadastroaluno.php">Cadastrar Aluno</a></button>
+    </div>
     <?php include("rodape.php"); ?>
 </body>
 

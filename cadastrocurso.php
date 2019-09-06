@@ -15,7 +15,7 @@
 		include("cabecalho.php"); 
 		?>
     <div class="container">
-        <form class="container" action="teste.php" method="POST">
+        <form class="container" action="inserirCurso.php" method="POST">
             <fieldset class="container">
                 <h5>Cadastro Curso</h5>
                 <div class="row">

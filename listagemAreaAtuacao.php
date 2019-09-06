@@ -65,7 +65,10 @@ while ($area = mysqli_fetch_array($dados)){?>
 
 
     </table>
-
+    <div class="container">
+        <button class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" 
+       > <a href="cadastroAreaAtuacao.php">Cadastrar Área de Atuação</a></button>
+    </div>
     <?php include("rodape.php"); ?>
 </body>
 
