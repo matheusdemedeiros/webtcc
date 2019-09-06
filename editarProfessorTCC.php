@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Pagina de Cadastro</title>
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
+   
 
     <script type="text/javascript">
         function validar() {
@@ -44,7 +43,7 @@
         <form class="container" name="formuser" action="gravaEditaProfessorTCC.php" method="POST">
 
             <fieldset class="container">
-                <h5>Edição de aluno</h5>
+                <h5>Editar Professor de TCC</h5>
                 <input type="hidden" name="fid" value="<?=$campo["IdTermPaperTeacher"]?>">
 
                 <div class="row">
@@ -60,7 +59,22 @@
                         <label for="email">Email</label>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="curso" name="curso" class="browser-default">
+                            <option value="" disabled selected>Curso</option>
+                            <?php
+                                include("conecta.php");
+                                $dados = mysqli_query($conexao, "SELECT * FROM course ORDER BY NameCourse"); 
+                                while ($curso = mysqli_fetch_array($dados)){    
+                            ?>        
+                            <option value="<?=$curso["IdCourse"]?>"><?=$curso["NameCourse"]?></option>       
+                            <?php 
+                            } 
+                            ?>
+                        </select>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="password" id="password" name="password" autofocus required value="<?=$campo["Password"]?>">

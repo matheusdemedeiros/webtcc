@@ -78,34 +78,20 @@
                 </div>
                
                 <div class="row">
-    
                     <div class="input-field col s12">
-    
                         <select id="area_atuacao" name="area_atuacao" class="browser-default">
-    
                             <option value="" disabled selected>Área de Atuação</option>
-    
                             <?php
-    
                                 include("conecta.php");
-                                $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
-                                
-                                while ($area = mysqli_fetch_array($dados)){
-                                
+                                $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea"); 
+                                while ($area = mysqli_fetch_array($dados)){    
+                            ?>        
+                            <option value="<?=$area["IdArea"]?>"><?=$area["NameArea"]?></option>       
+                            <?php 
+                            } 
                             ?>
-                                
-                            <option value="<?=$area["IdArea"]?>"><?=$area["NameArea"]?></option>
-                                   
-                            <?php
-                            
-                            }
-                            
-                            ?>
-
                         </select>
-                    
                     </div>
-                
                 </div>
 
                 <div class="row">

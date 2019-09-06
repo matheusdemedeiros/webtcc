@@ -10,9 +10,30 @@
 		include("cabecalho.php"); 
 		?>
         <div class="container">
-            <form name="formuser" action="cadastrarGrupoTCC.php" method="post">
+            <form name="formuser" action="inserirGrupoTCC.php" method="post">
                 <fieldset class="container">
                 <h5>Filtrar por Curso</h5>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="curso" name="curso" class="browser-default">
+                            <option value="" disabled selected>Aluno</option>
+                            <?php
+                                include("conecta.php");
+                                $curso = $_POST['curso'];
+                                $dados = mysqli_query($conexao, "SELECT * FROM student
+                                INNER JOIN course
+                                WHERE CourseId=IdCourse
+                                AND CourseId='$curso'
+                                ORDER BY NameCourse"); 
+                                while ($aluno = mysqli_fetch_array($dados)){    
+                            ?>        
+                            <option value="<?=$aluno["IdStudent"]?>"><?=$aluno["NameStudent"]?></option>       
+                            <?php 
+                            } 
+                            ?>
+                        </select>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <select id="curso" name="curso" class="browser-default">

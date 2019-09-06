@@ -37,29 +37,37 @@
     </div>
 
 
-    <table class="container" width="100%" border="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
+    <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
-                <strog>Nome</strog>
+                <strong>Nome</strong>
             </td>
             <td>
-                <strog>Matricula</strog>
+                <strong>Matricula</strong>
             </td>
             <td>
-                <strog>E-mail</strog>
+                <strong>E-mail</strong>
+            </td>
+            <td>
+                <strong>Curso</strong>
+            </td>
+            <td>
+                <strong>Senha</strong>
             </td>
             <td width="10">
-                <strog>Alterar</strog>
+                <strong>Alterar</strong>
             </td>
             <td Width="10">
-                <strog>Excluir</strog>
+                <strong>Excluir</strong>
             </td>
         </tr>
 
         <?php
 include("conecta.php");
 $nome = $_POST["nome"];
-$dados = mysqli_query($conexao, "SELECT * FROM student WHERE NameStudent like '$nome%'  ORDER BY NameStudent");
+$dados = mysqli_query($conexao, "SELECT * FROM student
+INNER JOIN course WHERE CourseId=IdCourse
+and NameStudent like '$nome%'  ORDER BY NameStudent");
 while ($aluno = mysqli_fetch_array($dados)){?>
 
         <tr>
@@ -72,7 +80,12 @@ while ($aluno = mysqli_fetch_array($dados)){?>
             <td>
                 <?=$aluno["Email"]?>
             </td>
-
+            <td>
+            <?=$aluno["NameCourse"]?>
+            </td>
+            <td>
+            <?=$aluno["Password"]?>
+            </td>
             <td align="center"><a href="editarAluno.php?editaid=<?=$aluno['IdStudent']?>"><i class="material-icons" style="color: #00e676">edit</i></a></td>
             <td align="center"><a href="#" onclick="excluirAluno(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>

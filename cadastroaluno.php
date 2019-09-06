@@ -62,7 +62,22 @@
                         <label for="registration">Número Matrícula</label>
                     </div>
                 </div>
-
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="curso" name="curso" class="browser-default">
+                            <option value="" disabled selected>Curso</option>
+                            <?php
+                                include("conecta.php");
+                                $dados = mysqli_query($conexao, "SELECT * FROM course ORDER BY NameCourse"); 
+                                while ($curso = mysqli_fetch_array($dados)){    
+                            ?>        
+                            <option value="<?=$curso["IdCourse"]?>"><?=$curso["NameCourse"]?></option>       
+                            <?php 
+                            } 
+                            ?>
+                        </select>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="password" id="password" name="password" class="validate" autofocus required>

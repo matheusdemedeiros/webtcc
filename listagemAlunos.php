@@ -55,6 +55,12 @@
             <td>
                 <strog>E-mail</strog>
             </td>
+            <td>
+                <strog>Curso</strog>
+            </td>
+            <td>
+                <strog>Senha</strog>
+            </td>
             <td width="10">
                 <strog>Alterar</strog>
             </td>
@@ -66,7 +72,9 @@
         <?php
 include("conecta.php");
             
-$dados = mysqli_query($conexao, "SELECT * FROM student ORDER BY NameStudent");
+$dados = mysqli_query($conexao, "SELECT * FROM student INNER JOIN 
+course WHERE CourseId=IdCourse
+ORDER BY NameStudent");
 while ($aluno = mysqli_fetch_array($dados)){?>
 
         <tr>
@@ -80,6 +88,16 @@ while ($aluno = mysqli_fetch_array($dados)){?>
             <td>
                 <?=$aluno["Email"]?>
             </td>
+            <td>
+                <?=$aluno["NameCourse"]?>
+            </td>
+            <td>
+            
+            <?=
+                $aluno["Password"]
+            ?>
+        
+        </td>
 
             <td align="center"><a href="editarAluno.php?editaid=<?=$aluno['IdStudent']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             <td align="center"><a href="#" onclick="excluirAluno(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>

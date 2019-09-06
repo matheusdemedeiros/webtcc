@@ -42,26 +42,33 @@
         </form>
 
     </div>
-    <table class="container" width="100%" border="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
+    <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
-                <strog>Nome</strog>
+                <strong>Nome</strong>
             </td>
             <td>
-                <strog>E-mail</strog>
+                <strong>E-mail</strong>
+            </td>
+            <td>
+            <strong>Curso</strong>
+            </td>
+            <td>
+                <strong>Senha</strong>
             </td>
             <td width="10">
-                <strog>Alterar</strog>
+                <strong>Alterar</strong>
             </td>
             <td Width="10">
-                <strog>Excluir</strog>
+                <strong>Excluir</strong>
             </td>
         </tr>
 
         <?php
 include("conecta.php");
             
-$dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher ORDER BY NameTermPaperTeacher");
+$dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher 
+INNER JOIN  course WHERE CourseId=IdCourse  ORDER BY NameTermPaperTeacher");
 while ($teacher = mysqli_fetch_array($dados)){?>
 
         <tr>
@@ -71,7 +78,12 @@ while ($teacher = mysqli_fetch_array($dados)){?>
             <td>
                 <?=$teacher["Email"]?>
             </td>
-
+            <td>
+            <?=$teacher["NameCourse"]?>
+            </td>
+            <td>
+                <?=$teacher["Password"]?>
+            </td>
             <td align="center"><a href="editarProfessorTCC.php?editaid=<?=$teacher['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             <td align="center"><a href="#" onclick="excluirProfessorTCC(<?=$teacher['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>

@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de alunos</title>
+   
 
 
     <script type="text/javascript">
@@ -43,26 +43,34 @@
         </form>
 
     </div>
-    <table class="container" width="100%" border="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
+    <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
-                <strog>Nome</strog>
+                <strong>Nome</strong>
             </td>
             <td>
-                <strog>E-mail</strog>
+                <strong>E-mail</strong>
+            </td>
+            <td>
+                <strong>Curso</strong>
+            </td>
+            <td>
+                <strong>Senha</strong>
             </td>
             <td width="10">
-                <strog>Alterar</strog>
+                <strong>Alterar</strong>
             </td>
             <td Width="10">
-                <strog>Excluir</strog>
+                <strong>Excluir</strong>
             </td>
         </tr>
 
         <?php
 include("conecta.php");
 $nome = $_POST["nome"];          
-$dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher Where NameTermPaperTeacher like '$nome%' ORDER BY NameTermPaperTeacher");
+$dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher INNER JOIN
+course WHERE CourseId=IdCourse
+AND NameTermPaperTeacher like '$nome%' ORDER BY NameTermPaperTeacher");
 while ($aluno = mysqli_fetch_array($dados)){?>
 
         <tr>
@@ -71,6 +79,12 @@ while ($aluno = mysqli_fetch_array($dados)){?>
             </td>
             <td>
                 <?=$aluno["Email"]?>
+            </td>
+            <td>
+                <?=$aluno["NameCourse"]?>
+            </td>
+            <td>
+                <?=$aluno["Password"]?>
             </td>
 
             <td align="center"><a href="editarProfessorTCC.php?editaid=<?=$aluno['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
