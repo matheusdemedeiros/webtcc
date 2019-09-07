@@ -12,7 +12,7 @@
         <div class="container">
             <form name="formuser" action="inserirGrupoTCC.php" method="post">
                 <fieldset class="container">
-                <h5>Filtrar por Curso</h5>
+                <h5>Cadastrar Membro do grupo</h5>
                 <div class="row">
                     <div class="input-field col s12">
                         <select id="curso" name="curso" class="browser-default">
@@ -33,6 +33,24 @@
                             ?>
                         </select>
                     </div>
+                </div>
+                <div class="row">
+                            <div class="input-field col s12">
+                                <input type="date"  id="dataInicio" name="dataInicio" class="validate" autofocus required>
+                                <label for="dataInicio">Data Inicio</label>
+                            </div>
+                </div>
+                <div class="row">
+                            <div class="input-field col s12">
+                                <input type="date"  id="dataFim" name="dataFim" class="validate" autofocus required>
+                                <label for="dataFim">Data Termino</label>
+                            </div>
+                </div>
+                <div class="row">
+                            <div class="input-field col s12">
+                                <input type="number"  id="numero" name="numero" class="validate" autofocus required>
+                                <label for="numero">Número da Equipe</label>
+                            </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
