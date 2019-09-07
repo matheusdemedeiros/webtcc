@@ -37,43 +37,43 @@
     </div>
 
 
-    <table class="container" width="100%" border="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
+    <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
  
         <tr>
  
             <td>
  
-                <strog>Nome</strog>
+                <strong>Nome</strong>
  
             </td>
  
             <td>
  
-                <strog>E-mail</strog>
+                <strong>E-mail</strong>
  
             </td>
  
             <td>
  
-                <strog>Area de atuacao</strog>
+                <strong>Area de atuacao</strong>
  
             </td>
  
             <td>
  
-                <strog>Senha</strog>
+                <strong>Senha</strong>
  
             </td>
 
             <td width="10">
  
-                <strog>Alterar</strog>
+                <strong>Alterar</strong>
  
             </td>
  
             <td Width="10">
  
-                <strog>Excluir</strog>
+                <strong>Excluir</strong>
  
             </td>
  
@@ -124,9 +124,9 @@
             
             </td>
 
-            <td align="center"><a href="editarOrientador.php?editaid=<?=$advisor['IdAdvisor']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td alingn="center"><a href="editarOrientador.php?editaid=<?=$advisor['IdAdvisor']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             
-            <td align="center"><a href="#" onclick="excluirOrientador(<?=$advisor['IdAdvisor']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td alingn="center"><a href="#" onclick="excluirOrientador(<?=$advisor['IdAdvisor']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         
         </tr>
     

@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-
 <html>
 
 <head>
@@ -87,8 +85,8 @@ while ($aluno = mysqli_fetch_array($dados)){?>
                 <?=$aluno["Password"]?>
             </td>
 
-            <td align="center"><a href="editarProfessorTCC.php?editaid=<?=$aluno['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="excluirProfessorTCC(<?=$aluno['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td alingn="center"><a href="editarProfessorTCC.php?editaid=<?=$aluno['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td alingn="center"><a href="#" onclick="excluirProfessorTCC(<?=$aluno['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 

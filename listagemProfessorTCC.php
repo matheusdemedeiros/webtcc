@@ -84,8 +84,8 @@ while ($teacher = mysqli_fetch_array($dados)){?>
             <td>
                 <?=$teacher["Password"]?>
             </td>
-            <td align="center"><a href="editarProfessorTCC.php?editaid=<?=$teacher['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="excluirProfessorTCC(<?=$teacher['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td alingn="center"><a href="editarProfessorTCC.php?editaid=<?=$teacher['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td alingn="center"><a href="#" onclick="excluirProfessorTCC(<?=$teacher['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 

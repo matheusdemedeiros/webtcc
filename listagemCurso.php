@@ -31,16 +31,16 @@
         </form>
 
     </div>
-    <table class="container" width="100%" border="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
+    <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
-                <strog>Nome</strog>
+                <strong>Nome</strong>
             </td>
             <td width="10">
-                <strog>Alterar</strog>
+                <strong>Alterar</strong>
             </td>
             <td Width="10">
-                <strog>Excluir</strog>
+                <strong>Excluir</strong>
             </td>
         </tr>
 
@@ -56,8 +56,8 @@ while ($course = mysqli_fetch_array($dados)){?>
             </td>
 
 
-            <td align="center"><a href="editarCurso.php?editaid=<?=$course['IdCourse']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td align="center"><a href="#" onclick="excluirCurso(<?=$course['IdCourse']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td alingn="center"><a href="editarCurso.php?editaid=<?=$course['IdCourse']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td alingn="center"><a href="#" onclick="excluirCurso(<?=$course['IdCourse']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 
