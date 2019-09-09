@@ -14,7 +14,7 @@
     <div class="container">
         <form name="formuser" action="inserirGrupoTCC.php" class="col s12" method="post">
             <fieldset class="container">
-                <h5>Cadastrar grupo de TCC</h5>
+                <h5>Cadastro do TCC</h5>
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" id="tema" name="tema" class="validate" autofocus required>
@@ -32,15 +32,15 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
-                        <select id="area" name="area" class="browser-default">
-                            <option value="" disabled selected>Área</option>
+                    <div class="input-field col s12">
+                        <select id="area" name="area" class="browser-default"  autofocus required>
+                            <option value="" disabled selected>Área do TCC</option>
                             <?php
                                 include("conecta.php");
                                 $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea"); 
                                 while ($area = mysqli_fetch_array($dados)){    
                             ?>
-                            <option value="<?=$area[" IdAdrea"]?>">
+                            <option value="<?=$area["IdArea"]?>">
                                 <?=$area["NameArea"]?>
                             </option>
                             <?php 
@@ -48,14 +48,10 @@
                             ?>
                         </select>
                     </div>
-                    <div class="input-field col s6">
-                        <input type="number" id="numero" name="numero" class="validate" autofocus required>
-                        <label for="numero">Número da Equipe</label>
-                    </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <select id="aluno-1" name="aluno-1" class="browser-default">
+                        <select id="aluno-1" name="aluno-1" class="browser-default"  autofocus required>
                             <option value="" disabled selected>Aluno-1</option>
                             <?php
                                 include("conecta.php");
@@ -67,7 +63,7 @@
                                 ORDER BY NameCourse"); 
                                 while ($aluno = mysqli_fetch_array($dados)){    
                             ?>
-                            <option value="<?=$aluno[" IdStudent"]?>">
+                            <option value="<?=$aluno["IdStudent"]?>">
                                 <?=$aluno["NameStudent"]?>
                             </option>
                             <?php 
@@ -88,7 +84,7 @@
                                 ORDER BY NameCourse"); 
                                 while ($aluno = mysqli_fetch_array($dados)){    
                             ?>
-                            <option value="<?=$aluno[" IdStudent"]?>">
+                            <option value="<?=$aluno["IdStudent"]?>">
                                 <?=$aluno["NameStudent"]?>
                             </option>
                             <?php 
@@ -100,14 +96,14 @@
 
                 <div class="row">
                     <div class="input-field col s6">
-                        <select id="orientador" name="orientador" class="browser-default">
+                        <select id="orientador" name="orientador" class="browser-default"   autofocus required>
                             <option value="" disabled selected>Orientador</option>
                             <?php
                                 include("conecta.php");
                                 $dados = mysqli_query($conexao, "SELECT * FROM advisor ORDER BY NameAdvisor"); 
                                 while ($orientador = mysqli_fetch_array($dados)){    
                             ?>
-                            <option value="<?=$orientador[" IdAdvisor"]?>">
+                            <option value="<?=$orientador["IdAdvisor"]?>">
                                 <?=$orientador["NameAdvisor"]?>
                             </option>
                             <?php 
@@ -123,7 +119,7 @@
                                 $dados = mysqli_query($conexao, "SELECT * FROM advisor ORDER BY NameAdvisor"); 
                                 while ($coorientador = mysqli_fetch_array($dados)){    
                             ?>
-                            <option value="<?=$coorientador[" IdAdvisor"]?>">
+                            <option value="<?=$coorientador["IdAdvisor"]?>">
                                 <?=$coorientador["NameAdvisor"]?>
                             </option>
                             <?php 
@@ -134,7 +130,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="resumo" name="resumo" class="materialize-textarea"></textarea>
+                        <textarea id="resumo" name="resumo" class="materialize-textarea"  autofocus required></textarea>
                         <label for="resumo">Resumo do TCC</label>
                     </div>
                 </div>
