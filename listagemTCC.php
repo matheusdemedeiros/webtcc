@@ -17,7 +17,9 @@
     <table class="container" width="100%"  borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
  
         <tr>
- 
+            <td>
+                <strong>Título</strong>
+            </td>
             <td>
  
                 <strong>Nome</strong>
@@ -36,11 +38,6 @@
  
             </td>
  
-            <td>
- 
-                <strong>Tema</strong>
- 
-            </td>
 
             <td width="10">
  
@@ -71,7 +68,9 @@
             ?>
 
         <tr>
-            
+                <td>
+                    <?=$termPaper["Title"]?>
+                </td>
             <td>
                 
                 <?=
@@ -79,33 +78,31 @@
                 ?>
             
             </td>
-            
+            <?php
+           
+            if ($termPaper["AdvisorType"]=="Orientador") {
+                        $orientador= $termPaper["NameAdvisor"];
+                        
+                        
+                    }  ?> 
             <td>
                 
-            <?= if ($termPaper["AdvisorType"]=="Orientador") {
-                        $termPaper["NameAdvisor"]
-                    }  ?>
+           <?=$orientador?>
             
             </td>
-
-            <td>
-            <?=  if ($termPaper["AdvisorType"]=="Co-orientador") {
-                        $termPaper["NameAdvisor"]
-                    }else{
-                        Não tem co-orientador
-                    }?>
+            <?php  
+            $co_orientador="Não tem";
+            if ($termPaper["AdvisorType"]=="Co-orientador") {
                
+             
+                $co_orientador=  $termPaper["NameAdvisor"];    
             
-            </td>
-            
-            <td>
-            
-                <?=
-                    $termPaper["Topic"]
-                ?>
-            
-            </td>
+               
+           }?>
 
+           <td>
+           <?=$co_orientador?>
+            </td>
             <td alingn="center"><a href="editarTCC.php?editaid=<?=$termPaper['IdTermPaper']?>" 
             href="editarTCC.php?editaidcourse=<?=$termPaper['IdCourse']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             
