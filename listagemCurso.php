@@ -31,6 +31,12 @@
         </form>
 
     </div>
+
+    <div class="container">
+        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
+        <a class = "material-icons" href="cadastrocurso.php" style="color: #ffffff">add</a>
+        </button>
+    </div>
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
@@ -63,10 +69,8 @@ while ($course = mysqli_fetch_array($dados)){?>
 
 
     </table>
-    <div class="container">
-        <button class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" 
-       > <a href="cadastrocurso.php">Cadastrar Curso</a></button>
-    </div>
+    
+    
     <?php include("rodape.php"); ?>
 </body>
 

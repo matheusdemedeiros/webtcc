@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de alunos</title>
+    <title>Áreas de Atuação</title>
 
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
@@ -33,6 +33,14 @@
         </form>
 
     </div>
+
+    <div class="container">
+        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
+        <a class = "material-icons" href="cadastroAreaAtuacao.php" style="color: #ffffff">add</a>
+        </button>
+    </div>
+
+
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
@@ -65,10 +73,8 @@ while ($area = mysqli_fetch_array($dados)){?>
 
 
     </table>
-    <div class="container">
-        <button class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" 
-       > <a href="cadastroAreaAtuacao.php">Cadastrar Área de Atuação</a></button>
-    </div>
+    
+
     <?php include("rodape.php"); ?>
 </body>
 

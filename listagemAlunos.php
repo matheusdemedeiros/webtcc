@@ -24,7 +24,7 @@
 
 <body>
     <?php 
-		$cabecalho_title = "Listagem de alunos";
+		$cabecalho_title = "Alunos";
 		include("cabecalho.php"); 
 		?>
 
@@ -44,6 +44,12 @@
         </form>
 
     </div>
+    <div class="container">
+        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
+        <a class = "material-icons" href="cadastroaluno.php" style="color: #ffffff">add</a>
+        </button>
+    </div>
+
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
@@ -107,10 +113,7 @@ while ($aluno = mysqli_fetch_array($dados)){?>
 
     </table>
 
-    <div class="container">
-        <button class="btn" style="background-color: #00e676"  name="Cadastrar" value="Cadastrar" 
-       > <a href="cadastroaluno.php">Cadastrar Aluno</a></button>
-    </div>
+    
     <?php include("rodape.php"); ?>
 </body>
 

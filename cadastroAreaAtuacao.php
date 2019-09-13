@@ -10,7 +10,17 @@
 <body>
     <?php 
 		$cabecalho_title = "Cadastro Área de Atuação";
-		include("cabecalho.php"); 
+        include("cabecalho.php"); 
+        session_start();
+        if(isset($_SESSION['name_session'])){
+            ?>
+            <div class="container">
+            <h5><?php echo $_SESSION['name_session']?>, seja bem vindo!!<h5>
+        </div>
+        <?php
+            
+        }
+
 		?>
     <div class="container">
 

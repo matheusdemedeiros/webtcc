@@ -14,17 +14,17 @@
 		?>
     <div class="container">
 
-        <form class="container" action="listagemOrientadores.php" method="POST">
+        <form class="container" action="validaLogin.php" method="POST">
             <fieldset class="container">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="email" name="login" value="" class="validate" autofocus required />
+                        <input type="email" name="email" value="" class="validate" autofocus required />
                         <label for="login">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" name="senha" value="" class="validate" autofocus required />
+                        <input type="password" name="password" value="" class="validate" autofocus required />
                         <label for="senha">Senha</label>
                     </div>
                 </div>
