@@ -20,12 +20,15 @@
             <div class="nav-wrapper">
                 <!-- <img src="img/IFSC.png" class="brand-logo"> -->
                 <ul class="right hide-on-med-and-down">
+                    <li><a href="index.php">Principal</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a href="listagemAlunos.php">Gerenciar Aluno</a></li>
                     <li><a href="listagemAreaAtuacao.php">Gerenciar Área Atuação</a></li>
                     <li><a href="listagemCurso.php">Gerenciar Curso</a></li>
                     <li><a href="listagemOrientadores.php">Gerenciar Orientador</a></li>
                     <li><a href="listagemProfessorTCC.php">Gerenciar Professor de TCC</a></li>
                     <li><a href="cadastrogrupoTCC.php">Cadastrar Grupo de TCC</a></li>
+                    <li><a href="logout.php">Sair</a></li>
                 </ul>
             </div>
 

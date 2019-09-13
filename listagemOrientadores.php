@@ -4,7 +4,7 @@
 <head>
     
     <meta charset="UTF-8">
-    
+    <title>Orientadores</title>
     <script type="text/javascript">
     
         function validar() {
@@ -51,7 +51,13 @@
         </form>
 
     </div>
- 
+        
+        <div class="container">
+        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
+        <a class = "material-icons" href="cadastroorientador.php" style="color: #ffffff">add</a>
+        </button>
+    </div>
+
     <table class="container" width="100%"  borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
  
         <tr>
@@ -151,10 +157,7 @@
         ?>
 
     </table>
-    <div class="container">
-        <button class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" 
-       > <a href="cadastroorientador.php">Cadastrar Orientador</a></button>
-    </div>
+    
     <?php
         
         include("rodape.php");

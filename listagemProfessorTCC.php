@@ -22,7 +22,7 @@
 
 <body>
     <?php 
-		$cabecalho_title = "Listagem de Professores de TCC";
+		$cabecalho_title = "Professores de TCC";
 		include("cabecalho.php"); 
 		?>
 
@@ -63,7 +63,11 @@
                 <strong>Excluir</strong>
             </td>
         </tr>
-
+<div class="container">
+        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
+        <a class = "material-icons" href="cadastroprofessortcc.php" style="color: #ffffff">add</a>
+        </button>
+    </div>
         <?php
 include("conecta.php");
             
@@ -91,10 +95,7 @@ while ($teacher = mysqli_fetch_array($dados)){?>
 
 
     </table>
-    <div class="container">
-        <button class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" 
-       > <a href="cadastroprofessortcc.php">Cadastrar Professor de TCC</a></button>
-    </div>
+    
     <?php include("rodape.php"); ?>
 </body>
 

@@ -6,7 +6,7 @@
 </head>
 <body>
 <?php 
-		$cabecalho_title = "Cadastro de Grupo de TCC";
+		$cabecalho_title = "Grupos de TCC";
 		include("cabecalho.php"); 
 		?>
         <div class="container">
