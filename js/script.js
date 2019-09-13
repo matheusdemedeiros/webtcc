@@ -31,4 +31,9 @@ function excluirCurso(recid) {
         alert("Cadastro excluido com sucesso!");
     }
 }
-
+function excluirTCC(recid) {
+    if (confirm("Tem certeza de que deseja excluir permanentemente este cadastro?")) {
+        window.location="excluirTCC.php?idexc=" + recid;
+        alert("Excluído com sucesso!");
+    }
+}

@@ -10,27 +10,40 @@
     $data_final = $_POST["dataFim"];
     $resumo = $_POST["resumo"];
     $area = $_POST["area"];
-    $numero_equipe = $_POST["numero"];
-
-     echo "Tema: ".$tema;
-     echo "Aluno1: ".$aluno_1;
+    
+    mysqli_query($conexao,"insert into termpaper(StartDate, EndDate,AreaId,Topic,Summary) 
+    values('$data_inicio','$data_final','$area','$tema','$resumo')");
+    $dados= mysqli_query($conexao,"SELECT * FROM termpaper WHERE '$tema'=Topic
+    AND '$resumo'=Summary");
+    $IdTCC = mysqli_fetch_array($dados);
+    
+    
      if($aluno_2==null){
-         echo "O campo é nulo";
+         mysqli_query($conexao,"update student set termPaperId = '$IdTCC[IdTermPaper]' 
+         where IdStudent='$aluno_1'");
      }else {
-        echo "Aluno2: ".$aluno_2;
+        mysqli_query($conexao,"update student set termPaperId='$IdTCC[IdTermPaper]' 
+        where IdStudent='$aluno_1'");
+        mysqli_query($conexao,"update student set termPaperId='$IdTCC[IdTermPaper]' 
+        where IdStudent='$aluno_2'");
      }
      
-     echo "Orientador: ".$orientador;
      if ($co_orientador==null) {
-         echo "O Campo co-orientador é nulo";
+        mysqli_query($conexao,"insert into advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
+        values('$orientador','$IdTCC[IdTermPaper]','Orientador')");
      } else {
-        echo "Coorientador: ".$co_orientador;
+        mysqli_query($conexao,"insert into advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
+        values('$orientador','$IdTCC[IdTermPaper]','Orientador')");
+        mysqli_query($conexao,"insert into advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
+        values('$co_orientador','$IdTCC[IdTermPaper]','Co-orientador')");
      }
-     echo "Inicio: ".$data_inicio;
-     echo "Fim: ".$data_final;
-     echo  "Resumo: ".$resumo;
-     echo "Area: ".$area;
-     echo "Numero: ".$numero_equipe;
+    //  echo "Inicio: ".$data_inicio;
+    //  echo "Fim: ".$data_final;
+    //  echo  "Resumo: ".$resumo;
+    //  echo "Area: ".$area;
+    //  echo "Tema: ".$tema;
+    //  echo "Aluno1: ".$aluno_1;
+    // echo "Orientador: ".$orientador;
 
-
+    header('Location:listagemTCC.php');
 ?>

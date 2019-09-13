@@ -9,7 +9,8 @@
     $recsenha = $_POST['password'];
     
 
-    mysqli_query($conexao, "update advisor set NameAdvisor ='$recnome', OccupationArea='$recarea_atuacao',
+    mysqli_query($conexao, "update advisor set NameAdvisor ='$recnome', 
+    OccupationArea='$recarea_atuacao',
     Email='$recemail', Password='$recsenha'
     where IdAdvisor='$recid'");
     header("location:listagemOrientadores.php");
