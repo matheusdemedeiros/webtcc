@@ -81,12 +81,19 @@
             </td>
             
             <td>
-            <?= $termPaper["NameAdvisor"]?>
+                
+            <?= if ($termPaper["AdvisorType"]=="Orientador") {
+                        $termPaper["NameAdvisor"]
+                    }  ?>
             
             </td>
 
             <td>
-            <?= $termPaper["NameAdvisor"]?>
+            <?=  if ($termPaper["AdvisorType"]=="Co-orientador") {
+                        $termPaper["NameAdvisor"]
+                    }else{
+                        Não tem co-orientador
+                    }?>
                
             
             </td>

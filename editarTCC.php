@@ -17,15 +17,15 @@
         $campo = mysqli_fetch_array($seleciona);
 		?>
         <div class="container">
-        <form name="formuser" action="inserirGrupoTCC.php" class="col s12" method="post">
+        <form name="formuser" action="gravaEditaTCC.php" class="col s12" method="post">
             <fieldset class="container">
                 <h5>Editar TCC</h5>
-                <input type="hidden" name="fid" value="<?=$campo["IdAdvisor"]?>">
+                <input type="hidden" name="fid" value="<?=$campo["IdTermPaper"]?>">
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input type="text" id="tema" name="tema" class="validate" 
-                        autofocus required value="<?=$campo["Topic"]?>">
-                        <label for="numero">Tema do TCC</label>
+                <div class="input-field col s12">
+                        <input type="text" id="titulo" name="titulo" class="validate" autofocus required
+                        value="<?=$campo["Title"]?>">
+                        <label for="titulo">Título</label>
                     </div>
                 </div>
                 <div class="row">
@@ -41,7 +41,12 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                <div class="input-field col s6">
+                        <input type="text" id="tema" name="tema" class="validate" autofocus required
+                        value="<?=$campo["Topic"]?>">
+                        <label for="numero">Tema do TCC</label>
+                    </div>
+                    <div class="input-field col s6">
                         <select id="area" name="area" class="browser-default"  autofocus required>
                             <option value="" disabled selected>Área do TCC</option>
                             <?php
@@ -64,7 +69,7 @@
                             <option value="" disabled selected>Aluno-1</option>
                             <?php
                                 include("conecta.php");
-                                $curso = $_GET['editaidcourse'];
+                                $curso = $campo["CourseId"];
                                 $dados = mysqli_query($conexao, "SELECT * FROM student
                                 INNER JOIN course
                                 WHERE CourseId=IdCourse
@@ -85,7 +90,7 @@
                             <option value="" disabled selected>Aluno-2</option>
                             <?php
                                 include("conecta.php");
-                                $curso = $_GET['editaidcourse'];
+                                $curso = $campo["CourseId"];
                                 $dados = mysqli_query($conexao, "SELECT * FROM student
                                 INNER JOIN course
                                 WHERE CourseId=IdCourse
@@ -140,7 +145,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <textarea id="resumo" name="resumo" class="materialize-textarea"  
-                        autofocus required value="<?=$campo["Summary"]?>"></textarea>
+                        autofocus required ><?=$campo["Summary"]?></textarea>
                         <label for="resumo">Resumo do TCC</label>
                     </div>
                 </div>

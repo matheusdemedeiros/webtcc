@@ -17,8 +17,8 @@
                 <h5>Cadastro do TCC</h5>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="tema" name="tema" class="validate" autofocus required>
-                        <label for="numero">Tema do TCC</label>
+                        <input type="text" id="titulo" name="titulo" class="validate" autofocus required>
+                        <label for="titulo">Título</label>
                     </div>
                 </div>
                 <div class="row">
@@ -32,7 +32,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                <div class="input-field col s6">
+                        <input type="text" id="tema" name="tema" class="validate" autofocus required>
+                        <label for="numero">Tema do TCC</label>
+                    </div>
+                    <div class="input-field col s6">
                         <select id="area" name="area" class="browser-default"  autofocus required>
                             <option value="" disabled selected>Área do TCC</option>
                             <?php

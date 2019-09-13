@@ -10,9 +10,10 @@
     $data_final = $_POST["dataFim"];
     $resumo = $_POST["resumo"];
     $area = $_POST["area"];
+    $titulo=$_POST["titulo"];
     
-    mysqli_query($conexao,"insert into termpaper(StartDate, EndDate,AreaId,Topic,Summary) 
-    values('$data_inicio','$data_final','$area','$tema','$resumo')");
+    mysqli_query($conexao,"insert into termpaper(Title,StartDate, EndDate,AreaId,Topic,Summary) 
+    values('$titulo','$data_inicio','$data_final','$area','$tema','$resumo')");
     $dados= mysqli_query($conexao,"SELECT * FROM termpaper WHERE '$tema'=Topic
     AND '$resumo'=Summary");
     $IdTCC = mysqli_fetch_array($dados);
