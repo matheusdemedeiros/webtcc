@@ -10,17 +10,22 @@
 </head>
 
 <body>
-    <?php 
+<?php 
 		$cabecalho_title = "Cadastro Curso";
-		include("cabecalho.php"); 
+		include("cabecalho.php");
+        include("conecta.php");
+        $recid = $_GET['editaid'];
+        $seleciona = mysqli_query($conexao, "SELECT * FROM course WHERE IdCourse = '$recid'");
+        $campo = mysqli_fetch_array($seleciona);
 		?>
     <div class="container">
-        <form class="container" action="inserirCurso.php" method="POST">
+        <form class="container" action="gravaEditaCurso.php" method="POST">
             <fieldset class="container">
                 <h5>Cadastro Curso</h5>
+                <input type="hidden" name="fid" value="<?=$campo["IdCourse"]?>">
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome" class="validate" autofocus required>
+                        <input type="text" id="nome" name="nome" class="validate" autofocus required value="<?=$campo["NameCourse"]?>">
                         <label for="nome">Nome do Curso</label>
                     </div>
                 </div>

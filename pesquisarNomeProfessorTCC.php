@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-
-
 <html>
 
 <head>
     <meta charset="UTF-8">
    
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
-    <script type="text/jscript" src="script.js"></script>
+
     <script type="text/javascript">
         function validar() {
             var nome = formuser.nome.value;
@@ -24,12 +21,12 @@
 
 <body>
     <?php 
-		$cabecalho_title = "Alunos";
+		$cabecalho_title = "Listagem de Professores de TCC";
 		include("cabecalho.php"); 
 		?>
 
     <div class="container">
-        <form name="formuser" action="pesquisarNomeAluno.php" method="POST">
+        <form name="formuser" action="pesquisarNomeProfessorTCC.php" method="POST">
             <fieldset>
                 <div class="row">
                     <div class="input-field col s12">
@@ -44,19 +41,10 @@
         </form>
 
     </div>
-    <div class="container">
-        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-        <a class = "material-icons" href="cadastroaluno.php" style="color: #ffffff">add</a>
-        </button>
-    </div>
-
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
                 <strong>Nome</strong>
-            </td>
-            <td>
-                <strong>Matrícula</strong>
             </td>
             <td>
                 <strong>E-mail</strong>
@@ -77,19 +65,15 @@
 
         <?php
 include("conecta.php");
-            
-$dados = mysqli_query($conexao, "SELECT * FROM student INNER JOIN 
+$nome = $_POST["nome"];          
+$dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher INNER JOIN
 course WHERE CourseId=IdCourse
-ORDER BY NameStudent");
+AND NameTermPaperTeacher like '$nome%' ORDER BY NameTermPaperTeacher");
 while ($aluno = mysqli_fetch_array($dados)){?>
 
         <tr>
             <td>
-                <?=$aluno["NameStudent"]?>
-            </td>
-            <td>
-                <?=$aluno["Registration"]?>
-
+                <?=$aluno["NameTermPaperTeacher"]?>
             </td>
             <td>
                 <?=$aluno["Email"]?>
@@ -98,22 +82,17 @@ while ($aluno = mysqli_fetch_array($dados)){?>
                 <?=$aluno["NameCourse"]?>
             </td>
             <td>
-            
-            <?=
-                $aluno["Password"]
-            ?>
-        
-        </td>
+                <?=$aluno["Password"]?>
+            </td>
 
-            <td alingn="center"><a href="editarAluno.php?editaid=<?=$aluno['IdStudent']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td alingn="center"><a href="#" onclick="excluirAluno(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td alingn="center"><a href="editarProfessorTCC.php?editaid=<?=$aluno['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td alingn="center"><a href="#" onclick="excluirProfessorTCC(<?=$aluno['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 
 
     </table>
 
-    
     <?php include("rodape.php"); ?>
 </body>
 

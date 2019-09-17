@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    
-
+    <title>Pagina de Cadastro</title>
+    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
     <script type="text/javascript">
         function validar() {
@@ -33,27 +33,37 @@
 
 <body>
     <?php 
-		$cabecalho_title = "Cadastro Professor de TCC";
-		include("cabecalho.php"); 
+		$cabecalho_title = "Cadastro Aluno";
+		include("cabecalho.php");
+        include("conecta.php");
+        $recid = $_GET['editaid'];
+        $seleciona = mysqli_query($conexao, "SELECT * FROM student WHERE IdStudent = '$recid'");
+        $campo = mysqli_fetch_array($seleciona);
 		?>
     <div class="container">
-
-        <form class="container" name="formuser" action="inserirProfessorTCC.php" method="POST">
+        <form class="container" name="formuser" action="gravaEditaAluno.php" method="POST">
 
             <fieldset class="container">
-                <h5>Cadastro Professor de TCC</h5>
+                <h5>Edição de aluno</h5>
+                <input type="hidden" name="fid" value="<?=$campo["IdStudent"]?>">
+
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome" class="validate" autofocus required>
+                        <input type="text" id="nome" name="nome" autofocus required value="<?=$campo["NameStudent"]?>">
                         <label for="nome">Nome completo</label>
                     </div>
                 </div>
-
-
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="email" id="email" name="email" class="validate" autofocus required>
+
+                        <input type="email" id="email" name="email" autofocus required value="<?=$campo["Email"]?>">
                         <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" id="registration" name="registration" autofocus required value="<?=$campo["Registration"]?>">
+                        <label for="registration">Matrícula</label>
                     </div>
                 </div>
                 <div class="row">
@@ -74,24 +84,22 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password" name="password" class="validate" autofocus required>
-                        <label for="senha">Senha</label>
+                        <input type="password" id="password" name="password" autofocus required value="<?=$campo["Password"]?>">
+                        <label for="password">Senha</label>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password2" name="password2" class="validate" autofocus required>
+                        <input type="password" id="password2" name="password2" autofocus required>
                         <label for="password2">Confirmar Senha</label>
                     </div>
                 </div>
                 <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
             </fieldset>
+
         </form>
-
-
     </div>
-
-
     <?php include("rodape.php"); ?>
 </body>
 

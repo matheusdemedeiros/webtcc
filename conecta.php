@@ -1,4 +1,4 @@
 <?php 
-    $conexao=mysqli_connect("localhost", "root","","webtcc");
+    $conexao=mysqli_connect("localhost", "root","","termpaperifsc");
 
 ?>
