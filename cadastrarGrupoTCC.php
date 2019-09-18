@@ -32,9 +32,8 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="input-field col s6">
-                        <input type="text" id="tema" name="tema" class="validate" autofocus required>
-                        <label for="numero">Tema do TCC</label>
+                <div class="input-field col s6">    
+                    <label for="area">Selecione a Área do TCC</label>
                     </div>
                     <div class="input-field col s6">
                         <select id="area" name="area" class="browser-default"  autofocus required>

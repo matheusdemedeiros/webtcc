@@ -15,15 +15,15 @@ $area = $_POST["area"];
 $titulo=$_POST["titulo"];
 
 mysqli_query($conexao,"DELETE FROM advisortermpaper WHERE TermPaperId='$IdTCC'");
-mysqli_query($conexao, "UPDATE student SET termPaperId=NULL WHERE student.termPaperId = '$IdTCC'");
+mysqli_query($conexao, "UPDATE student SET TermPaperId=NULL WHERE student.TermPaperId = '$IdTCC'");
 
 if($aluno_2==null){
-    mysqli_query($conexao,"UPDATE student SET termPaperId = '$IdTCC' 
+    mysqli_query($conexao,"UPDATE student SET TermPaperId = '$IdTCC' 
     WHERE IdStudent='$aluno_1'");
 }else {
-   mysqli_query($conexao,"UPDATE student SET termPaperId='$IdTCC' 
+   mysqli_query($conexao,"UPDATE student SET TermPaperId='$IdTCC' 
    WHERE IdStudent='$aluno_1'");
-   mysqli_query($conexao,"UPDATE student SET termPaperId='$IdTCC' 
+   mysqli_query($conexao,"UPDATE student SET TermPaperId='$IdTCC' 
    WHERE IdStudent='$aluno_2'");
 }
 
@@ -38,7 +38,7 @@ if ($co_orientador==null) {
  }
  
  mysqli_query($conexao,"UPDATE termpaper SET Title='$titulo',
-Summary='$resumo', Topic='$tema',StartDate='$data_inicio',EndDate='$data_final',
+Summary='$resumo', StartDate='$data_inicio',EndDate='$data_final',
 AreaId='$area' Where IdTermPaper='$IdTCC'");
  header("location:listagemTCC.php");
 

@@ -10,12 +10,18 @@
         include("cabecalho.php"); 
         include("conecta.php");
         $recid = $_GET['editaid'];
-        $seleciona = mysqli_query($conexao, "SELECT * FROM termpaper INNER JOIN
-        student 
-        WHERE IdTermPaper = '$recid' AND
-        termPaperId='$recid'");
+        $seleciona = mysqli_query($conexao, "SELECT * FROM termpaper t
+        INNER JOIN student s
+        INNER JOIN  advisortermpaper atp
+        INNER JOIN advisor a
+        INNER JOIN area h
+        WHERE s.termPaperId='$recid' AND
+        t.IdTermPaper='$recid' AND atp.TermPaperId='$recid'
+        AND a.IdAdvisor=atp.AdvisorId 
+        AND h.IdArea=t.AreaId");
         $campo = mysqli_fetch_array($seleciona);
 		?>
+        
         <div class="container">
         <form name="formuser" action="gravaEditaTCC.php" class="col s12" method="post">
             <fieldset class="container">
@@ -42,13 +48,12 @@
                 </div>
                 <div class="row">
                 <div class="input-field col s6">
-                        <input type="text" id="tema" name="tema" class="validate" autofocus required
-                        value="<?=$campo["Topic"]?>">
-                        <label for="numero">Tema do TCC</label>
+                        <label for="area">Selecione a Área do TCC</label>
                     </div>
                     <div class="input-field col s6">
                         <select id="area" name="area" class="browser-default"  autofocus required>
-                            <option value="" disabled selected>Área do TCC</option>
+                      
+                            <option value="<?=$campo["IdArea"]?>"><?=$campo["NameArea"]?></option>
                             <?php
                                 include("conecta.php");
                                 $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea"); 
@@ -107,10 +112,55 @@
                         </select>
                     </div>
                 </div>
+                
+                             <div class="row">
+                                <div class="input-field col s6">
+                                <select id="orientadores" name="orientadores" class="browser-default" 
+                                >
+                                <option value="" disabled selected>Orientadores Atuais</option>
+                                <?php  
+                                    include("conecta.php");
+                                    $dadosOrientadores = mysqli_query($conexao, "SELECT * FROM 
+                                    advisor INNER JOIN
+                                    advisortermpaper
+                                    WHERE IdAdvisor=AdvisorID AND TermPaperID='$recid'
+                                    ORDER BY NameAdvisor"); 
+                                     while ($orientadores = mysqli_fetch_array($dadosOrientadores)){
+                                    ?>
+                                     <option value="<?=$orientadores["IdAdvisor"]?>">
+                                             <?=$orientadores["NameAdvisor"]?>
+                                         </option>
+                                    <?php } ?>
+
+                                    </select>
+                                </div>
+                                <div class="input-field col s6">
+                                <select id="alunos" name="alunos" class="browser-default" 
+                                >
+                                <option value="" disabled selected>Alunos Atuais</option>
+                                <?php  
+                                    include("conecta.php");
+                                    $dadosAlunos = mysqli_query($conexao, "SELECT * FROM 
+                                    student 
+                                    WHERE  termPaperID='$recid'
+                                    ORDER BY NameStudent"); 
+                                     while ($alunos = mysqli_fetch_array($dadosAlunos)){
+                                    ?>
+                                     <option value="<?=$alunos["IdStudent"]?>">
+                                             <?=$alunos["NameStudent"]?>
+                                         </option>
+                                    <?php } ?>
+
+                                    </select>
+                                </div>
+                             </div>
 
                 <div class="row">
+               
                     <div class="input-field col s6">
-                        <select id="orientador" name="orientador" class="browser-default"   autofocus required>
+                    
+                        <select id="orientador" name="orientador" class="browser-default" 
+                        autofocus required>
                             <option value="" disabled selected>Orientador</option>
                             <?php
                                 include("conecta.php");
@@ -124,10 +174,13 @@
                             } 
                             ?>
                         </select>
+                        
                     </div>
+                   
                     <div class="input-field col s6">
-                        <select id="coorientador" name="coorientador" class="browser-default">
+                        <select id="coorientador" name="coorientador" class="browser-default">    
                             <option value="" disabled selected>Co-Orientador</option>
+                           
                             <?php
                                 include("conecta.php");
                                 $dados = mysqli_query($conexao, "SELECT * FROM advisor ORDER BY NameAdvisor"); 
