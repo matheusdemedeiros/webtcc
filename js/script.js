@@ -36,4 +36,10 @@ function excluirTCC(recid) {
         window.location="excluirTCC.php?idexc=" + recid;
         alert("Excluído com sucesso!");
     }
+function excluirFormulario(recid) {
+    if (confirm("Tem certeza de que deseja excluir permanentemente este Formulário?")) {
+        window.location="excluirForularioAcompanhamento.php?idexc=" + recid;
+        alert("Excluído com sucesso!");
+    }
+}
 }

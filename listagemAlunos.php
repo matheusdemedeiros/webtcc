@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
    
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
+    
 
     <script type="text/jscript" src="script.js"></script>
     <script type="text/javascript">
