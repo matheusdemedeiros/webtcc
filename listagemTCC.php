@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
 <body>
-
     <?php 
 		$cabecalho_title = "Lista do TCC";
 		include("cabecalho.php"); 
@@ -16,15 +14,12 @@
     <table class="container" width="100%"  borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
  
         <tr>
-        <td>
-            <strong>ID</strong>
-        </td>
             <td>
                 <strong>Título</strong>
             </td>
             <td>
  
-                <strong>Nome</strong>
+                <strong>Aluno</strong>
  
             </td>
  
@@ -71,42 +66,56 @@
             INNER JOIN advisor a
             WHERE t.IdTermPaper=s.TermPaperId AND t.IdTermPaper=atp.TermPaperId
             AND a.IdAdvisor=atp.AdvisorId 
-            GROUP BY  orientador");
+            GROUP BY  nome_aluno ORDER BY titulo");
             
             while ($termPaper = mysqli_fetch_array($dados)){
-                echo var_dump($termPaper) . "<br><br>";
+              //  echo var_dump($termPaper) . "<br><br>";
 
             ?>
-           
+            <?php
+             include("conecta.php");
+             $idAtual=$termPaper["id_tcc"];
+             $tipoOrientacao="Advisor";
+             $dadosAdvisor = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
+             a.NameAdvisor as orientador, atp.AdvisorType 
+             as tipo_orientador,atp.TermpaperId
+             as tcc_id FROM termpaper t
+             INNER JOIN  advisortermpaper atp
+             INNER JOIN advisor a
+             WHERE '$idAtual'=atp.TermPaperId
+             AND a.IdAdvisor=atp.AdvisorId 
+            AND atp.AdvisorType='$tipoOrientacao'");
+             $aux=mysqli_fetch_array($dadosAdvisor);
+             $orientador=$aux["orientador"];
+             
+           ?>
+           <?php
+             include("conecta.php");
+             $idAtual=$termPaper["id_tcc"];
+             $tipoOrientacao="CoAdvisor";
+             $dadosCoAdvisor = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
+             a.NameAdvisor as orientador, atp.AdvisorType 
+             as tipo_orientador,atp.TermpaperId
+             as tcc_id FROM termpaper t
+             INNER JOIN  advisortermpaper atp
+             INNER JOIN advisor a
+             WHERE '$idAtual'=atp.TermPaperId
+             AND a.IdAdvisor=atp.AdvisorId 
+            AND atp.AdvisorType='$tipoOrientacao'");
+             $aux2=mysqli_fetch_array($dadosCoAdvisor);
+             $co_orientador=$aux2["orientador"];
+             
+           ?>
+          
         <tr>
-            <td>
-                <?=$termPaper["id_tcc"]?>    
-            </td>
             <td>
                     <?=$termPaper["titulo"]?>
             </td>
-
             <td>
-                
                 <?=
                     $termPaper["nome_aluno"]
                 ?>
-            
-            </td>
-
-            <?php
-           if ($termPaper["tipo_orientador"]=="Advisor"
-           && $termPaper["tcc_id"]==$termPaper["id_tcc"]) {?>
-                       <?php $orientador= $termPaper["orientador"]?>
-                 <?php  }  elseif ($termPaper["tipo_orientador"]=="CoAdvisor" && 
-            $termPaper["tcc_id"]==$termPaper["id_tcc"]) { ?> 
-                <?php $co_orientador=$termPaper["orientador"]?>  
-            <?php } ?>
-                
-            <?php if(isset($termPaper["tipo_orientador"]) && $termPaper["tipo_orientador"]!="CoAdvisor"){?>
-            <?php  $co_orientador="Não tem" ?>
-            <?php }?>
-            
+            </td> 
             <td>
            
            <?=$orientador?>
@@ -114,7 +123,7 @@
             </td>
 
            <td>
-           <?=$co_orientador?>
+          <?=$co_orientador?>
             </td>
             <td alingn="center"><a href="editarTCC.php?editaid=<?=$termPaper['id_tcc']?>" 
             href="editarTCC.php?editaidcourse=<?=$termPaper['IdCourse']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>

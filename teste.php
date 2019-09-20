@@ -14,15 +14,12 @@
     <table class="container" width="100%"  borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
  
         <tr>
-        <td>
-            <strong>ID</strong>
-        </td>
             <td>
                 <strong>Título</strong>
             </td>
             <td>
  
-                <strong>Nome</strong>
+                <strong>Aluno</strong>
  
             </td>
  
@@ -72,11 +69,12 @@
             GROUP BY  nome_aluno ORDER BY titulo");
             
             while ($termPaper = mysqli_fetch_array($dados)){
-                echo var_dump($termPaper) . "<br><br>";
+              //  echo var_dump($termPaper) . "<br><br>";
 
             ?>
             <?php
              include("conecta.php");
+             $idAtual=$termPaper["id_tcc"];
              $tipoOrientacao="Advisor";
              $dadosAdvisor = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
              a.NameAdvisor as orientador, atp.AdvisorType 
@@ -84,7 +82,7 @@
              as tcc_id FROM termpaper t
              INNER JOIN  advisortermpaper atp
              INNER JOIN advisor a
-             WHERE t.IdTermPaper=atp.TermPaperId
+             WHERE '$idAtual'=atp.TermPaperId
              AND a.IdAdvisor=atp.AdvisorId 
             AND atp.AdvisorType='$tipoOrientacao'");
              $aux=mysqli_fetch_array($dadosAdvisor);
@@ -93,6 +91,7 @@
            ?>
            <?php
              include("conecta.php");
+             $idAtual=$termPaper["id_tcc"];
              $tipoOrientacao="CoAdvisor";
              $dadosCoAdvisor = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
              a.NameAdvisor as orientador, atp.AdvisorType 
@@ -100,7 +99,7 @@
              as tcc_id FROM termpaper t
              INNER JOIN  advisortermpaper atp
              INNER JOIN advisor a
-             WHERE t.IdTermPaper=atp.TermPaperId
+             WHERE '$idAtual'=atp.TermPaperId
              AND a.IdAdvisor=atp.AdvisorId 
             AND atp.AdvisorType='$tipoOrientacao'");
              $aux2=mysqli_fetch_array($dadosCoAdvisor);
@@ -109,9 +108,6 @@
            ?>
           
         <tr>
-            <td>
-                <?=$termPaper["id_tcc"]?>    
-            </td>
             <td>
                     <?=$termPaper["titulo"]?>
             </td>
