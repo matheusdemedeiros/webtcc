@@ -8,8 +8,8 @@
 		include("cabecalho.php"); 
 	?>
     <div class="container">
-        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-        <a class = "material-icons" href="formularioAcompanhamento.php" style="color: #ffffff">add</a>
+        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar">
+        <a class = "material-icons" href="cadastrogrupoTCC.php" style="color: #ffffff">add</a>
         </button>
     </div>
 
@@ -71,7 +71,7 @@
             INNER JOIN advisor a
             WHERE t.IdTermPaper=s.TermPaperId AND t.IdTermPaper=atp.TermPaperId
             AND a.IdAdvisor=atp.AdvisorId 
-            GROUP BY  nome_aluno");
+            GROUP BY  orientador");
             
             while ($termPaper = mysqli_fetch_array($dados)){
                 echo var_dump($termPaper) . "<br><br>";
@@ -95,15 +95,15 @@
             </td>
 
             <?php
-           if ($termPaper["tipo_orientador"]=="Orientador"
+           if ($termPaper["tipo_orientador"]=="Advisor"
            && $termPaper["tcc_id"]==$termPaper["id_tcc"]) {?>
                        <?php $orientador= $termPaper["orientador"]?>
-                 <?php  }  elseif ($termPaper["tipo_orientador"]=="Co-orientador" && 
+                 <?php  }  elseif ($termPaper["tipo_orientador"]=="CoAdvisor" && 
             $termPaper["tcc_id"]==$termPaper["id_tcc"]) { ?> 
                 <?php $co_orientador=$termPaper["orientador"]?>  
             <?php } ?>
                 
-            <?php if(isset($termPaper["tipo_orientador"]) && $termPaper["tipo_orientador"]!="Co-orientador"){?>
+            <?php if(isset($termPaper["tipo_orientador"]) && $termPaper["tipo_orientador"]!="CoAdvisor"){?>
             <?php  $co_orientador="Não tem" ?>
             <?php }?>
             
@@ -122,7 +122,7 @@
             <td alingn="center"><a href="#" onclick="excluirTCC(<?=$termPaper['id_tcc']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
            
            <td alingn="center"><a href="formularioAcompanhamento.php?formid=<?=$termPaper['id_tcc']?>">
-           <i class="material-icons" style="color: #00e676">edit</i></a></td>
+           <i class="material-icons" style="color: #00e676">library_books</i></a></td>
         </tr>
     
         <?php

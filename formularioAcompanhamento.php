@@ -11,7 +11,7 @@
         ?>
         
     <div class="container">
-        <form action="inserirFormularioAcompanhamento.php" method="post">
+        <form action="inserirFormularioAcompanhamento.php" class="col s12" method="post">
             <fieldset class="container">
             <h5>Formulário de Acompanhamento</h5>
             <input type="hidden" name="id" value="<?=$campo["IdTermPaper"]?>">
@@ -33,16 +33,26 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea name="assuntosAbordados" id="assuntosAbordados" 
+                    <label for="assuntosAbordados">Assuntos Abordados</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="assuntosAbordados" name="assuntosAbordados"  
                         class="materialize-textarea"  autofocus required></textarea>
-                        <label for="assuntosAbordados">Assuntos Abordados</label>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                    <label for="observacoes">Observações</label>
                     </div>
                 </div>
                 <div class="row">
                 <div class="input-field col s12">
-                        <textarea name="observacoes" id="observacoes" 
+                        <textarea id="observacoes" name="observacoes" 
                         class="materialize-textarea"  autofocus required></textarea>
-                        <label for="observacoes">Observações</label>
+                       
                     </div>
                 </div>
                 <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar"/>

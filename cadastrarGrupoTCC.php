@@ -133,7 +133,8 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <textarea id="resumo" name="resumo" class="materialize-textarea"  autofocus required></textarea>
+                        <textarea id="resumo" name="resumo" class="materialize-textarea" 
+                         autofocus required></textarea>
                         <label for="resumo">Resumo do TCC</label>
                     </div>
                 </div>

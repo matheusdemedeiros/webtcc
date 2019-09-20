@@ -28,7 +28,7 @@
                     <li><a href="listagemCurso.php">Gerenciar Curso</a></li>
                     <li><a href="listagemOrientadores.php">Gerenciar Orientador</a></li>
                     <li><a href="listagemProfessorTCC.php">Gerenciar Professor de TCC</a></li>
-                    <li><a href="cadastrogrupoTCC.php">Cadastrar Grupo de TCC</a></li>
+                    <li><a href="listagemTCC.php">Gerenciar TCC</a></li>
                     <li><a href="logout.php">Sair</a></li>
                 </ul>
             </div>

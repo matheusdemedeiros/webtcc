@@ -45,10 +45,10 @@
             <td>
                 <strong>Observaçãoes</strong>
             </td>
-            <td width="12">
+            <td width="10">
                 <strong>Alterar</strong>
             </td>
-            <td Width="12">
+            <td Width="10">
                 <strong>Excluir</strong>
             </td>
         </tr>
@@ -81,7 +81,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
         </td>
 
             <td alingn="center"><a href="editarFormularioAcompanhamento.php?editaid=<?=$formulario['id']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td alingn="center"><a href="#" onclick="excluirFormulario(<?=$formulario['id']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td alingn="center"><a href="#" onclick="excluirFormularioAcompanhamento(<?=$formulario['id']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 
