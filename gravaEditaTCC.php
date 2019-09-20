@@ -29,17 +29,17 @@ if($aluno_2==null){
 
 if ($co_orientador==null) {
     mysqli_query($conexao,"INSERT INTO advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
-    VALUES('$orientador','$IdTCC','Orientador')");
+    VALUES('$orientador','$IdTCC','Advisor')");
  } else {
     mysqli_query($conexao,"INSERT INTO advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
-    VALUES('$orientador','$IdTCC','Orientador')");
+    VALUES('$orientador','$IdTCC','Advisor')");
     mysqli_query($conexao,"INSERT INTO advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
-    VALUES('$co_orientador','$IdTCC','Co-orientador')");
+    VALUES('$co_orientador','$IdTCC','CoAdvisor')");
  }
  
- mysqli_query($conexao,"UPDATE termpaper SET Title='$titulo',
+mysqli_query($conexao,"UPDATE termpaper SET Title='$titulo',
 Summary='$resumo', StartDate='$data_inicio',EndDate='$data_final',
 AreaId='$area' Where IdTermPaper='$IdTCC'");
- header("location:listagemTCC.php");
+header("location:listagemTCC.php");
 
 ?>

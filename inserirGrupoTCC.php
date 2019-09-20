@@ -31,12 +31,12 @@
      
      if ($co_orientador==null) {
         mysqli_query($conexao,"insert into advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
-        values('$orientador','$IdTCC[IdTermPaper]','Orientador')");
+        values('$orientador','$IdTCC[IdTermPaper]','Advisor')");
      } else {
         mysqli_query($conexao,"insert into advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
-        values('$orientador','$IdTCC[IdTermPaper]','Orientador')");
+        values('$orientador','$IdTCC[IdTermPaper]','Advisor')");
         mysqli_query($conexao,"insert into advisortermpaper(AdvisorId, TermPaperId,AdvisorType)
-        values('$co_orientador','$IdTCC[IdTermPaper]','Co-orientador')");
+        values('$co_orientador','$IdTCC[IdTermPaper]','CoAdvisor')");
      }
     //  echo "Inicio: ".$data_inicio;
     //  echo "Fim: ".$data_final;

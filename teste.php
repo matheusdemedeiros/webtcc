@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
 <body>
-
     <?php 
 		$cabecalho_title = "Lista do TCC";
 		include("cabecalho.php"); 
@@ -71,7 +69,7 @@
             INNER JOIN advisor a
             WHERE t.IdTermPaper=s.TermPaperId AND t.IdTermPaper=atp.TermPaperId
             AND a.IdAdvisor=atp.AdvisorId 
-            GROUP BY  nome_aluno");
+            GROUP BY  nome_aluno ORDER BY titulo");
             
             while ($termPaper = mysqli_fetch_array($dados)){
                 echo var_dump($termPaper) . "<br><br>";
@@ -105,10 +103,11 @@
              WHERE t.IdTermPaper=atp.TermPaperId
              AND a.IdAdvisor=atp.AdvisorId 
             AND atp.AdvisorType='$tipoOrientacao'");
-             $aux=mysqli_fetch_array($dadosCoAdvisor);
-             $co_orientador=$aux["orientador"];
+             $aux2=mysqli_fetch_array($dadosCoAdvisor);
+             $co_orientador=$aux2["orientador"];
              
            ?>
+          
         <tr>
             <td>
                 <?=$termPaper["id_tcc"]?>    
@@ -116,17 +115,11 @@
             <td>
                     <?=$termPaper["titulo"]?>
             </td>
-
             <td>
-                
                 <?=
                     $termPaper["nome_aluno"]
                 ?>
-            
-            </td>
-
-           
-            
+            </td> 
             <td>
            
            <?=$orientador?>
