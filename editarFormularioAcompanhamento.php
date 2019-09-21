@@ -9,7 +9,7 @@
         $seleciona = mysqli_query($conexao, "SELECT t.Title as titulo, f.Observation as observacao,
         f.Topic as assuntos, f.MeetingDate as dataReuniao, f.IdFormTermPaper as id
          FROM termpaper t INNER JOIN
-        formtermpaper f WHERE  IdTermPaper=TermPaperId");
+        formtermpaper f WHERE  t.IdTermPaper=f.TermPaperId AND '$id_tcc'=f.IdFormTermPaper");
         $campo = mysqli_fetch_array($seleciona);
         ?>
         
@@ -36,18 +36,26 @@
                     </div>
                 </div>
                 <div class="row">
+                <div class="input-field col s12">
+                <label for="assuntosAbordados">Assuntos Abordados</label>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="input-field col s12">
                         <textarea name="assuntosAbordados" id="assuntosAbordados" 
                         class="materialize-textarea"  autofocus required><?=$campo["assuntos"]?></textarea>
-                        <label for="assuntosAbordados">Assuntos Abordados</label>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="input-field col s12">
+                        <label for="observacoes">Observações</label>
                     </div>
                 </div>
                 <div class="row">
                 <div class="input-field col s12">
                         <textarea name="observacoes" id="observacoes" 
-                        class="materialize-textarea"  autofocus required>
-                        <?=$campo["observacao"]?></textarea>
-                        <label for="observacoes">Observações</label>
+                        class="materialize-textarea"  autofocus required><?=$campo["observacao"]?></textarea>
+                        
                     </div>
                 </div>
                 <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar"/>

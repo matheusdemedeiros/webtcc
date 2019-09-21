@@ -12,12 +12,14 @@
         $recid = $_GET['editaid'];
         $seleciona = mysqli_query($conexao, "SELECT * FROM termpaper t
         INNER JOIN student s
+        INNER JOIN studenttermpaper stp
         INNER JOIN  advisortermpaper atp
         INNER JOIN advisor a
         INNER JOIN area h
-        WHERE s.termPaperId='$recid' AND
+        WHERE stp.TermPaperId='$recid' AND
         t.IdTermPaper='$recid' AND atp.TermPaperId='$recid'
-        AND a.IdAdvisor=atp.AdvisorId 
+        AND a.IdAdvisor=atp.AdvisorId
+        AND s.IdStudent=stp.StudentId 
         AND h.IdArea=t.AreaId");
         $campo = mysqli_fetch_array($seleciona);
 		?>
@@ -69,6 +71,48 @@
                     </div>
                 </div>
                 <div class="row">
+                                <div class="input-field col s6">
+                                <select id="orientadores" name="orientadores" class="browser-default" 
+                                >
+                                <option value="" disabled selected>Orientadores Atuais</option>
+                                <?php  
+                                    include("conecta.php");
+                                    $dadosOrientadores = mysqli_query($conexao, "SELECT * FROM 
+                                    advisor INNER JOIN
+                                    advisortermpaper
+                                    WHERE IdAdvisor=AdvisorID AND TermPaperID='$recid'
+                                    ORDER BY NameAdvisor"); 
+                                     while ($orientadores = mysqli_fetch_array($dadosOrientadores)){
+                                    ?>
+                                     <option value="<?=$orientadores["IdAdvisor"]?>">
+                                             <?=$orientadores["NameAdvisor"]?>
+                                         </option>
+                                    <?php } ?>
+
+                                    </select>
+                                </div>
+                                <div class="input-field col s6">
+                                <select id="alunos" name="alunos" class="browser-default" 
+                                >
+                                <option value="" disabled selected>Alunos Atuais</option>
+                                <?php  
+                                    include("conecta.php");
+                                    $dadosAlunos = mysqli_query($conexao, "SELECT * FROM 
+                                    student INNER JOIN studenttermpaper 
+                                    WHERE StudentId=IdStudent AND
+                                    termPaperID='$recid'
+                                    ORDER BY NameStudent"); 
+                                     while ($alunos = mysqli_fetch_array($dadosAlunos)){
+                                    ?>
+                                     <option value="<?=$alunos["IdStudent"]?>">
+                                             <?=$alunos["NameStudent"]?>
+                                         </option>
+                                    <?php } ?>
+
+                                    </select>
+                                </div>
+                             </div>
+                <div class="row">
                     <div class="input-field col s6">
                         <select id="aluno-1" name="aluno-1" class="browser-default"  autofocus required>
                             <option value="" disabled selected>Aluno-1</option>
@@ -112,48 +156,6 @@
                         </select>
                     </div>
                 </div>
-                
-                             <div class="row">
-                                <div class="input-field col s6">
-                                <select id="orientadores" name="orientadores" class="browser-default" 
-                                >
-                                <option value="" disabled selected>Orientadores Atuais</option>
-                                <?php  
-                                    include("conecta.php");
-                                    $dadosOrientadores = mysqli_query($conexao, "SELECT * FROM 
-                                    advisor INNER JOIN
-                                    advisortermpaper
-                                    WHERE IdAdvisor=AdvisorID AND TermPaperID='$recid'
-                                    ORDER BY NameAdvisor"); 
-                                     while ($orientadores = mysqli_fetch_array($dadosOrientadores)){
-                                    ?>
-                                     <option value="<?=$orientadores["IdAdvisor"]?>">
-                                             <?=$orientadores["NameAdvisor"]?>
-                                         </option>
-                                    <?php } ?>
-
-                                    </select>
-                                </div>
-                                <div class="input-field col s6">
-                                <select id="alunos" name="alunos" class="browser-default" 
-                                >
-                                <option value="" disabled selected>Alunos Atuais</option>
-                                <?php  
-                                    include("conecta.php");
-                                    $dadosAlunos = mysqli_query($conexao, "SELECT * FROM 
-                                    student 
-                                    WHERE  termPaperID='$recid'
-                                    ORDER BY NameStudent"); 
-                                     while ($alunos = mysqli_fetch_array($dadosAlunos)){
-                                    ?>
-                                     <option value="<?=$alunos["IdStudent"]?>">
-                                             <?=$alunos["NameStudent"]?>
-                                         </option>
-                                    <?php } ?>
-
-                                    </select>
-                                </div>
-                             </div>
 
                 <div class="row">
                

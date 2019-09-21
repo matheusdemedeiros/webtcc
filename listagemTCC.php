@@ -22,6 +22,11 @@
                 <strong>Aluno</strong>
  
             </td>
+            <td>
+ 
+                <strong>Aluno</strong>
+
+            </td>
  
             <td>
  
@@ -49,7 +54,12 @@
             </td>
             <td>
  
-                <strong>Criar Formulario</strong>
+                <strong>Registro da Reunião</strong>
+
+            </td>
+            <td>
+ 
+                <strong>Ver Registros</strong>
 
             </td>
  
@@ -58,15 +68,19 @@
         <?php
             
             include("conecta.php");
-            $dados = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, t.Title as titulo,s.NameStudent as
-            nome_aluno, a.NameAdvisor as orientador, atp.AdvisorType as tipo_orientador,atp.TermpaperId
+            $dados = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, t.Title 
+            as titulo,s.NameStudent as
+            nome_aluno, a.NameAdvisor as orientador, atp.AdvisorType 
+            as tipo_orientador,atp.TermpaperId
             as tcc_id FROM termpaper t
             INNER JOIN student s
             INNER JOIN  advisortermpaper atp
             INNER JOIN advisor a
-            WHERE t.IdTermPaper=s.TermPaperId AND t.IdTermPaper=atp.TermPaperId
+            INNER JOIN studenttermpaper stp
+            WHERE  t.IdTermPaper=atp.TermPaperId
             AND a.IdAdvisor=atp.AdvisorId 
-            GROUP BY  nome_aluno ORDER BY titulo");
+            AND stp.TermPaperId=t.IdTermpaper
+            GROUP BY titulo");
             
             while ($termPaper = mysqli_fetch_array($dados)){
               //  echo var_dump($termPaper) . "<br><br>";
@@ -106,6 +120,40 @@
              $co_orientador=$aux2["orientador"];
              
            ?>
+            <?php
+             include("conecta.php");
+             $idAtual=$termPaper["id_tcc"];
+             $tipoAluno="FirstStudent";
+             $dadosFirstStudent = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
+             s.NameStudent as nome_aluno, stp.StudentType 
+             as tipo_aluno,stp.TermPaperId
+             as tcc_id FROM termpaper t
+             INNER JOIN  studenttermpaper stp
+             INNER JOIN student s
+             WHERE '$idAtual'=stp.TermPaperId
+             AND s.IdStudent=stp.StudentId 
+            AND stp.StudentType='$tipoAluno'");
+            $aux3=mysqli_fetch_array($dadosFirstStudent);
+            $primeiro_aluno=$aux3["nome_aluno"];
+             
+           ?>
+            <?php
+             include("conecta.php");
+             $idAtual=$termPaper["id_tcc"];
+             $tipoAluno="SecondStudent";
+             $dadosSecondStudent = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
+             s.NameStudent as nome_aluno, stp.StudentType 
+             as tipo_aluno,stp.TermPaperId
+             as tcc_id FROM termpaper t
+             INNER JOIN  studenttermpaper stp
+             INNER JOIN student s
+             WHERE '$idAtual'=stp.TermPaperId
+             AND s.IdStudent=stp.StudentId 
+            AND stp.StudentType='$tipoAluno'");
+             $aux4=mysqli_fetch_array($dadosSecondStudent);
+             $segundo_aluno=$aux4["nome_aluno"];
+             
+           ?>
           
         <tr>
             <td>
@@ -113,9 +161,14 @@
             </td>
             <td>
                 <?=
-                    $termPaper["nome_aluno"]
+                    $primeiro_aluno
                 ?>
             </td> 
+            <td>
+                <?=
+                    $segundo_aluno
+                ?>
+            </td>
             <td>
            
            <?=$orientador?>
@@ -132,6 +185,8 @@
            
            <td alingn="center"><a href="formularioAcompanhamento.php?formid=<?=$termPaper['id_tcc']?>">
            <i class="material-icons" style="color: #00e676">library_books</i></a></td>
+           <td alingn="center"><a href="listagemFormulariosAcompanhamento.php?id=<?=$termPaper['id_tcc']?>">
+           <i class="material-icons" style="color: #00e676">list</i></a></td>
         </tr>
     
         <?php

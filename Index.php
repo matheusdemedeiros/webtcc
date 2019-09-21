@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <input class="btn" style="background-color: #00e676" type="submit" name="enviar" value="Login" />
-                    <a href="listagemOrientadores.php">Sem cadastro?</a>
+                    
                 </div>
             </fieldset>
         </form>

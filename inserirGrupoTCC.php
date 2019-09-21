@@ -20,13 +20,22 @@
     
     
      if($aluno_2==null){
-         mysqli_query($conexao,"update student set termPaperId = '$IdTCC[IdTermPaper]' 
-         where IdStudent='$aluno_1'");
+         // mysqli_query($conexao,"update student set termPaperId = '$IdTCC[IdTermPaper]' 
+         // where IdStudent='$aluno_1'");
+         $primeiro_aluno="FirstStudent";
+         mysqli_query($conexao,"INSERT INTO studenttermpaper(StudentId,TermPaperId,StudentType)
+         VALUES('$aluno_1','$IdTCC[IdTermPaper]','$primeiro_aluno')");
      }else {
-        mysqli_query($conexao,"update student set termPaperId='$IdTCC[IdTermPaper]' 
-        where IdStudent='$aluno_1'");
-        mysqli_query($conexao,"update student set termPaperId='$IdTCC[IdTermPaper]' 
-        where IdStudent='$aluno_2'");
+      //   mysqli_query($conexao,"update student set termPaperId='$IdTCC[IdTermPaper]' 
+      //   where IdStudent='$aluno_1'");
+      //   mysqli_query($conexao,"update student set termPaperId='$IdTCC[IdTermPaper]' 
+      //   where IdStudent='$aluno_2'");
+         $primeiro_aluno="FirstStudent";
+         mysqli_query($conexao,"INSERT INTO studenttermpaper(StudentId,TermPaperId,StudentType)
+         VALUES('$aluno_1','$IdTCC[IdTermPaper]','$primeiro_aluno')");
+         $segundo_aluno="SecondStudent";
+         mysqli_query($conexao,"INSERT INTO studenttermpaper(StudentId,TermPaperId,StudentType)
+         VALUES('$aluno_2','$IdTCC[IdTermPaper]','$segundo_aluno')");
      }
      
      if ($co_orientador==null) {
