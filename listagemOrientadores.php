@@ -85,6 +85,11 @@
                 <strong>Senha</strong>
  
             </td>
+            <td>
+                <strong>
+                Matrícula Siapei
+                </strong>
+            </td>
 
             <td width="10">
  
@@ -143,7 +148,9 @@
                 ?>
             
             </td>
-
+             <td>
+             <?=$advisor["Siapei"]?>
+             </td>   
             <td alingn="center"><a href="editarOrientador.php?editaid=<?=$advisor['IdAdvisor']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             
             <td alingn="center"><a href="#" onclick="excluirOrientador(<?=$advisor['IdAdvisor']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>

@@ -53,6 +53,7 @@
                         <label for="nome">Nome completo</label>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="input-field col s12">
 
@@ -60,36 +61,30 @@
                         <label for="email">Email</label>
                     </div>
                 </div>
+
                 <div class="row">
-    
-    <div class="input-field col s12">
+                    <div class="input-field col s12">
+                        <input type="number" id="matricula" name="matricula" class="validate" autofocus required value="<?=$campo["Siapei"]?>">
+                        <label for="matricula">Matricula Siapei</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
 
-        <select id="area_atuacao" name="area_atuacao" class="browser-default">
+                        <select id="area_atuacao" name="area_atuacao" class="browser-default">
 
-            <option value="" disabled selected>Área de Atuação</option>
+                                <option value="" disabled selected>Área de Atuação</option>
 
-            <?php
-
-                include("conecta.php");
-                $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
-                
-                while ($area = mysqli_fetch_array($dados)){
-                
-            ?>
-                
-            <option value="<?=$area["IdArea"]?>"><?=$area["NameArea"]?></option>
-                   
-            <?php
-            
-            }
-            
-            ?>
-
-        </select>
-    
-    </div>
-
-</div>
+                                    <?php
+                                        include("conecta.php");
+                                        $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
+                                        while ($area = mysqli_fetch_array($dados)){    
+                                    ?>
+                                    <option value="<?=$area["IdArea"]?>"><?=$area["NameArea"]?></option>       
+                                    <?php } ?>
+                        </select>
+                    </div>
+                </div>
 
                 <div class="row">
                     <div class="input-field col s12">
