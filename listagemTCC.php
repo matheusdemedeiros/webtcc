@@ -62,6 +62,9 @@
                 <strong>Ver Registros</strong>
 
             </td>
+            <td>
+                <strong> Gerar Declaração</strong>
+            </td>
  
         </tr>
 
@@ -83,7 +86,7 @@
             GROUP BY titulo");
             
             while ($termPaper = mysqli_fetch_array($dados)){
-              //  echo var_dump($termPaper) . "<br><br>";
+               //echo var_dump($termPaper) . "<br><br>";
 
             ?>
             <?php
@@ -187,6 +190,8 @@
            <i class="material-icons" style="color: #00e676">library_books</i></a></td>
            <td alingn="center"><a href="listagemFormulariosAcompanhamento.php?id=<?=$termPaper['id_tcc']?>">
            <i class="material-icons" style="color: #00e676">list</i></a></td>
+           <td alingn="center"><a href="declaracao.php?id=<?=$termPaper['id_tcc']?>">
+           <i class="material-icons" style="color: #00e676">book</i></a></td>
         </tr>
     
         <?php
