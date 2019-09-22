@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-   
+    <link rel="stylesheet" href="css/estilos.css">
     
 
     <script type="text/jscript" src="script.js"></script>
@@ -25,10 +25,8 @@
 include("conecta.php");
 $id_tcc=$_GET['id'];
  //var_dump($id_tcc);
-$dados = mysqli_query($conexao, "SELECT t.Title as titulo, f.Observation as observacao,
-f.Topic as assuntos, f.MeetingDate as dataReuniao, f.IdFormTermPaper as id
- FROM termpaper t INNER JOIN
-formtermpaper f WHERE  f.TermPaperId='$id_tcc' AND t.IdTermPaper=f.TermPaperId ORDER BY dataReuniao");
+$dados = mysqli_query($conexao, "SELECT t.Title as titulo,t.StartDate as dataInicio, t.EndDate as
+dataFim FROM termpaper t WHERE  t.IdTermPaper='$id_tcc'");
 
 while ($formulario = mysqli_fetch_array($dados)){?>
     
@@ -39,7 +37,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
              $dadosAdvisor = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
              a.NameAdvisor as orientador, atp.AdvisorType 
              as tipo_orientador,atp.TermpaperId
-             as tcc_id FROM termpaper t
+             as tcc_id, a.Siapei as siapei FROM termpaper t
              INNER JOIN  advisortermpaper atp
              INNER JOIN advisor a
              WHERE '$idAtual'=atp.TermPaperId
@@ -56,7 +54,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
              $dadosCoAdvisor = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
              a.NameAdvisor as orientador, atp.AdvisorType 
              as tipo_orientador,atp.TermpaperId
-             as tcc_id FROM termpaper t
+             as tcc_id,a.Siapei as siapei  FROM termpaper t
              INNER JOIN  advisortermpaper atp
              INNER JOIN advisor a
              WHERE '$idAtual'=atp.TermPaperId
@@ -101,54 +99,50 @@ while ($formulario = mysqli_fetch_array($dados)){?>
              
            ?>
        <div class="container">
-       <form action="" method="post">
+       
        <fieldset>
             <h5>
                 Declaração
             </h5>
+            <p>Declaramos que <strong> <?=$orientador?></strong>, Professor do Ensino
+                Básico, Técnico e Tecnológico, Matrícula SIAPE nº <strong><?=$aux["siapei"]?></strong>,
+                orientou Projeto Integrador no curso
+                de Técnico em Informática, modalidade concomitante, 
+                ofertado no Câmpus Lages (SC), conforme
+                informações abaixo.</p>
+           
+           <p>
+           Título do Trabalho de Conclusão: <strong><?=$formulario["titulo"]?></strong>
+           </p>
+           <p>
+                Aluno: 
+                <strong><?=$primeiro_aluno?></strong>
+            </p>
             <p>
+                Aluno: 
+                <strong><?=$segundo_aluno?></strong>
+            </p>
+            <p>
+            Periodo de Execução: 
                 <strong>
-                Data da Reunião: 
+                <?=$formulario["dataInicio"]?> 
+                até <?=$formulario["dataFim"]?>
                 </strong>
-                <?=$formulario["dataReuniao"]?>
-
             </p>
-            <p><strong>Orientador: </strong>
-            <?=$orientador?></p>
-            <p>
-            <p>
-                <strong>Co-Orientador: </strong>
-                <?=$co_orientador?></p>
-            <p>
-            <p>
-                <strong>Aluno: </strong>
-                <?=$primeiro_aluno?></p>
-            <p>
-            <p>
-                <strong>Aluno: </strong>
-                <?=$segundo_aluno?></p>
-            <p>
-            <strong>
-                Assuntos Abordados:  
-                </strong><br>
-                <?=$formulario["assuntos"]?>
-            </p>
-            <p>
-            <strong>
-                Observações:  
-                </strong><br>
-                <?=$formulario["observacao"]?>
-            </p>
-            <div class="container">
-            <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-                <a href="editarFormularioAcompanhamento.php?editaid=<?=$formulario['id']?>">edit</a>
-            </button>
-            <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-            <a onclick="excluirFormularioAcompanhamento(<?=$formulario['id']?>)">delete</a>
-            </button>
-    </div>
+           <p>Lages(SC),</p>
+           <div class ="row">
+                <div class="input-field col s6">
+                <p>Prof. <?=$orientador?> <br>Professor  do Trabalho 
+                    de Conclusão de Curso <br>MatrículaSIAPE nº <?=$aux["siapei"]?>.</p>
+                </div>
+                <div class="input-field col s6">
+                <p>Prof. <?=$orientador?> <br>Professor  do Trabalho 
+                    de Conclusão de Curso <br>MatrículaSIAPE nº <?=$aux["siapei"]?>.</p>
+                </div>
+           </div>
+           
        </fieldset>
-       </form>
+     
       </div>
         <?php } ?>
     </div>
