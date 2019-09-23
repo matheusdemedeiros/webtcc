@@ -5,11 +5,12 @@
     $email = $_POST['email'];
     $senha = $_POST['password'];
     $curso = $_POST['curso'];
+    $matricula=$_POST['matricula'];
 
     mysqli_query($conexao,
     "insert into termpaperteacher(NameTermPaperTeacher, 
-    Email, Password,CourseId) values('$nome','$email','$senha',
-    '$curso')");
+    Email, Password,CourseId,Siape) values('$nome','$email','$senha',
+    '$curso','$matricula')");
  
     header('Location:listagemProfessorTCC.php');
 ?>

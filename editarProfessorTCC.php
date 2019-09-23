@@ -77,7 +77,15 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="password" id="password" name="password" autofocus required value="<?=$campo["Password"]?>">
+                        <input type="number" id="matricula" 
+                        name="matricula" class="validate" value="<?=$campo["Siape"]?>" autofocus required>
+                        <label for="matricula">Matricula Siape</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="password" id="password" name="password" 
+                        autofocus required value="<?=$campo["Password"]?>">
                         <label for="password">Senha</label>
                     </div>
                 </div>

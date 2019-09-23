@@ -36,7 +36,13 @@
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
-                <strong>Nome</strong>
+                <strong>Nome do Curso</strong>
+            </td>
+            <td>
+                <strong>Coordenador do Curso</strong>
+            </td>
+            <td>
+                <strong>Matrícula Siape</strong>
             </td>
             <td width="10">
                 <strong>Alterar</strong>
@@ -55,6 +61,12 @@ while ($course = mysqli_fetch_array($dados)){?>
         <tr>
             <td>
                 <?=$course["NameCourse"]?>
+            </td>
+            <td>
+                <?=$course["NameCourseCoordinator"]?>
+            </td>
+            <td>
+                <?=$course["SiapeCourseCoordinator"]?>
             </td>
 
 

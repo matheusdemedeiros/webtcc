@@ -99,14 +99,14 @@ while ($formulario = mysqli_fetch_array($dados)){?>
              
            ?>
           
-       <div class="container">
+       <div class="container" alingn="center">
        
        <fieldset>
-       
+       <img src="img/Capturar.png">
             <h5>
                 Declaração
             </h5>
-            <p>Declaramos que <strong> <?=$orientador?></strong>, Professor do Ensino
+            <p>Declaramos que <strong><?=$orientador?></strong>, Professor do Ensino
                 Básico, Técnico e Tecnológico, Matrícula SIAPE nº <strong><?=$aux["siapei"]?></strong>,
                 orientou Projeto Integrador no curso
                 de Técnico em Informática, modalidade concomitante, 
@@ -124,16 +124,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                 Aluno: 
                 <strong><?=$segundo_aluno?></strong>
             </p>
-            <p>
-            Periodo de Execução: 
-            <?php $dataInicio=date("d/m/Y", strtotime($formulario["dataInicio"]))?>
-            <?php $dataFim=date("d/m/Y", strtotime($formulario["dataFim"]))?>
-                <strong>
-                <?=$dataInicio?> 
-                até <?=$dataFim?>
-                </strong>
-            </p>
-            <?php
+             <?php
                     $meses = array(
                         '01'=>'Janeiro',
                         '02'=>'Fevereiro',
@@ -159,17 +150,37 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                 $ano = $partes[2];
             
             ?>
-
+             <?php 
+            $dataInicio=date("d/m/Y", strtotime($formulario["dataInicio"]));
+            $dataFim=date("d/m/Y", strtotime($formulario["dataFim"]));
            
+            $partes = explode("/", $dataInicio);
+            $diaInicio = $partes[0];
+            $mesInicio = $partes[1];
+            $anoInicio = $partes[2];
+
+            $partesFim = explode("/", $dataFim);
+            $diaFim = $partesFim[0];
+            $mesFim = $partesFim[1];
+            $anoFim = $partesFim[2];
+            
+            ?>
+            <p>
+            Periodo de Execução: 
+                <strong>
+                <?=$mesInicio?> de <?=$anoInicio?>
+                até <?=$mesFim?> de <?=$anoFim?>
+                </strong>
+            </p> 
            <p>Lages(SC), <?=$dia?> de <?= $meses[date('m')]?> de <?=$ano?></p>
            <div class ="row">
                 <div class="input-field col s6">
                 <p>Prof. <?=$orientador?> <br>Professor  do Trabalho 
-                    de Conclusão de Curso <br>MatrículaSIAPE nº <?=$aux["siapei"]?>.</p>
+                    de Conclusão de Curso <br>Matrícula SIAPE nº <?=$aux["siapei"]?>.</p>
                 </div>
                 <div class="input-field col s6">
                 <p>Prof. <?=$orientador?> <br>Professor  do Trabalho 
-                    de Conclusão de Curso <br>MatrículaSIAPE nº <?=$aux["siapei"]?>.</p>
+                    de Conclusão de Curso <br>Matrícula SIAPE nº <?=$aux["siapei"]?>.</p>
                 </div>
            </div>
            
