@@ -1,7 +1,6 @@
 header {
     position: relative;
     margin-bottom: 80px;
-    height: 100px;
 }
 form{
     border-radius: 10px;
@@ -13,6 +12,10 @@ footer{
 	margin-top: 98px;
 }
 h1,h2,h3,h4,h5,h6{
+    text-align: center;
+}
+
+.centro{
     text-align: center;
 }
 

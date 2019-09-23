@@ -5,6 +5,6 @@
 
     mysqli_query($conexao, "DELETE FROM formtermpaper WHERE IdFormTermPaper = '$recid'");
     
-    header('Location:listagemFormulariosAcompanhamento.php');
+    header('Location:listagemTCC.php');
 
 ?>

@@ -6,5 +6,5 @@ $assuntos=$_POST["assuntosAbordados"];
 $observacao=$_POST["observacoes"];
 mysqli_query($conexao, "UPDATE formtermpaper SET Topic='$assuntos', 
 Observation='$observacao',MeetingDate= '$dataReuniao' WHERE IdFormTermPaper='$id'");
-header('Location:listagemFormulariosAcompanhamento.php');
+header('Location:listagemTCC.php');
 ?>

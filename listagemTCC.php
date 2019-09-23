@@ -121,6 +121,9 @@
             AND atp.AdvisorType='$tipoOrientacao'");
              $aux2=mysqli_fetch_array($dadosCoAdvisor);
              $co_orientador=$aux2["orientador"];
+             if ($co_orientador==NULL) {
+                $co_orientador="Não Tem";
+             }
              
            ?>
             <?php
@@ -155,6 +158,9 @@
             AND stp.StudentType='$tipoAluno'");
              $aux4=mysqli_fetch_array($dadosSecondStudent);
              $segundo_aluno=$aux4["nome_aluno"];
+             if ($segundo_aluno==NULL) {
+                 $segundo_aluno="Não Tem";
+             }
              
            ?>
           

@@ -98,9 +98,11 @@ while ($formulario = mysqli_fetch_array($dados)){?>
              $segundo_aluno=$aux4["nome_aluno"];
              
            ?>
+          
        <div class="container">
        
        <fieldset>
+       
             <h5>
                 Declaração
             </h5>
@@ -124,12 +126,42 @@ while ($formulario = mysqli_fetch_array($dados)){?>
             </p>
             <p>
             Periodo de Execução: 
+            <?php $dataInicio=date("d/m/Y", strtotime($formulario["dataInicio"]))?>
+            <?php $dataFim=date("d/m/Y", strtotime($formulario["dataFim"]))?>
                 <strong>
-                <?=$formulario["dataInicio"]?> 
-                até <?=$formulario["dataFim"]?>
+                <?=$dataInicio?> 
+                até <?=$dataFim?>
                 </strong>
             </p>
-           <p>Lages(SC),</p>
+            <?php
+                    $meses = array(
+                        '01'=>'Janeiro',
+                        '02'=>'Fevereiro',
+                        '03'=>'Março',
+                        '04'=>'Abril',
+                        '05'=>'Maio',
+                        '06'=>'Junho',
+                        '07'=>'Julho',
+                        '08'=>'Agosto',
+                        '09'=>'Setembro',
+                        '10'=>'Outubro',
+                        '11'=>'Novembro',
+                        '12'=>'Dezembro'
+                                        )
+                    
+            ?>
+             <?php $dataAtual =date("d/m/Y")?>
+            <?php
+                $data = $dataAtual;
+                $partes = explode("/", $data);
+                $dia = $partes[0];
+                $mes = $partes[1];
+                $ano = $partes[2];
+            
+            ?>
+
+           
+           <p>Lages(SC), <?=$dia?> de <?= $meses[date('m')]?> de <?=$ano?></p>
            <div class ="row">
                 <div class="input-field col s6">
                 <p>Prof. <?=$orientador?> <br>Professor  do Trabalho 

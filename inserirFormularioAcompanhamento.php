@@ -7,5 +7,5 @@ $observacao=$_POST["observacoes"];
 mysqli_query($conexao, "INSERT INTO formtermpaper(Topic, Observation, TermPaperId, MeetingDate)
 VALUES('$assuntos','$observacao','$id','$dataReuniao')");
 //"listagemFormulariosAcompanhamento.php?id=$id";
-header('Location:listagemFormulariosAcompanhamento.php');
+header('Location:listagemTCC.php');
 ?>

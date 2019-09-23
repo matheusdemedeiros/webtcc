@@ -64,6 +64,9 @@ while ($formulario = mysqli_fetch_array($dados)){?>
             AND atp.AdvisorType='$tipoOrientacao'");
              $aux2=mysqli_fetch_array($dadosCoAdvisor);
              $co_orientador=$aux2["orientador"];
+             if ($co_orientador==NULL) {
+                $co_orientador=" ";
+             }
              
            ?>
             <?php
@@ -98,6 +101,9 @@ while ($formulario = mysqli_fetch_array($dados)){?>
             AND stp.StudentType='$tipoAluno'");
              $aux4=mysqli_fetch_array($dadosSecondStudent);
              $segundo_aluno=$aux4["nome_aluno"];
+             if ($segundo_aluno==NULL) {
+                $segundo_aluno=" ";
+            }
              
            ?>
        <div class="container">
@@ -106,11 +112,12 @@ while ($formulario = mysqli_fetch_array($dados)){?>
        <h5>
                 <?=$formulario["titulo"]?>
             </h5>
+            <?php $dataReuniao=date("d/m/Y", strtotime($formulario["dataReuniao"]))?>
             <p>
                 <strong>
                 Data da Reunião: 
                 </strong>
-                <?=$formulario["dataReuniao"]?>
+                <?=$dataReuniao?>
 
             </p>
             <p><strong>Orientador: </strong>
@@ -140,13 +147,11 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                 <?=$formulario["observacao"]?>
             </p>
             <div class="container">
-            <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-                <a href="editarFormularioAcompanhamento.php?editaid=<?=$formulario['id']?>">edit</a>
-            </button>
-            <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-            <a onclick="excluirFormularioAcompanhamento(<?=$formulario['id']?>)">delete</a>
-            </button>
-    </div>
+                <a class="waves-effect  green accent-3 btn"  
+                href="editarFormularioAcompanhamento.php?editaid=<?=$formulario['id']?>"><i class="material-icons right">edit</i>Editar</a>
+                <a class="waves-effect  green accent-3 btn" 
+                onclick="excluirFormularioAcompanhamento(<?=$formulario['id']?>)"><i class="material-icons right">delete</i>Excluir</a>
+            </div>
             
           
        </fieldset>
