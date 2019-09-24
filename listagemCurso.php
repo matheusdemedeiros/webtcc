@@ -29,9 +29,9 @@
     </div>
 
     <div class="container">
-        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-        <a class = "material-icons" href="cadastrocurso.php" style="color: #ffffff">add</a>
-        </button>
+    <a  class="waves-effect  green accent-3 btn" href="cadastrocurso.php">
+    <i class="material-icons right">add</i>Adicionar</a>
+       
     </div>
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>

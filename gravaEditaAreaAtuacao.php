@@ -5,6 +5,6 @@
     $recnome = $_POST['nome'];
     
 
-    mysqli_query($conexao, "update area set NameArea ='$recnome' where IdArea='$recid'");
+    mysqli_query($conexao, "UPDATE area set NameArea ='$recnome' where IdArea='$recid'");
     header("location:listagemAreaAtuacao.php");
 ?>

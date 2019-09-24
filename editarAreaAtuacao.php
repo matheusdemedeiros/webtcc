@@ -23,7 +23,7 @@
 
             <fieldset class="container">
                 <h5>Edição Área Atuação</h5>
-                <input type="hidden" name="fid" value="<?=$campo[" IdArea"]?>">
+                <input type="hidden" name="fid" value="<?=$campo["IdArea"]?>">
 
                 <div class="row">
                     <div class="input-field col s12">

@@ -42,6 +42,10 @@
         </form>
 
     </div>
+    <div class="container">
+        <a  class="waves-effect  green accent-3 btn" href="cadastroprofessortcc.php">
+    <i class="material-icons right">add</i>Adicionar</a>
+    </div>
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
@@ -66,11 +70,7 @@
                 <strong>Excluir</strong>
             </td>
         </tr>
-<div class="container">
-        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-        <a class = "material-icons" href="cadastroprofessortcc.php" style="color: #ffffff">add</a>
-        </button>
-    </div>
+    
         <?php
 include("conecta.php");
             

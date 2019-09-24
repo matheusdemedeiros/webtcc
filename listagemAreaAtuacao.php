@@ -35,9 +35,9 @@
     </div>
 
     <div class="container">
-        <button class= "btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar">
-        <a class = "material-icons" href="cadastroAreaAtuacao.php" style="color: #ffffff">add</a>
-        </button>
+     
+        <a  class="waves-effect  green accent-3 btn" href="cadastroAreaAtuacao.php"><i class="material-icons right">add</i>Adicionar</a>
+      
     </div>
 
 
