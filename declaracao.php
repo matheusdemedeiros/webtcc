@@ -20,7 +20,7 @@
 		?>
 
     
- <div class="container" alingn="center">
+ <div class="container">
 <?php
 include("conecta.php");
 $id_tcc=$_GET['id'];
@@ -133,20 +133,41 @@ while ($formulario = mysqli_fetch_array($dados)){?>
              $professortcc=mysqli_fetch_array($dadosProfessorTCC);
             ?>
           
-       <div class="container" alingn="center">
-       
+       <div>
+      
        <fieldset>
-       <img src="img/Capturar.png">
-            <h5>
-                Declaração
-            </h5>
+       <div class="row">
+            <div class="input-field col s12">
+           
+            </div>
+        </div>
+       <div class="row">
+            <div class="input-field col s12">
+            <img src="img/Capturar.png">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <h5>
+                   <strong>
+                   Declaração
+                   </strong>
+                </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
             <p>Declaramos que <strong><?=$orientador?></strong>, Professor do Ensino
                 Básico, Técnico e Tecnológico, Matrícula SIAPE nº <strong><?=$aux["siapei"]?></strong>,
                 orientou Projeto Integrador no curso
                 de Técnico em Informática, modalidade concomitante, 
                 ofertado no Câmpus Lages (SC), conforme
                 informações abaixo.</p>
+            </div>
+        </div>
            
+    <div class="row">
+        <div class="input-field col s12">
            <p>
            Título do Trabalho de Conclusão: <strong><?=$formulario["titulo"]?></strong>
            </p>
@@ -208,7 +229,14 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                 até <?=$mesFim?> de <?=$anoFim?>
                 </strong>
             </p> 
-           <p>Lages(SC), <?=$dia?> de <?= $meses[date('m')]?> de <?=$ano?></p>
+        </div>
+    </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <p class="centro">Lages(SC), <?=$dia?> de <?= $meses[date('m')]?> de <?=$ano?></p>
+                </div>
+            </div>
+          
 
            <div class ="row">
                 <div class="input-field col s6">
@@ -220,8 +248,14 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                     de Conclusão de Curso <br>Matrícula SIAPE nº <?=$professortcc["siape"]?>.</p>
                 </div>
            </div>
-           
+           <div class="row">
+                <div class="input-field col s12">
+               
+                </div>
+           </div>
        </fieldset>
+      
+      
      
       </div>
         <?php } ?>
@@ -322,21 +356,42 @@ while ($formulario = mysqli_fetch_array($dados)){?>
              $professortcc=mysqli_fetch_array($dadosProfessorTCC);
             ?>
           
-       <div class="container" alingn="center">
+       <div>
        
        <fieldset>
-       <img src="img/Capturar.png">
+       <div class="row">
+            <div class="input-field col s12">
+           
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+            <img src="img/Capturar.png">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
             <h5>
-                Declaração
+            <strong>
+                   Declaração
+            </strong>
             </h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
             <p>Declaramos que <strong><?=$co_orientador?></strong>, Professor do Ensino
                 Básico, Técnico e Tecnológico, Matrícula SIAPE nº <strong><?=$aux2["siapei"]?></strong>,
                 orientou Projeto Integrador no curso
                 de Técnico em Informática, modalidade concomitante, 
                 ofertado no Câmpus Lages (SC), conforme
                 informações abaixo.</p>
-           
-           <p>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="input-field col s12">
+            <p>
            Título do Trabalho de Conclusão: <strong><?=$formulario["titulo"]?></strong>
            </p>
            <p>
@@ -398,7 +453,15 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                 até <?=$mesFim?> de <?=$anoFim?>
                 </strong>
             </p> 
-           <p>Lages(SC), <?=$dia?> de <?= $meses[date('m')]?> de <?=$ano?></p>
+            </div>
+        </div>
+    
+           <div class="row">
+                <div class="input-field col s12">
+                <p class="centro">Lages(SC), <?=$dia?> de <?= $meses[date('m')]?> de <?=$ano?></p>
+                </div>
+           </div>
+          
 
            <div class ="row">
                 <div class="input-field col s6">
@@ -410,7 +473,11 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                     de Conclusão de Curso <br>Matrícula SIAPE nº <?=$professortcc["siape"]?>.</p>
                 </div>
            </div>
-           
+           <div class="row">
+                <div class="input-field col s12">
+               
+                </div>
+           </div>
        </fieldset>
      
       </div>
