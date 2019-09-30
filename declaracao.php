@@ -1,33 +1,27 @@
-<!DOCTYPE html>
-
-
+<!DOCTYPE HTML>
 <html>
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-    
-
     <script type="text/jscript" src="script.js"></script>
    
 </head>
 
 <body>
-    <?php 
-		$cabecalho_title = "Formularios de Acompanhamento";
-        include("cabecalho.php"); 
-     
-		?>
+   
 
     
  <div class="container">
 <?php
 include("conecta.php");
-$id_tcc=$_GET['id'];
+// $id_tcc=$_GET['id'];
+ $id_tcc=26;
  //var_dump($id_tcc);
 $dados = mysqli_query($conexao, "SELECT t.Title as titulo,t.StartDate as dataInicio, t.EndDate as
 dataFim FROM termpaper t WHERE  t.IdTermPaper='$id_tcc'");
-
 while ($formulario = mysqli_fetch_array($dados)){?>
     
     <?php
@@ -135,7 +129,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
           
        <div>
       
-       <fieldset>
+     
        <div class="row">
             <div class="input-field col s12">
            
@@ -215,7 +209,6 @@ while ($formulario = mysqli_fetch_array($dados)){?>
             $diaInicio = $partes[0];
             $mesInicio = $partes[1];
             $anoInicio = $partes[2];
-
             $partesFim = explode("/", $dataFim);
             $diaFim = $partesFim[0];
             $mesFim = $partesFim[1];
@@ -253,7 +246,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                
                 </div>
            </div>
-       </fieldset>
+      
       
       
      
@@ -265,10 +258,8 @@ while ($formulario = mysqli_fetch_array($dados)){?>
     <div class="container" alingn="center">
             <?php
                 include("conecta.php");
-
                 $dados = mysqli_query($conexao, "SELECT t.Title as titulo,t.StartDate as dataInicio, t.EndDate as
                 dataFim FROM termpaper t WHERE  t.IdTermPaper='$id_tcc'");
-
             while ($formulario = mysqli_fetch_array($dados)){?>
            <?php
              include("conecta.php");
@@ -358,7 +349,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
           
        <div>
        
-       <fieldset>
+      
        <div class="row">
             <div class="input-field col s12">
            
@@ -439,7 +430,6 @@ while ($formulario = mysqli_fetch_array($dados)){?>
             $diaInicio = $partes[0];
             $mesInicio = $partes[1];
             $anoInicio = $partes[2];
-
             $partesFim = explode("/", $dataFim);
             $diaFim = $partesFim[0];
             $mesFim = $partesFim[1];
@@ -478,13 +468,13 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                
                 </div>
            </div>
-       </fieldset>
+      
      
       </div>
         <?php } ?>
     </div>
    <?php } ?>
 
-    <?php include("rodape.php"); ?>
+  
 </body>
 </html>

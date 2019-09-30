@@ -1,9 +1,16 @@
-<?php
+<?php 
+require __DIR__.'/vendor/autoload.php';
 
-$file_url = $_GET['declaracao.php?id=29'];
-header('Content-Type: application/octet-stream');
-header("Content-Transfer-Encoding: Binary"); 
-header("Content-disposition: attachment; filename=\"Declaração.pdf" . basename($file_url) . "\""); 
-readfile($file_url);
+use Spipu\Html2Pdf\Html2Pdf;
+use Spipu\Html2Pdf\Exception\Html2PdfException;
+use Spipu\Html2Pdf\Exception\ExceptionFormatter;
 
+ob_start();
+include dirname(__FILE__).'/declaracao.php';
+$content = ob_get_clean();
+$html2pdf = new Html2Pdf('P', 'A4', 'fr');
+
+$html2pdf->writeHTML($content);
+$html2pdf->output('declaracaoteste.pdf');
+$html2pdf->clean();
 ?>
