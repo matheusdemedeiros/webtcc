@@ -9,14 +9,50 @@ class ComposerStaticInit176acfd78cef105debf18797c16e2360
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Symfony\\Component\\Process\\' => 26,
             'Spipu\\Html2Pdf\\' => 15,
+        ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+            'Pdfbox\\' => 7,
+        ),
+        'I' => 
+        array (
+            'ImalH\\PDFLib\\' => 13,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Component\\Process\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/process',
+        ),
         'Spipu\\Html2Pdf\\' => 
         array (
             0 => __DIR__ . '/..' . '/spipu/html2pdf/src',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Pdfbox\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-pdfbox/php-pdfbox/src',
+        ),
+        'ImalH\\PDFLib\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/imal-h/pdf-box/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'SGH\\PdfBox' => 
+            array (
+                0 => __DIR__ . '/..' . '/sgh/pdfbox/src',
+            ),
         ),
     );
 
@@ -42,6 +78,7 @@ class ComposerStaticInit176acfd78cef105debf18797c16e2360
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit176acfd78cef105debf18797c16e2360::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit176acfd78cef105debf18797c16e2360::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit176acfd78cef105debf18797c16e2360::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit176acfd78cef105debf18797c16e2360::$classMap;
 
         }, null, ClassLoader::class);

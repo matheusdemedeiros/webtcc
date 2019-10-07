@@ -17,8 +17,8 @@
  <div class="container">
 <?php
 include("conecta.php");
-// $id_tcc=$_GET['id'];
- $id_tcc=26;
+$id_tcc=$_GET['id'];
+//  $id_tcc=26;
  //var_dump($id_tcc);
 $dados = mysqli_query($conexao, "SELECT t.Title as titulo,t.StartDate as dataInicio, t.EndDate as
 dataFim FROM termpaper t WHERE  t.IdTermPaper='$id_tcc'");
@@ -151,10 +151,11 @@ while ($formulario = mysqli_fetch_array($dados)){?>
         </div>
         <div class="row">
             <div class="input-field col s12">
-            <p>Declaramos que <strong><?=$orientador?></strong>, Professor do Ensino
-                Básico, Técnico e Tecnológico, Matrícula SIAPE nº <strong><?=$aux["siapei"]?></strong>,
-                orientou Projeto Integrador no curso
-                de Técnico em Informática, modalidade concomitante, 
+            <p>Declaramos que <strong><?=$orientador?></strong>, 
+                Professor do Ensino
+                Básico, Técnico e Tecnológico, Matrícula 
+                SIAPE nº <strong><?=$aux["siapei"]?></strong>,
+                orientou <?=$formulario["titulo"]?> no curso de <?=$coordenador["curso"]?>,
                 ofertado no Câmpus Lages (SC), conforme
                 informações abaixo.</p>
             </div>
@@ -372,9 +373,8 @@ while ($formulario = mysqli_fetch_array($dados)){?>
         <div class="row">
             <div class="input-field col s12">
             <p>Declaramos que <strong><?=$co_orientador?></strong>, Professor do Ensino
-                Básico, Técnico e Tecnológico, Matrícula SIAPE nº <strong><?=$aux2["siapei"]?></strong>,
-                orientou Projeto Integrador no curso
-                de Técnico em Informática, modalidade concomitante, 
+                Básico, Técnico e Tecnológico, Matrícula SIAPE nº <strong><?=$aux2["siapei"]?></strong>
+                orientou <?=$formulario["titulo"]?> no curso de <?=$coordenador["curso"]?>, 
                 ofertado no Câmpus Lages (SC), conforme
                 informações abaixo.</p>
             </div>

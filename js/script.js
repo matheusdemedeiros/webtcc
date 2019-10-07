@@ -7,6 +7,7 @@ function excluirAluno(recid) {
 }
 
 function excluirArea(recid) {
+  
     if (confirm("Tem certeza de que deseja excluir permanentemente este cadastro?")) {
         window.location = "excluirAreaAtuacao.php?idexc=" + recid;
         alert("Cadastro excluido com sucesso!");
@@ -43,4 +44,5 @@ function excluirFormularioAcompanhamento(recid) {
         window.location="excluirFormularioAcompanhamento.php?idexc=" + recid;
         alert("Excluído com sucesso!");
     }
+    
 }
