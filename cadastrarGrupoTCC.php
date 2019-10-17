@@ -9,7 +9,10 @@
 <body>
     <?php 
 		$cabecalho_title = "Cadastro de Grupo de TCC";
-		include("cabecalho.php"); 
+        include("cabecalho.php");
+        session_start(); 
+        $id_user = $_SESSION['name_session']; 
+       
 		?>
     <div class="container">
         <form name="formuser" action="inserirGrupoTCC.php" class="col s12" method="post">
@@ -40,7 +43,8 @@
                             <option value="" disabled selected>Área do TCC</option>
                             <?php
                                 include("conecta.php");
-                                $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea"); 
+                                $dados = mysqli_query($conexao, "SELECT * 
+                                FROM area ORDER BY NameArea"); 
                                 while ($area = mysqli_fetch_array($dados)){    
                             ?>
                             <option value="<?=$area["IdArea"]?>">
@@ -58,12 +62,17 @@
                             <option value="" disabled selected>Aluno-1</option>
                             <?php
                                 include("conecta.php");
-                                $curso = $_POST['curso'];
+                              
+                                $professor_tcc=mysqli_query($conexao,"SELECT 
+                                CourseId FROM termpaperteacher 
+                                WHERE '$id_user' = UserId");
+                                $curso= mysqli_fetch_array($professor_tcc);
+                                // $curso = $_GET['curso'];
                                 $dados = mysqli_query($conexao, "SELECT * FROM student
                                 INNER JOIN course
                                 WHERE CourseId=IdCourse
-                                AND CourseId='$curso'
-                                ORDER BY NameCourse"); 
+                                AND CourseId='$curso[CourseId]'
+                                AND IdCourse='$curso[CourseId]'"); 
                                 while ($aluno = mysqli_fetch_array($dados)){    
                             ?>
                             <option value="<?=$aluno["IdStudent"]?>">
@@ -79,12 +88,18 @@
                             <option value="" disabled selected>Aluno-2</option>
                             <?php
                                 include("conecta.php");
-                                $curso = $_POST['curso'];
+                               
+                                $professor_tcc=mysqli_query($conexao,"SELECT CourseId 
+                                FROM termpaperteacher 
+                                WHERE '$id_user' = UserId");
+                                $curso= mysqli_fetch_array($professor_tcc);
+                                // $curso = $_GET['curso'];
+                                
                                 $dados = mysqli_query($conexao, "SELECT * FROM student
                                 INNER JOIN course
                                 WHERE CourseId=IdCourse
-                                AND CourseId='$curso'
-                                ORDER BY NameCourse"); 
+                                AND CourseId='$curso[CourseId]'
+                                AND IdCourse='$curso[CourseId]'"); 
                                 while ($aluno = mysqli_fetch_array($dados)){    
                             ?>
                             <option value="<?=$aluno["IdStudent"]?>">
@@ -119,7 +134,8 @@
                             <option value="" disabled selected>Co-Orientador</option>
                             <?php
                                 include("conecta.php");
-                                $dados = mysqli_query($conexao, "SELECT * FROM advisor ORDER BY NameAdvisor"); 
+                                $dados = mysqli_query($conexao, "SELECT * FROM advisor 
+                                ORDER BY NameAdvisor"); 
                                 while ($coorientador = mysqli_fetch_array($dados)){    
                             ?>
                             <option value="<?=$coorientador["IdAdvisor"]?>">
@@ -142,6 +158,7 @@
             </fieldset>
         </form>
     </div>
+   
     <?php include("rodape.php"); ?>
 </body>
 

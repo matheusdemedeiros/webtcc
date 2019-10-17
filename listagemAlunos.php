@@ -25,7 +25,9 @@
 <body>
     <?php 
 		$cabecalho_title = "Alunos";
-		include("cabecalho.php"); 
+        include("cabecalho.php"); 
+        session_start();
+        $id_user = $_SESSION['name_session'];
 		?>
 
     <div class="container">
@@ -76,9 +78,17 @@
 
         <?php
 include("conecta.php");
-            
+
+$professor_tcc=mysqli_query($conexao,"SELECT CourseId 
+FROM termpaperteacher 
+WHERE '$id_user' = UserId");
+$curso= mysqli_fetch_array($professor_tcc);
+
 $dados = mysqli_query($conexao, "SELECT * FROM student INNER JOIN 
-course WHERE CourseId=IdCourse
+course INNER JOIN users WHERE 
+CourseId=IdCourse 
+AND IdUser=UserId 
+AND '$curso[CourseId]'=CourseId
 ORDER BY NameStudent");
 while ($aluno = mysqli_fetch_array($dados)){?>
 

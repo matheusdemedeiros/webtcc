@@ -9,7 +9,11 @@
     $reccurso =$_POST['curso'];
 
     mysqli_query($conexao, "update student set NameStudent='$recnome',
-    Registration='$recmatricula', Email='$recemail', 
-    Password='$recsenha',CourseId='$reccurso' where IdStudent='$recid'");
+    Registration='$recmatricula',CourseId='$reccurso' where IdStudent='$recid'");
+    
+    $id=mysqli_query($conexao,"Select * from student where IdStudent='$recid'");
+    $id_user=mysqli_fetch_array($id);
+    mysqli_query($conexao,"update users 
+    set Email='$recemail',Password='$recsenha' where IdUser='$id_user[UserId]'");
     header("location:listagemAlunos.php");
 ?>

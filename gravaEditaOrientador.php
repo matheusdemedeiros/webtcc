@@ -12,7 +12,13 @@
 
     mysqli_query($conexao, "update advisor set NameAdvisor ='$recnome', 
     OccupationArea='$recarea_atuacao',
-    Email='$recemail', Password='$recsenha',Siapei='$matricula'
+    Siapei='$matricula'
     where IdAdvisor='$recid'");
+
+    $id=mysqli_query($conexao,"Select * from advisor where IdAdvisor='$recid'");
+    $id_user=mysqli_fetch_array($id);
+    mysqli_query($conexao,"update users 
+    set Email='$recemail',Password='$recsenha' where IdUser='$id_user[UserId]'");
+
     header("location:listagemOrientadores.php");
 ?>

@@ -8,5 +8,5 @@
     mysqli_query($conexao, "DELETE FROM studenttermpaper WHERE TermPaperId = '$recid'");
     mysqli_query($conexao, "DELETE FROM termpaper WHERE IdTermPaper = '$recid'");
    
-    header("location:listagemTCC.php");
+    header("location:listagemTCCOrientador.php");
 ?>

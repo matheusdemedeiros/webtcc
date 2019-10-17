@@ -3,18 +3,15 @@
 <body>
     <?php 
 		$cabecalho_title = "Lista do TCC";
-		include("cabecalho.php"); 
+		include("cabecalhoOrientador.php"); 
         session_start();    
         $id_user = $_SESSION['name_session'];
+       
+       
 	?>
 
-    <div>
-    <a  class="waves-effect  green accent-3 btn" href="cadastrarGrupoTCC.php?curso=<?=$id_user?>">
-    <i class="material-icons right">add</i>Adicionar</a>
-       
-    </div>
-<div>
-    <table width="100%"  borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
+
+    <table  width="100%"  borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
  
         <tr>
             <td>
@@ -46,18 +43,24 @@
 
             <td width="10">
  
-                <strong>Alterar</strong>
+                <Strong>Alterar</Strong>
  
             </td>
  
             <td Width="10">
+ 
                 <strong>Excluir</strong>
+ 
             </td>
             <td>
+ 
                 <strong>Registro da Reunião</strong>
+
             </td>
             <td>
+ 
                 <strong>Ver Registros</strong>
+
             </td>
             <td>
                 <strong> Gerar Declaração</strong>
@@ -68,24 +71,16 @@
         <?php
             
             include("conecta.php");
-            $professor_tcc=mysqli_query($conexao,"SELECT CourseId FROM termpaperteacher 
-            WHERE '$id_user' = UserId");
-            $curso_do_professor_tcc= mysqli_fetch_array($professor_tcc);
-            $dados = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, t.Title 
-            as titulo FROM termpaper t
-            INNER JOIN student s
-            INNER JOIN users u
-            INNER JOIN course c
-            INNER JOIN termpaperteacher tpt
-            INNER JOIN studenttermpaper stp
-            WHERE t.IdTermPaper=stp.TermPaperId
-            AND stp.StudentId=s.IdStudent
-            AND s.CourseId='$curso_do_professor_tcc[CourseId]'
-            AND '$curso_do_professor_tcc[CourseId]'=c.IdCourse
-            GROUP BY titulo");
+            $dados = mysqli_query($conexao, "SELECT t.IdTermPaper as id_tcc, 
+            t.Title as titulo FROM termpaper t INNER JOIN student s INNER JOIN 
+            advisortermpaper atp INNER JOIN advisor a INNER JOIN studenttermpaper 
+            stp INNER JOIN users u WHERE t.IdTermPaper=atp.TermPaperId AND 
+            a.IdAdvisor=atp.AdvisorId AND stp.TermPaperId=t.IdTermpaper 
+            AND a.UserId=u.IdUser AND u.IdUser='$id_user' 
+            AND s.IdStudent=stp.StudentId GROUP BY titulo");
             
             while ($termPaper = mysqli_fetch_array($dados)){
-              
+            
 
             ?>
             <?php
@@ -186,14 +181,15 @@
            <td>
           <?=$co_orientador?>
             </td>
-            <td alingn="center"><a href="editarTCC.php?editaid=<?=$termPaper['id_tcc']?>"> 
+            <td alingn="center"><a href="editarTCCOrientador.php?editaid=<?=$termPaper['id_tcc']?>">
             <i class="material-icons" style="color: #00e676">edit</i></a></td>
             
-            <td alingn="center"><a href="#" onclick="excluirTCC(<?=$termPaper['id_tcc']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+            <td alingn="center"><a href="#" onclick="excluirTCCOrientador(<?=$termPaper['id_tcc']?>)">
+            <i class="material-icons" style="color: #00e676">delete</i></a></td>
            
-           <td alingn="center"><a href="formularioAcompanhamento.php?formid=<?=$termPaper['id_tcc']?>">
+           <td alingn="center"><a href="formularioAcompanhamentoOrientador.php?formid=<?=$termPaper['id_tcc']?>">
            <i class="material-icons" style="color: #00e676">library_books</i></a></td>
-           <td alingn="center"><a href="listagemFormulariosAcompanhamento.php?id=<?=$termPaper['id_tcc']?>">
+           <td alingn="center"><a href="listagemFormulariosAcompanhamentoOrientador.php?id=<?=$termPaper['id_tcc']?>">
            <i class="material-icons" style="color: #00e676">list</i></a></td>
            <td alingn="center"><a href="declaracao.php?id=<?=$termPaper['id_tcc']?>">
            <i class="material-icons" style="color: #00e676">assignment</i></a></td>
@@ -206,7 +202,6 @@
         ?>
 
     </table>
-    </div>
     <?php
         
         include("rodape.php");

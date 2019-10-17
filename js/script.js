@@ -38,6 +38,18 @@ function excluirTCC(recid) {
         alert("Excluído com sucesso!");
     }
 }
+function excluirTCCAluno(recid) {
+    if (confirm("Tem certeza de que deseja excluir permanentemente este cadastro?")) {
+        window.location="excluirTCCAluno.php?idexc=" + recid;
+        alert("Excluído com sucesso!");
+    }
+}
+function excluirTCCOrientador(recid) {
+    if (confirm("Tem certeza de que deseja excluir permanentemente este cadastro?")) {
+        window.location="excluirTCCOrientador.php?idexc=" + recid;
+        alert("Excluído com sucesso!");
+    }
+}
 
 function excluirFormularioAcompanhamento(recid) {
     if (confirm("Tem certeza de que deseja excluir permanentemente este fromulario?")) {
@@ -45,4 +57,16 @@ function excluirFormularioAcompanhamento(recid) {
         alert("Excluído com sucesso!");
     }
     
+}
+function excluirFormularioAcompanhamentoAluno(recid) {
+    if (confirm("Tem certeza de que deseja excluir permanentemente este fromulario?")) {
+        window.location="excluirFormularioAcompanhamentoAluno.php?idexc=" + recid;
+        alert("Excluído com sucesso!");
+    }
+}
+function excluirFormularioAcompanhamentoOrientador(recid) {
+    if (confirm("Tem certeza de que deseja excluir permanentemente este fromulario?")) {
+        window.location="excluirFormularioAcompanhamentoOrientador.php?idexc=" + recid;
+        alert("Excluído com sucesso!");
+    }
 }

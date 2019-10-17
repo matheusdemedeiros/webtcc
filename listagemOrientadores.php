@@ -108,8 +108,9 @@
         <?php
             
             include("conecta.php");
-            $dados = mysqli_query($conexao, "SELECT * FROM advisor INNER JOIN  area 
-            WHERE OccupationArea=IdArea
+            $dados = mysqli_query($conexao, "SELECT * FROM advisor INNER JOIN  area
+            INNER JOIN users 
+            WHERE OccupationArea=IdArea AND IdUser=UserId
             ORDER BY NameAdvisor");
             while ($advisor = mysqli_fetch_array($dados)){
                 

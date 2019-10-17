@@ -10,7 +10,7 @@
 <body>
     <?php 
 		$cabecalho_title = "Página Inicial";
-		include("cabecalho.php"); 
+		include("cabecalhoIndex.php"); 
 		?>
     <div class="container">
 
@@ -19,13 +19,13 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="email" name="email" value="" class="validate" autofocus required />
-                        <label for="login">Email</label>
+                        <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="password" name="password" value="" class="validate" autofocus required />
-                        <label for="senha">Senha</label>
+                        <label for="password">Senha</label>
                     </div>
                 </div>
                 <div class="row">

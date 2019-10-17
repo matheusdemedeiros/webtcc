@@ -37,7 +37,8 @@
 		include("cabecalho.php");
         include("conecta.php");
         $recid = $_GET['editaid'];
-        $seleciona = mysqli_query($conexao, "SELECT * FROM advisor WHERE IdAdvisor = '$recid'");
+        $seleciona = mysqli_query($conexao, "SELECT * FROM advisor INNER JOIN
+        users WHERE IdAdvisor = '$recid' AND IdUser=UserId");
         $campo = mysqli_fetch_array($seleciona);
 		?>
     <div class="container">
@@ -71,7 +72,7 @@
                 <div class="row">
                     <div class="input-field col s12">
 
-                        <select id="area_atuacao" name="area_atuacao" class="browser-default">
+                        <select id="area_atuacao" name="area_atuacao" class="browser-default" autofocus required>
 
                                 <option value="" disabled selected>Área de Atuação</option>
 

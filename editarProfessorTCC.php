@@ -36,7 +36,9 @@
 		include("cabecalho.php");
         include("conecta.php");
         $recid = $_GET['editaid'];
-        $seleciona = mysqli_query($conexao, "SELECT * FROM termpaperteacher WHERE IdTermPaperTeacher = '$recid'");
+        $seleciona = mysqli_query($conexao, "SELECT * FROM termpaperteacher INNER JOIN
+        users
+        WHERE IdTermPaperTeacher = '$recid' AND IdUser=UserId");
         $campo = mysqli_fetch_array($seleciona);
 		?>
     <div class="container">
@@ -61,7 +63,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <select id="curso" name="curso" class="browser-default">
+                        <select id="curso" name="curso" class="browser-default" autofocus required>
                             <option value="" disabled selected>Curso</option>
                             <?php
                                 include("conecta.php");

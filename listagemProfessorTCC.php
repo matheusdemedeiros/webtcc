@@ -74,8 +74,9 @@
         <?php
 include("conecta.php");
             
-$dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher 
-INNER JOIN  course WHERE CourseId=IdCourse  ORDER BY NameTermPaperTeacher");
+$dados = mysqli_query($conexao, "SELECT * FROM termpaperteacher INNER JOIN
+users
+INNER JOIN  course WHERE CourseId=IdCourse AND UserId=IdUser  ORDER BY NameTermPaperTeacher");
 while ($teacher = mysqli_fetch_array($dados)){?>
 
         <tr>

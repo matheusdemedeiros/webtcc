@@ -6,10 +6,16 @@
     $recemail = $_POST['email'];
     $recsenha = $_POST['password'];
     $matricula=$_POST["matricula"];
+    $curso=$_POST["curso"];
 
     mysqli_query($conexao, "update termpaperteacher set 
-    NameTermPaperTeacher='$recnome',Email='$recemail', 
-    Password='$recsenha',
-    Siape='$matricula' where IdTermPaperTeacher='$recid'");
+    NameTermPaperTeacher='$recnome',
+    Siape='$matricula',CourseId='$curso' where IdTermPaperTeacher='$recid'");
+
+    $id=mysqli_query($conexao,"Select * from termpaperteacher where IdTermPaperTeacher='$recid'");
+    $id_user=mysqli_fetch_array($id);
+    mysqli_query($conexao,"update users 
+    set Email='$recemail',Password='$recsenha' where IdUser='$id_user[UserId]'");
+
     header("location:listagemProfessorTCC.php");
 ?>
