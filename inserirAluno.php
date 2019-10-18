@@ -9,8 +9,12 @@ $matricula = $_POST['registration'];
 $senha = $_POST['password'];
 $curso = $_POST['curso'];
 $tipo_usuario="Student";
-mysqli_query($conexao,"insert into users(Email,Password, TypeUsers) values ('$email','$senha','$tipo_usuario')");
-$id=mysqli_query($conexao,"Select * from users where Email='$email' and Password='$senha'");
+
+$options = array("cost"=>4);
+$hashPassword = password_hash($senha,PASSWORD_BCRYPT,$options);
+
+mysqli_query($conexao,"insert into users(Email,Password, TypeUsers) values ('$email','$hashPassword','$tipo_usuario')");
+$id=mysqli_query($conexao,"Select * from users where Email='$email'");
 $id_users=mysqli_fetch_array($id);
 // var_dump($id_users);
 mysqli_query($conexao,"insert into student(NameStudent, Registration ,CourseId,UserId) 
