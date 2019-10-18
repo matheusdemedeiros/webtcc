@@ -3,17 +3,10 @@
 
 <html>
 
-<head>
-    <meta charset="UTF-8">
-   
-    
-
-    <script type="text/jscript" src="script.js"></script>
-   
-</head>
-
 <body>
     <?php 
+     session_start();    
+     $id_user = $_SESSION['name_session'];
 		$cabecalho_title = "Formularios de Acompanhamento";
         include("cabecalhoAluno.php"); 
      
@@ -31,7 +24,7 @@ f.Topic as assuntos, f.MeetingDate as dataReuniao, f.IdFormTermPaper as id
 formtermpaper f WHERE  f.TermPaperId='$id_tcc' AND t.IdTermPaper=f.TermPaperId ORDER BY dataReuniao");
 
 while ($formulario = mysqli_fetch_array($dados)){?>
-    
+    var_dump(<?=$formulario['id']?>);
     <?php
              include("conecta.php");
              $idAtual=$id_tcc;
@@ -148,9 +141,12 @@ while ($formulario = mysqli_fetch_array($dados)){?>
             </p>
             <div class="container">
                 <a class="waves-effect  green accent-3 btn"  
-                href="editarFormularioAcompanhamentoAluno.php?editaid=<?=$formulario['id']?>"><i class="material-icons right">edit</i>Editar</a>
+                href="editarFormularioAcompanhamentoAluno.php?editaid=<?=$formulario['id']?>">
+                <i class="material-icons right">edit</i>Editar</a>
+
                 <a class="waves-effect  green accent-3 btn" 
-                onclick="excluirFormularioAcompanhamentoAluno(<?=$formulario['id']?>)"><i class="material-icons right">delete</i>Excluir</a>
+                onclick="excluirFormularioAcompanhamentoAluno(<?=$formulario['id']?>)">
+                <i class="material-icons right">delete</i>Excluir</a>
             </div>
             
           

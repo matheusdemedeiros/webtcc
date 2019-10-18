@@ -149,8 +149,10 @@ while ($formulario = mysqli_fetch_array($dados)){?>
             <div class="container">
                 <a class="waves-effect  green accent-3 btn"  
                 href="editarFormularioAcompanhamento.php?editaid=<?=$formulario['id']?>"><i class="material-icons right">edit</i>Editar</a>
-                <a class="waves-effect  green accent-3 btn" 
-                onclick="excluirFormularioAcompanhamento(<?=$formulario['id']?>)"><i class="material-icons right">delete</i>Excluir</a>
+                
+                <a class="waves-effect  green accent-3 btn"
+                onclick="excluirFormularioAcompanhamento(<?=$formulario['id']?>)">
+                <i class="material-icons right">delete</i>Excluir</a>
             </div>
             
           
