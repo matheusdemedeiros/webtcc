@@ -29,7 +29,7 @@
           
             // echo "teste";
                if($senha_confirmada==1) {
-                $dados2=mysqli_fetch_array($result_sql);
+                $dados2=mysqli_fetch_array($result_sql2);
                   echo $senha_confirmada;
                   var_dump($hashPassword['TypeUsers']);
                   var_dump($dados2['TypeUsers']);

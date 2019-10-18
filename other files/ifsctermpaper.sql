@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Set-2019 às 16:36
+-- Tempo de geração: 18-Out-2019 às 15:48
 -- Versão do servidor: 10.3.15-MariaDB
 -- versão do PHP: 7.3.6
 
@@ -32,19 +32,18 @@ CREATE TABLE `advisor` (
   `IdAdvisor` int(11) NOT NULL,
   `NameAdvisor` varchar(50) NOT NULL,
   `OccupationArea` int(11) DEFAULT NULL,
-  `Email` varchar(50) DEFAULT NULL,
-  `Password` varchar(50) DEFAULT NULL,
-  `Siapei` int(11) DEFAULT NULL
+  `Siapei` int(11) DEFAULT NULL,
+  `UserId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `advisor`
 --
 
-INSERT INTO `advisor` (`IdAdvisor`, `NameAdvisor`, `OccupationArea`, `Email`, `Password`, `Siapei`) VALUES
-(4, 'Alexandre Perin', 7, 'alexandre@ifsc.com', 'asdasd', 131414141),
-(8, 'AndrÃ©', 7, 'fwfw2@fa.com', 'asdasd', 131414141),
-(9, 'Robson', 7, 'robson.costa@ifsc.edu.br', 'asdasd', 131414141);
+INSERT INTO `advisor` (`IdAdvisor`, `NameAdvisor`, `OccupationArea`, `Siapei`, `UserId`) VALUES
+(4, 'Alexandre Perin', 5, 131414141, 9),
+(8, 'Robson', 7, 131414141, 10),
+(9, 'Andre', 10, 54545335, 11);
 
 -- --------------------------------------------------------
 
@@ -63,13 +62,12 @@ CREATE TABLE `advisortermpaper` (
 --
 
 INSERT INTO `advisortermpaper` (`AdvisorID`, `TermPaperId`, `AdvisorType`) VALUES
-(8, 26, 'Advisor'),
-(9, 26, 'CoAdvisor'),
-(9, 21, 'Advisor'),
-(4, 21, 'CoAdvisor'),
 (9, 28, 'Advisor'),
-(4, 29, 'Advisor'),
-(8, 30, 'Advisor');
+(4, 31, 'Advisor'),
+(4, 32, 'Advisor'),
+(8, 32, 'CoAdvisor'),
+(9, 26, 'Advisor'),
+(8, 26, 'CoAdvisor');
 
 -- --------------------------------------------------------
 
@@ -88,7 +86,8 @@ CREATE TABLE `area` (
 
 INSERT INTO `area` (`IdArea`, `NameArea`) VALUES
 (5, 'POO'),
-(7, 'IA');
+(7, 'InteligÃªncia Artificial'),
+(10, 'MineraÃ§Ã£o de Dados');
 
 -- --------------------------------------------------------
 
@@ -132,9 +131,8 @@ CREATE TABLE `formtermpaper` (
 --
 
 INSERT INTO `formtermpaper` (`IdFormTermPaper`, `Observation`, `Topic`, `TermPaperId`, `MeetingDate`) VALUES
-(3, '                        ObsrvaÃ§Ãµes 1', 'Assuntos 1', 21, '2019-09-23'),
-(6, 'Teste ', 'Teste', 26, '2019-09-04'),
-(8, 'Teste', 'Teste', 28, '2019-09-17');
+(10, 'jbwui', 'DNJAan', 26, '2019-10-31'),
+(11, 'eye', 'eeye', 26, '2019-10-22');
 
 -- --------------------------------------------------------
 
@@ -158,23 +156,24 @@ CREATE TABLE `student` (
   `IdStudent` int(11) NOT NULL,
   `NameStudent` varchar(50) NOT NULL,
   `Registration` varchar(50) NOT NULL,
-  `Email` varchar(50) DEFAULT NULL,
-  `Password` varchar(50) DEFAULT NULL,
-  `CourseId` int(11) DEFAULT NULL
+  `CourseId` int(11) DEFAULT NULL,
+  `UserId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `student`
 --
 
-INSERT INTO `student` (`IdStudent`, `NameStudent`, `Registration`, `Email`, `Password`, `CourseId`) VALUES
-(13, 'Lucas Chaves de Souza', '161005252', 'lucaschaves2610@gmail.com', 'ASDASD', 2),
-(15, 'Matheus', '1610917432', 'Matheus@gmail.com', 'ASDASD', 2),
-(17, 'paulo costa', '1142151351', 'fwfw2@fa.com', 'asdasd', 2),
-(19, 'Gustavo', '161005252', 'matheus@gmail.com', 'asdasd', 2),
-(20, 'Marcus Perin de souza', '161005258', 'matheus@gmail.com', 'asdasd', 2),
-(21, 'Joao', '161005245', 'joao.paulo@gmail.com', 'asdasd', 2),
-(23, 'Aluno teste', '161005252', 'lucaschaves2610@gmail.com', 'asdasd', 2);
+INSERT INTO `student` (`IdStudent`, `NameStudent`, `Registration`, `CourseId`, `UserId`) VALUES
+(13, 'Lucas Chaves de Souza', '161005252', 2, 1),
+(15, 'Matheus', '1610917432', 2, 2),
+(17, 'paulo costa', '1142151351', 2, 3),
+(19, 'Gustavo', '161005252', 2, 6),
+(20, 'Marcus Perin de souza', '161005258', 2, 4),
+(21, 'Joao', '161005245', 2, 5),
+(31, 'Maria magarÃ£es', '15151361361', 9, 25),
+(32, 'Joe', '15125161', 6, 26),
+(33, 'Aluno para teste', '3515681961', 2, 27);
 
 -- --------------------------------------------------------
 
@@ -193,16 +192,12 @@ CREATE TABLE `studenttermpaper` (
 --
 
 INSERT INTO `studenttermpaper` (`TermPaperId`, `StudentId`, `StudentType`) VALUES
-(21, 15, 'FirstStudent'),
-(21, 19, 'SecondStudent'),
-(26, 13, 'FirstStudent'),
-(26, 21, 'SecondStudent'),
 (27, 17, 'FirstStudent'),
-(27, 23, 'SecondStudent'),
-(27, 23, 'FirstStudent'),
 (28, 20, 'FirstStudent'),
-(29, 23, 'FirstStudent'),
-(30, 17, 'FirstStudent');
+(31, 31, 'FirstStudent'),
+(32, 32, 'FirstStudent'),
+(26, 21, 'FirstStudent'),
+(26, 13, 'SecondStudent');
 
 -- --------------------------------------------------------
 
@@ -224,11 +219,10 @@ CREATE TABLE `termpaper` (
 --
 
 INSERT INTO `termpaper` (`IdTermPaper`, `StartDate`, `EndDate`, `AreaId`, `Summary`, `Title`) VALUES
-(21, '2019-09-01', '2019-09-02', 7, 'resumo-1', 'titulo1'),
-(26, '2019-09-05', '2019-09-14', 7, 'Resumo Teste', 'Agricultura'),
+(26, '2019-09-05', '2019-09-14', 7, 'Resumo Teste-1', 'Agricultura-2'),
 (28, '2019-09-01', '2019-09-26', 7, 'Teste2', 'bibib'),
-(29, '2019-09-19', '2019-09-05', 7, 'gjwnkkj', 'nwigiow'),
-(30, '2019-02-01', '2019-12-16', 7, 'Teste', 'Testando....');
+(31, '2019-10-01', '2019-12-19', 7, 'Testeadaf hsj', 'Processos QuÃ­micos'),
+(32, '2019-10-01', '2019-10-17', 10, 'FGQWFGQW8798 DGSIU', 'agfhjWGBJKQW');
 
 -- --------------------------------------------------------
 
@@ -251,20 +245,53 @@ CREATE TABLE `termpaperfiles` (
 CREATE TABLE `termpaperteacher` (
   `IdTermPaperTeacher` int(11) NOT NULL,
   `NameTermPaperTeacher` varchar(50) DEFAULT NULL,
-  `Email` varchar(50) DEFAULT NULL,
-  `Password` varchar(50) DEFAULT NULL,
   `CourseId` int(11) DEFAULT NULL,
-  `Siape` int(11) DEFAULT NULL
+  `Siape` int(11) DEFAULT NULL,
+  `UserId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `termpaperteacher`
 --
 
-INSERT INTO `termpaperteacher` (`IdTermPaperTeacher`, `NameTermPaperTeacher`, `Email`, `Password`, `CourseId`, `Siape`) VALUES
-(6, 'Matheus', 'lucaschaves2610@gmail.com', 'asdfgh', 8, 131414),
-(7, 'asaad', 'lucaschaves2610@gmail.com', 'asdasd', 2, 121212),
-(8, 'Maria', 'Maria@gmail.com', 'dsadsa', 9, 141512);
+INSERT INTO `termpaperteacher` (`IdTermPaperTeacher`, `NameTermPaperTeacher`, `CourseId`, `Siape`, `UserId`) VALUES
+(6, 'Perin', 2, 131414, 12),
+(7, 'Vilson', 6, 121212, 13),
+(8, 'Castello', 9, 141512, 14);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `IdUser` int(11) NOT NULL,
+  `Email` varchar(50) DEFAULT NULL,
+  `Password` varchar(255) DEFAULT NULL,
+  `TypeUsers` enum('TermPaperTeacher','Advisor','Student') DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`IdUser`, `Email`, `Password`, `TypeUsers`) VALUES
+(1, 'lucaschaves2610@gmail.com', 'ASDASD', 'Student'),
+(2, 'matheus@gmail.com', 'DSADSA', 'Student'),
+(3, 'paulocosta@gmail.com', 'qweqwe', 'Student'),
+(4, 'marcusgmail.com', 'ASDASD', 'Student'),
+(5, 'joao@ifsc.com', 'ASDASD', 'Student'),
+(6, 'gustavo@gmail.com', 'ASDASD', 'Student'),
+(9, 'alexandre.perin@gmail.com', 'poiuyt', 'Advisor'),
+(10, 'robson.costa@gmail.com', 'robson', 'Advisor'),
+(11, 'andre@gmail.com', 'kykyky', 'Advisor'),
+(12, 'alexandre.perin@ifsc.com', 'pmpmpm', 'TermPaperTeacher'),
+(13, 'vilson.heck@ifsc.com', 'vilson', 'TermPaperTeacher'),
+(14, 'wilson.casttelo@ifsc.com', 'wilson', 'TermPaperTeacher'),
+(25, 'maria.magaraes@gmail.com', 'mariam', 'Student'),
+(26, 'joe@gmail.com', 'joejoe', 'Student'),
+(27, 'aluno.teste@gmail.com', '$2y$04$f8aCw1kPMNeJwSEvyuFtZOds1OR1/DSAXrALLPiRU/mxKAVflA/Lu', 'Student');
 
 --
 -- Índices para tabelas despejadas
@@ -275,7 +302,8 @@ INSERT INTO `termpaperteacher` (`IdTermPaperTeacher`, `NameTermPaperTeacher`, `E
 --
 ALTER TABLE `advisor`
   ADD PRIMARY KEY (`IdAdvisor`),
-  ADD KEY `OccupationArea` (`OccupationArea`);
+  ADD KEY `OccupationArea` (`OccupationArea`),
+  ADD KEY `UserId` (`UserId`);
 
 --
 -- Índices para tabela `advisortermpaper`
@@ -315,7 +343,8 @@ ALTER TABLE `keyword`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`IdStudent`),
-  ADD KEY `CourseId` (`CourseId`);
+  ADD KEY `CourseId` (`CourseId`),
+  ADD KEY `UserId` (`UserId`);
 
 --
 -- Índices para tabela `termpaper`
@@ -335,7 +364,15 @@ ALTER TABLE `termpaperfiles`
 --
 ALTER TABLE `termpaperteacher`
   ADD PRIMARY KEY (`IdTermPaperTeacher`),
-  ADD KEY `CourseId` (`CourseId`);
+  ADD KEY `CourseId` (`CourseId`),
+  ADD KEY `UserId` (`UserId`);
+
+--
+-- Índices para tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`IdUser`),
+  ADD UNIQUE KEY `Email` (`Email`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -345,13 +382,13 @@ ALTER TABLE `termpaperteacher`
 -- AUTO_INCREMENT de tabela `advisor`
 --
 ALTER TABLE `advisor`
-  MODIFY `IdAdvisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IdAdvisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `area`
 --
 ALTER TABLE `area`
-  MODIFY `IdArea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `IdArea` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `course`
@@ -363,7 +400,7 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT de tabela `formtermpaper`
 --
 ALTER TABLE `formtermpaper`
-  MODIFY `IdFormTermPaper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `IdFormTermPaper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `keyword`
@@ -375,19 +412,25 @@ ALTER TABLE `keyword`
 -- AUTO_INCREMENT de tabela `student`
 --
 ALTER TABLE `student`
-  MODIFY `IdStudent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `IdStudent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `termpaper`
 --
 ALTER TABLE `termpaper`
-  MODIFY `IdTermPaper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `IdTermPaper` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de tabela `termpaperteacher`
 --
 ALTER TABLE `termpaperteacher`
-  MODIFY `IdTermPaperTeacher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `IdTermPaperTeacher` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Restrições para despejos de tabelas
@@ -397,7 +440,8 @@ ALTER TABLE `termpaperteacher`
 -- Limitadores para a tabela `advisor`
 --
 ALTER TABLE `advisor`
-  ADD CONSTRAINT `advisor_ibfk_1` FOREIGN KEY (`OccupationArea`) REFERENCES `area` (`IdArea`);
+  ADD CONSTRAINT `advisor_ibfk_1` FOREIGN KEY (`OccupationArea`) REFERENCES `area` (`IdArea`),
+  ADD CONSTRAINT `advisor_ibfk_2` FOREIGN KEY (`UserId`) REFERENCES `users` (`IdUser`);
 
 --
 -- Limitadores para a tabela `advisortermpaper`
@@ -422,7 +466,8 @@ ALTER TABLE `keyword`
 -- Limitadores para a tabela `student`
 --
 ALTER TABLE `student`
-  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`CourseId`) REFERENCES `course` (`IdCourse`);
+  ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`CourseId`) REFERENCES `course` (`IdCourse`),
+  ADD CONSTRAINT `student_ibfk_2` FOREIGN KEY (`UserId`) REFERENCES `users` (`IdUser`);
 
 --
 -- Limitadores para a tabela `termpaper`
@@ -440,6 +485,7 @@ ALTER TABLE `termpaperfiles`
 -- Limitadores para a tabela `termpaperteacher`
 --
 ALTER TABLE `termpaperteacher`
+  ADD CONSTRAINT `UserId` FOREIGN KEY (`UserId`) REFERENCES `users` (`IdUser`),
   ADD CONSTRAINT `termpaperteacher_ibfk_1` FOREIGN KEY (`CourseId`) REFERENCES `course` (`IdCourse`);
 COMMIT;
 
