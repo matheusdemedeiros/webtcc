@@ -4,31 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina de Cadastro</title>
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
+  
 
-    <script type="text/javascript">
-        function validar() {
-            var senha = formuser.password.value;
-            var confirmarsenha = formuser.password2.value;
-            if (senha == "" || senha.length <= 5) {
-                alert('prencha o campo com no mínimo 6 caracteres');
-                formuser.password.focus();
-                return false;
-            }
-            if (confirmarsenha == "" || confirmarsenha.length <= 5) {
-                alert('prencha o campo com no mínimo 6 caracteres');
-                formuser.password2.focus();
-                return false;
-            }
-
-            if (senha != confirmarsenha) {
-                alert('Senhas diferentes!');
-                formuser.password2.focus();
-                return false;
-            }
-        }
-
-    </script>
+    
 </head>
 
 <body>
@@ -83,20 +61,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="password" id="password" name="password" autofocus required value="<?=$campo["Password"]?>">
-                        <label for="password">Senha</label>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="password" id="password2" name="password2" autofocus required>
-                        <label for="password2">Confirmar Senha</label>
-                    </div>
-                </div>
-                <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
+                <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" />
             </fieldset>
 
         </form>

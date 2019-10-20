@@ -57,11 +57,12 @@
             <td>
             <strong>Curso</strong>
             </td>
-            <td>
-                <strong>Senha</strong>
-            </td>
+            
             <td>
             <strong>Matricula Siape</strong>
+            </td>
+            <td>
+                <strong>Alterar Senha</strong>
             </td>
             <td width="10">
                 <strong>Alterar</strong>
@@ -90,10 +91,10 @@ while ($teacher = mysqli_fetch_array($dados)){?>
             <?=$teacher["NameCourse"]?>
             </td>
             <td>
-                <?=$teacher["Password"]?>
+                <?=$teacher["Siape"]?>
             </td>
             <td>
-                <?=$teacher["Siape"]?>
+             <a href="editarSenhaProfessorTCC.php?editaid=<?=$teacher['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">lock</i></a>
             </td>
             <td alingn="center"><a href="editarProfessorTCC.php?editaid=<?=$teacher['IdTermPaperTeacher']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             <td alingn="center"><a href="#" onclick="excluirProfessorTCC(<?=$teacher['IdTermPaperTeacher']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>

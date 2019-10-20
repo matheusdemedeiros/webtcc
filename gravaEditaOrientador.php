@@ -6,7 +6,7 @@
     $recnome = $_POST['nome'];
     $recemail = $_POST['email'];
     $recarea_atuacao = $_POST['area_atuacao'];
-    $recsenha = $_POST['password'];
+    
     $matricula=$_POST["matricula"];
     
 
@@ -18,7 +18,7 @@
     $id=mysqli_query($conexao,"Select * from advisor where IdAdvisor='$recid'");
     $id_user=mysqli_fetch_array($id);
     mysqli_query($conexao,"update users 
-    set Email='$recemail',Password='$recsenha' where IdUser='$id_user[UserId]'");
+    set Email='$recemail' where IdUser='$id_user[UserId]'");
 
     header("location:listagemOrientadores.php");
 ?>

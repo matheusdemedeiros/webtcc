@@ -10,8 +10,6 @@
         <?php print $cabecalho_title; ?>
     </title>
 
-
-
     <div class="navbar-fixed">
         <nav style="background-color: #00e676">
             <div class="nav-wrapper">
@@ -19,6 +17,7 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="homeAluno.php">Home</a></li>
                     <li><a href="listagemTCCAlunos.php">Gerenciar TCC</a></li>
+                    <li><a href="alterarSenhaAluno.php">Alterar Senha</a></li>
                     <li><a href="logout.php">Sair</a></li>
                 </ul>
             </div>

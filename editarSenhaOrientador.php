@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
+    
 
     <script type="text/javascript">
         function validar() {
@@ -33,8 +33,8 @@
 
 <body>
     <?php 
-		$cabecalho_title = "Editar Orientador";
-		include("cabecalho.php");
+		$cabecalho_title = "Editar Senha Orientador";
+		include("cabecalhoOrientador.php");
         include("conecta.php");
         $recid = $_GET['editaid'];
         $seleciona = mysqli_query($conexao, "SELECT * FROM advisor INNER JOIN
@@ -42,53 +42,26 @@
         $campo = mysqli_fetch_array($seleciona);
 		?>
     <div class="container">
-        <form class="container" name="formuser" action="gravaEditaOrientador.php" method="POST">
+        <form class="container" name="formuser" action="gravaEditaSenhaOrientador.php" method="POST">
 
             <fieldset class="container">
                 <h5>Edição de Orientador</h5>
                 <input type="hidden" name="fid" value="<?=$campo["IdAdvisor"]?>">
 
+
                 <div class="row">
                     <div class="input-field col s12">
-                        <input type="text" id="nome" name="nome" autofocus required value="<?=$campo["NameAdvisor"]?>">
-                        <label for="nome">Nome completo</label>
+                        <input type="password" id="password" name="password" autofocus required>
+                        <label for="password">Senha</label>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="input-field col s12">
-
-                        <input type="email" id="email" name="email" autofocus required value="<?=$campo["Email"]?>">
-                        <label for="email">Email</label>
+                        <input type="password" id="password2" name="password2" autofocus required>
+                        <label for="password2">Confirmar Senha</label>
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input type="number" id="matricula" name="matricula" class="validate" autofocus required value="<?=$campo["Siapei"]?>">
-                        <label for="matricula">Matricula Siapei</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-
-                        <select id="area_atuacao" name="area_atuacao" class="browser-default" autofocus required>
-
-                                <option value="" disabled selected>Área de Atuação</option>
-
-                                    <?php
-                                        include("conecta.php");
-                                        $dados = mysqli_query($conexao, "SELECT * FROM area ORDER BY NameArea");
-                                        while ($area = mysqli_fetch_array($dados)){    
-                                    ?>
-                                    <option value="<?=$area["IdArea"]?>"><?=$area["NameArea"]?></option>       
-                                    <?php } ?>
-                        </select>
-                    </div>
-                </div>
-
-
-               
                 <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" onclick="return validar()" />
             </fieldset>
 

@@ -13,10 +13,10 @@
         ?>
 
 <?php 
-       echo "<script> alert('Erro: e-mail e/ou senha incorretos!!');</script>";
+      echo "<script> alert('Erro: e-mail e/ou senha incorretos!!');</script>";
       echo "<script> window.location='Index.php';</script>";
       
-       //header("Location:Index.php"); 
+       
         ?>
 <?php
     }else{

@@ -80,17 +80,17 @@
  
             </td>
  
-            <td>
- 
-                <strong>Senha</strong>
- 
-            </td>
+           
             <td>
                 <strong>
                 Matrícula Siapei
                 </strong>
             </td>
+            <td>
+ 
+ <strong>Alterar Senha</strong>
 
+</td>
             <td width="10">
  
                 <strong>Alterar</strong>
@@ -142,16 +142,13 @@
             
             </td>
             
-            <td>
-            
-                <?=
-                    $advisor["Password"]
-                ?>
-            
-            </td>
+          
              <td>
              <?=$advisor["Siapei"]?>
              </td>   
+             <td>
+             <a href="editarSenhaOrientador.php?editaid=<?=$advisor['IdAdvisor']?>"> <i class="material-icons" style="color: #00e676">lock</i></a>
+            </td>
             <td alingn="center"><a href="editarOrientador.php?editaid=<?=$advisor['IdAdvisor']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             
             <td alingn="center"><a href="#" onclick="excluirOrientador(<?=$advisor['IdAdvisor']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>

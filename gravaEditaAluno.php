@@ -5,7 +5,7 @@
     $recnome = $_POST['nome'];
     $recmatricula = $_POST['registration'];
     $recemail = $_POST['email'];
-    $recsenha = $_POST['password'];
+    
     $reccurso =$_POST['curso'];
 
     mysqli_query($conexao, "update student set NameStudent='$recnome',
@@ -14,6 +14,6 @@
     $id=mysqli_query($conexao,"Select * from student where IdStudent='$recid'");
     $id_user=mysqli_fetch_array($id);
     mysqli_query($conexao,"update users 
-    set Email='$recemail',Password='$recsenha' where IdUser='$id_user[UserId]'");
+    set Email='$recemail' where IdUser='$id_user[UserId]'");
     header("location:listagemAlunos.php");
 ?>

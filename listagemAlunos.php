@@ -66,7 +66,7 @@
                 <strong>Curso</strong>
             </td>
             <td>
-                <strong>Senha</strong>
+                <strong>Alterar Senha</strong>
             </td>
             <td width="10">
                 <strong>Alterar</strong>
@@ -106,13 +106,9 @@ while ($aluno = mysqli_fetch_array($dados)){?>
             <td>
                 <?=$aluno["NameCourse"]?>
             </td>
-            <td>
-            
-            <?=
-                $aluno["Password"]
-            ?>
-        
-        </td>
+            <td  alingn="center">
+            <a href="editarSenhaAluno.php?editaid=<?=$aluno['IdStudent']?>"> <i class="material-icons" style="color: #00e676">lock</i></a>
+           </td>
 
             <td alingn="center"><a href="editarAluno.php?editaid=<?=$aluno['IdStudent']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             <td alingn="center"><a href="#" onclick="excluirAluno(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
