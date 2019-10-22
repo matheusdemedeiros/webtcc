@@ -73,7 +73,13 @@ while ($area = mysqli_fetch_array($dados)){?>
 
 
     </table>
-    
+    <?php if(isset($_GET['remove'])){
+       if($_GET['remove']== 0){
+        echo "<script>alert('Este registro não pode ser excluida pois está associada a outros registros!');</script>";
+       }else{
+        echo "<script>alert('Cadastro excluido com sucesso!');</script>";
+       }
+       }?>
 
     <?php include("rodape.php"); ?>
 </body>

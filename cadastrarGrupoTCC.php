@@ -67,7 +67,7 @@
                                 CourseId FROM termpaperteacher 
                                 WHERE '$id_user' = UserId");
                                 $curso= mysqli_fetch_array($professor_tcc);
-                                // $curso = $_GET['curso'];
+                             
                                 $dados = mysqli_query($conexao, "SELECT * FROM student
                                 INNER JOIN course
                                 WHERE CourseId=IdCourse
@@ -93,7 +93,7 @@
                                 FROM termpaperteacher 
                                 WHERE '$id_user' = UserId");
                                 $curso= mysqli_fetch_array($professor_tcc);
-                                // $curso = $_GET['curso'];
+                             
                                 
                                 $dados = mysqli_query($conexao, "SELECT * FROM student
                                 INNER JOIN course

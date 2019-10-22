@@ -6,7 +6,15 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit176acfd78cef105debf18797c16e2360
 {
+    public static $files = array (
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        's' => 
+        array (
+            'setasign\\Fpdi\\' => 14,
+        ),
         'S' => 
         array (
             'Symfony\\Component\\Process\\' => 26,
@@ -17,13 +25,25 @@ class ComposerStaticInit176acfd78cef105debf18797c16e2360
             'Psr\\Log\\' => 8,
             'Pdfbox\\' => 7,
         ),
+        'M' => 
+        array (
+            'Mpdf\\' => 5,
+        ),
         'I' => 
         array (
             'ImalH\\PDFLib\\' => 13,
         ),
+        'D' => 
+        array (
+            'DeepCopy\\' => 9,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'setasign\\Fpdi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/setasign/fpdi/src',
+        ),
         'Symfony\\Component\\Process\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
@@ -40,9 +60,17 @@ class ComposerStaticInit176acfd78cef105debf18797c16e2360
         array (
             0 => __DIR__ . '/..' . '/php-pdfbox/php-pdfbox/src',
         ),
+        'Mpdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mpdf/mpdf/src',
+        ),
         'ImalH\\PDFLib\\' => 
         array (
             0 => __DIR__ . '/..' . '/imal-h/pdf-box/src',
+        ),
+        'DeepCopy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
     );
 

@@ -6,9 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'setasign\\Fpdi\\' => array($vendorDir . '/setasign/fpdi/src'),
     'Symfony\\Component\\Process\\' => array($vendorDir . '/symfony/process'),
     'Spipu\\Html2Pdf\\' => array($vendorDir . '/spipu/html2pdf/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
     'Pdfbox\\' => array($vendorDir . '/php-pdfbox/php-pdfbox/src'),
+    'Mpdf\\' => array($vendorDir . '/mpdf/mpdf/src'),
     'ImalH\\PDFLib\\' => array($vendorDir . '/imal-h/pdf-box/src'),
+    'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
 );

@@ -29,7 +29,7 @@
         session_start();
         $id_user = $_SESSION['name_session'];
 		?>
-
+  
     <div class="container">
         <form name="formuser" action="pesquisarNomeAluno.php" method="POST">
             <fieldset>
@@ -117,7 +117,13 @@ while ($aluno = mysqli_fetch_array($dados)){?>
 
 
     </table>
-
+    <?php if(isset($_GET['remove'])){
+       if($_GET['remove']==0){
+        echo "<script>alert('Este registro não pode ser excluida pois está associada a outros registros!');</script>";
+       }else{
+        echo "<script>alert('Registro excluido com sucesso!');</script>";
+       }
+       }?>
     
     <?php include("rodape.php"); ?>
 </body>
