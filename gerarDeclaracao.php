@@ -360,7 +360,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
       }
                     }
       ?>
-      
+
 <?php
 
 require_once __DIR__ . '/vendor/autoload.php';

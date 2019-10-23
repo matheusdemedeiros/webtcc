@@ -64,9 +64,7 @@ include("cabecalhoAluno.php");
                 <strong>Ver Registros</strong>
 
             </td>
-            <td>
-                <strong> Gerar Declaração</strong>
-            </td>
+            
  
         </tr>
 
@@ -198,8 +196,7 @@ include("cabecalhoAluno.php");
            <i class="material-icons" style="color: #00e676">library_books</i></a></td>
            <td alingn="center"><a href="listagemFormulariosAcompanhamentoAluno.php?id=<?=$termPaper['id_tcc']?>">
            <i class="material-icons" style="color: #00e676">list</i></a></td>
-           <td alingn="center"><a href="declaracao.php?id=<?=$termPaper['id_tcc']?>">
-           <i class="material-icons" style="color: #00e676">assignment</i></a></td>
+          
         </tr>
     
         <?php
