@@ -15,7 +15,7 @@
     <div class="navbar-fixed">
         <nav style="background-color: #00e676">
             <div class="nav-wrapper">
-                <!-- <img  src="img/IFSC.png" class="brand-logo"> -->
+                <img  src="img/IFSC.png" class="brand-logo">
                 <ul class="right hide-on-med-and-down">
                     <li><a href="homeOrientador.php">Home</a></li>
                     <li><a href="listagemTCCOrientador.php">Gerenciar TCC</a></li>

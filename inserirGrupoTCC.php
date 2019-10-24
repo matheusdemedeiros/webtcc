@@ -24,11 +24,13 @@
     $aluno_2_conferido=mysqli_fetch_array($confere_aluno_2);
     
      if($aluno_2==null){
-        
+        if($aluno_1_conferido==NULL){
          $primeiro_aluno="FirstStudent";
          mysqli_query($conexao,"INSERT INTO studenttermpaper(StudentId,TermPaperId,StudentType)
          VALUES('$aluno_1','$IdTCC[IdTermPaper]','$primeiro_aluno')");
-        
+        }else{
+            header('Location:cadastrarTCC.php?aluno=0');
+        }
          
      }else {
    

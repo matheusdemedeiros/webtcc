@@ -1,7 +1,11 @@
 header {
     position: relative;
     margin-bottom: 100px;
+    height: 120px;
    
+}
+nav{
+    height: 120px;
 }
 form{
     border-radius: 10px;

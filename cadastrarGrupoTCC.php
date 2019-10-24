@@ -158,7 +158,13 @@
             </fieldset>
         </form>
     </div>
-  
+    <?php if(isset($_GET['aluno'])){
+       if($_GET['aluno']==0){
+        echo "<script>alert('Este registro não pode ser excluida pois está associada a outros registros!');</script>";
+       }else{
+        echo "<script>alert('Registro excluido com sucesso!');</script>";
+       }
+       }?>
     <?php include("rodape.php"); ?>
    
 </body>
