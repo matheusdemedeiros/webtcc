@@ -3,13 +3,7 @@
 
 <html>
 
-<head>
-    <meta charset="UTF-8">
-   
 
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
-
-</head>
 
 <body>
     <?php 
@@ -33,10 +27,22 @@
         </form>
 
     </div>
+
+    <div class="container">
+    <a  class="waves-effect  green accent-3 btn" href="cadastrocurso.php">
+    <i class="material-icons right">add</i>Adicionar</a>
+       
+    </div>
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
-                <strong>Nome</strong>
+                <strong>Nome do Curso</strong>
+            </td>
+            <td>
+                <strong>Coordenador do Curso</strong>
+            </td>
+            <td>
+                <strong>Matrícula Siape</strong>
             </td>
             <td width="10">
                 <strong>Alterar</strong>
@@ -47,14 +53,20 @@
         </tr>
 
         <?php
-include("conecta.php");
-$nome = $_POST["nome"];
-$dados = mysqli_query($conexao, "SELECT * FROM course  WHERE NameCourse like '$nome%' ORDER BY NameCourse");
-while ($course = mysqli_fetch_array($dados)){?>
+                include("conecta.php");
+                $nome=$_POST["nome"];
+                $dados = mysqli_query($conexao, "SELECT * FROM course WHERE NameCourse like '$nome%' ORDER BY NameCourse");
+                while ($course = mysqli_fetch_array($dados)){?>
 
         <tr>
             <td>
                 <?=$course["NameCourse"]?>
+            </td>
+            <td>
+                <?=$course["NameCourseCoordinator"]?>
+            </td>
+            <td>
+                <?=$course["SiapeCourseCoordinator"]?>
             </td>
 
 
@@ -65,10 +77,14 @@ while ($course = mysqli_fetch_array($dados)){?>
 
 
     </table>
-    <div class="container">
-        <button class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" 
-       > <a href="cadastrocurso.php">Cadastrar Curso</a></button>
-    </div>
+    <?php if(isset($_GET['remove'])){
+       if($_GET['remove']==0){
+        echo "<script>alert('Este registro não pode ser excluida pois está associada a outros registros!');</script>";
+       }else{
+        echo "<script>alert('Cadastro excluido com sucesso!');</script>";
+       }
+       }?>
+    
     <?php include("rodape.php"); ?>
 </body>
 

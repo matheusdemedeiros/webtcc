@@ -83,6 +83,7 @@
         <?php
             
             include("conecta.php");
+            $nome =$_POST["nome"];
             $professor_tcc=mysqli_query($conexao,"SELECT CourseId FROM termpaperteacher 
             WHERE '$id_user' = UserId");
             $curso_do_professor_tcc= mysqli_fetch_array($professor_tcc);
@@ -97,6 +98,7 @@
             AND stp.StudentId=s.IdStudent
             AND s.CourseId='$curso_do_professor_tcc[CourseId]'
             AND '$curso_do_professor_tcc[CourseId]'=c.IdCourse
+            AND t.Title LIKE '$nome%' 
             GROUP BY titulo");
             
             while ($termPaper = mysqli_fetch_array($dados)){

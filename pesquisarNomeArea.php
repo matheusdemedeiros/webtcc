@@ -5,8 +5,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de alunos</title>
-    
+    <title>Áreas de Atuação</title>
+
     <!-- <link rel="stylesheet" href="css/estilos.css"> -->
 
 </head>
@@ -33,6 +33,14 @@
         </form>
 
     </div>
+
+    <div class="container">
+     
+        <a  class="waves-effect  green accent-3 btn" href="cadastroAreaAtuacao.php"><i class="material-icons right">add</i>Adicionar</a>
+      
+    </div>
+
+
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
             <td>
@@ -47,25 +55,31 @@
         </tr>
 
         <?php
-include("conecta.php");
-$nome = $_POST["nome"];
-            
-$dados = mysqli_query($conexao, "SELECT * FROM area Where NameArea like '$nome%' ORDER BY NameArea");
-while ($aluno = mysqli_fetch_array($dados)){?>
+                include("conecta.php");
+                $nome=$_POST["nome"];
+                $dados = mysqli_query($conexao, "SELECT * FROM area Where NameArea like '$nome%' ORDER BY NameArea");
+                while ($area = mysqli_fetch_array($dados)){?>
 
         <tr>
             <td>
-                <?=$aluno["NameArea"]?>
+                <?=$area["NameArea"]?>
             </td>
-            
 
-            <td alingn="center"><a href="editarAreaAtuacao.php?editaid=<?=$aluno['IdArea']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            <td alingn="center"><a href="#" onclick="excluirArea(<?=$aluno['IdArea']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+
+            <td alingn="center"><a href="editarAreaAtuacao.php?editaid=<?=$area['IdArea']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td alingn="center"><a href="#" onclick="excluirArea(<?=$area['IdArea']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 
 
     </table>
+    <?php if(isset($_GET['remove'])){
+       if($_GET['remove']== 0){
+        echo "<script>alert('Este registro não pode ser excluida pois está associada a outros registros!');</script>";
+       }else{
+        echo "<script>alert('Cadastro excluido com sucesso!');</script>";
+       }
+       }?>
 
     <?php include("rodape.php"); ?>
 </body>

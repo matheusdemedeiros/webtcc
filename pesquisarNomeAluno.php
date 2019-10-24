@@ -5,20 +5,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Listagem de alunos</title>
-
-    <!-- <link rel="stylesheet" href="css/estilos.css"> -->
+   
+    
 
     <script type="text/jscript" src="script.js"></script>
+    <script type="text/javascript">
+        function validar() {
+            var nome = formuser.nome.value;
+            if (nome == "") {
+                alert('O campo não pode ser nulo!');
+                formuser.nome.focus();
+                return false;
+            }
+        }
 
+    </script>
 </head>
 
 <body>
     <?php 
-		$cabecalho_title = "Listagem de alunos";
-		include("cabecalho.php"); 
+		$cabecalho_title = "Alunos";
+        include("cabecalho.php"); 
+        session_start();
+        $id_user = $_SESSION['name_session'];
 		?>
-
+  
     <div class="container">
         <form name="formuser" action="pesquisarNomeAluno.php" method="POST">
             <fieldset>
@@ -35,7 +46,10 @@
         </form>
 
     </div>
-
+    <div class="container">
+    <a  class="waves-effect  green accent-3 btn"href="cadastroaluno.php"><i class="material-icons right">add</i>Adicionar</a>
+        
+    </div>
 
     <table class="container" width="100%" borde="1" bordercolor="#EEE" cellspacing="0" cellpadding="10">
         <tr>
@@ -43,7 +57,7 @@
                 <strong>Nome</strong>
             </td>
             <td>
-                <strong>Matricula</strong>
+                <strong>Matrícula</strong>
             </td>
             <td>
                 <strong>E-mail</strong>
@@ -52,7 +66,7 @@
                 <strong>Curso</strong>
             </td>
             <td>
-                <strong>Senha</strong>
+                <strong>Alterar Senha</strong>
             </td>
             <td width="10">
                 <strong>Alterar</strong>
@@ -64,10 +78,19 @@
 
         <?php
 include("conecta.php");
-$nome = $_POST["nome"];
-$dados = mysqli_query($conexao, "SELECT * FROM student
-INNER JOIN course WHERE CourseId=IdCourse
-and NameStudent like '$nome%'  ORDER BY NameStudent");
+
+$professor_tcc=mysqli_query($conexao,"SELECT CourseId 
+FROM termpaperteacher 
+WHERE '$id_user' = UserId");
+$curso= mysqli_fetch_array($professor_tcc);
+$nome=$_POST["nome"];
+$dados = mysqli_query($conexao, "SELECT * FROM student INNER JOIN 
+course INNER JOIN users WHERE 
+CourseId=IdCourse 
+AND IdUser=UserId 
+AND '$curso[CourseId]'=CourseId
+AND NameStudent like '$nome%'
+ORDER BY NameStudent");
 while ($aluno = mysqli_fetch_array($dados)){?>
 
         <tr>
@@ -76,25 +99,34 @@ while ($aluno = mysqli_fetch_array($dados)){?>
             </td>
             <td>
                 <?=$aluno["Registration"]?>
+
             </td>
             <td>
                 <?=$aluno["Email"]?>
             </td>
             <td>
-            <?=$aluno["NameCourse"]?>
+                <?=$aluno["NameCourse"]?>
             </td>
-            <td>
-            <?=$aluno["Password"]?>
-            </td>
-            <td alingn="center"><a href="editarAluno.php?editaid=<?=$aluno['IdStudent']?>"><i class="material-icons" style="color: #00e676">edit</i></a></td>
+            <td  alingn="center">
+            <a href="editarSenhaAluno.php?editaid=<?=$aluno['IdStudent']?>"> <i class="material-icons" style="color: #00e676">lock</i></a>
+           </td>
+
+            <td alingn="center"><a href="editarAluno.php?editaid=<?=$aluno['IdStudent']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
             <td alingn="center"><a href="#" onclick="excluirAluno(<?=$aluno['IdStudent']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
         </tr>
         <?php } ?>
 
 
     </table>
+    <?php if(isset($_GET['remove'])){
+       if($_GET['remove']==0){
+        echo "<script>alert('Este registro não pode ser excluida pois está associada a outros registros!');</script>";
+       }else{
+        echo "<script>alert('Registro excluido com sucesso!');</script>";
+       }
+       }?>
+    
     <?php include("rodape.php"); ?>
-
 </body>
 
 </html>
