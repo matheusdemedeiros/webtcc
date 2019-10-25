@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-
+    
 </head>
 
 <body>
@@ -154,7 +154,7 @@
                         <label for="resumo">Resumo do TCC</label>
                     </div>
                 </div>
-                <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" />
+                <input class="btn" style="background-color: #00e676" type="submit" name="Cadastrar" value="Cadastrar" onclick="return validarData()"/>
             </fieldset>
         </form>
     </div>
@@ -162,6 +162,12 @@
     if(isset($_GET["aluno"])){
         if ($_GET["aluno"]==0) {
             echo "<script>alert('O Aluno selecionado já está associado a um tcc!');</script>";
+        }elseif($_GET["aluno"]==1){
+            echo "<script>alert('O Aluno 1 e Aluno 2 selecionado são iguais!');</script>";
+        }elseif($_GET["aluno"]==2){
+            echo "<script>alert('O Orientador e Co-orientador selecionado são iguais!');</script>";
+        }elseif($_GET["aluno"]==3){
+            echo "<script>alert('A data Inicial deve ser menor que a data Final!');</script>";
         }
     }
    ?>

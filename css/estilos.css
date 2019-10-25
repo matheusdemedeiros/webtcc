@@ -6,6 +6,7 @@ header {
 }
 nav{
     height: 120px;
+    
 }
 form{
     border-radius: 10px;
@@ -19,9 +20,7 @@ footer{
 h1,h2,h3,h4,h5,h6{
     text-align: center;
 }
-li{
-    font-size: 200px;
-}
+
 
 .centro{
     text-align: center;

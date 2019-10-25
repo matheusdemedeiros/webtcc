@@ -10,7 +10,7 @@
               <div class="col l4 offset-l2 s12">
                 <h5 class="white-text">Links</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="https://cursos.lages.ifsc.edu.br/computacao/">Cursosuperior em Ciência da Computação</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://cursos.lages.ifsc.edu.br/computacao/">Curso superior em Ciência da Computação</a></li>
                   <li><a class="grey-text text-lighten-3" href="https://www.lages.ifsc.edu.br/">IFSC-Lages</a></li>
                   <li> <a class="grey-text text-lighten-4" href="https://www.ifsc.edu.br/">Portal do IFSC</a></li>
                 </ul>

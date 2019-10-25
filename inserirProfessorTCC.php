@@ -7,7 +7,11 @@
     $curso = $_POST['curso'];
     $matricula=$_POST['matricula'];
     $tipo_usuario="TermPaperTeacher";
-
+    $confere_email=mysqli_query($conexao, "SELECT * FROM users WHERE Email='$email'");
+    $email_conferido=mysqli_fetch_array($confere_email);
+    if($email_conferido != NULL){
+        header('location:cadastroprofessortcc.php?professortcc=0');
+    }else{
     $options = array("cost"=>4);
     $hashPassword = password_hash($senha,PASSWORD_BCRYPT,$options);
 
@@ -21,4 +25,5 @@
     '$curso','$matricula','$id_users[IdUser]')");
  
     header('Location:listagemProfessorTCC.php');
+    }
 ?>

@@ -96,7 +96,13 @@
 
 
     </div>
-
+    <?php 
+                if (isset($_GET["professortcc"])) {
+                    if ($_GET["professortcc"]==0) {
+                        echo "<script>alert('Este email já está em uso! Por favor tente outro.');</script>";
+                    }
+                }                    
+            ?>
 
     <?php include("rodape.php"); ?>
 </body>

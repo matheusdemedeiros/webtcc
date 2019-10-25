@@ -133,7 +133,13 @@
         </form>
 
     </div>
-
+    <?php 
+                if (isset($_GET["orientador"])) {
+                    if ($_GET["orientador"]==0) {
+                        echo "<script>alert('Este email já está em uso! Por favor tente outro.');</script>";
+                    }
+                }                    
+            ?>
     <?php
     
         include("rodape.php");

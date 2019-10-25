@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     
 
-    <!-- <link rel="stylesheet" href="css/estilos.css">  -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    
     <script type="text/javascript">
         function validar() {
             var senha = formuser.password.value;
@@ -95,7 +94,13 @@
 
         </form>
     </div>
-
+            <?php 
+                if (isset($_GET["aluno"])) {
+                    if ($_GET["aluno"]==0) {
+                        echo "<script>alert('Este email já está em uso! Por favor tente outro.');</script>";
+                    }
+                }                    
+            ?>
     <?php include("rodape.php"); ?>
 
 

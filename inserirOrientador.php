@@ -9,6 +9,11 @@ $senha = $_POST['password'];
 $matricula=$_POST["matricula"];
 $tipo_usuario="Advisor";
 
+$confere_email=mysqli_query($conexao, "SELECT * FROM users WHERE Email='$email'");
+$email_conferido=mysqli_fetch_array($confere_email);
+if($email_conferido != NULL){
+    header('location:cadastroorientador.php?orientador=0');
+}else{
 $options = array("cost"=>4);
 $hashPassword = password_hash($senha,PASSWORD_BCRYPT,$options);
 
@@ -21,5 +26,5 @@ mysqli_query($conexao,"insert into advisor(NameAdvisor, OccupationArea ,Siapei,U
 values('$nome', '$area_atuacao','$matricula','$id_users[IdUser]')");
  
 header('Location:listagemOrientadores.php');
-
+}
 ?>
