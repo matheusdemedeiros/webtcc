@@ -7,7 +7,7 @@
         session_start();    
         $id_user = $_SESSION['name_session'];
 	?>
-     <div class="container">
+     <div>
         <form name="formuser" action="pesquisarTituloTCC.php" method="POST">
             <fieldset>
                 <div class="row">
