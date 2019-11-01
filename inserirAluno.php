@@ -1,7 +1,5 @@
 <?php
-
 include("conecta.php");
-
 
 $nome = $_POST['nome'];
 $email = $_POST['email'];
@@ -9,7 +7,6 @@ $matricula = $_POST['registration'];
 $senha = $_POST['password'];
 $curso = $_POST['curso'];
 $tipo_usuario="Student";
-
 
 $confere_email=mysqli_query($conexao, "SELECT * FROM users WHERE Email='$email'");
 $email_conferido=mysqli_fetch_array($confere_email);
@@ -29,6 +26,5 @@ if($email_conferido != NULL){
     
     header('Location:listagemAlunos.php');
 }
-
 
 ?>

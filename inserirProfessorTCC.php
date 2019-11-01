@@ -7,6 +7,7 @@
     $curso = $_POST['curso'];
     $matricula=$_POST['matricula'];
     $tipo_usuario="TermPaperTeacher";
+
     $confere_email=mysqli_query($conexao, "SELECT * FROM users WHERE Email='$email'");
     $email_conferido=mysqli_fetch_array($confere_email);
     if($email_conferido != NULL){

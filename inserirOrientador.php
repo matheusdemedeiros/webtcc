@@ -1,5 +1,4 @@
 <?php
-
 include("conecta.php");
 
 $nome = $_POST['nome'];
