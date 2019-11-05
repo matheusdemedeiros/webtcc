@@ -1,0 +1,19 @@
+Professores de TCC:
+email: alexandre.perin@ifsc.edu.br, senha:alexandre,curso:cc;
+email: vilson.heck@ifsc.edu.br, senha:vilson,curso:Engenharia Mecânica;
+email: delcio.vieira@ifsc.edu.br, senha:delcio,curso:Processos Químicos;
+Orientadores:
+email:alexandre.perin@gmail.com,senha:alexandre;
+email:andre@gmail.com,senha:andre1;
+email:robson.costa@gmail.com,senha:robson;
+email:wilson.castello@gmail.com,senha:wilson;
+email:thaiana.anjos@gmail.com,senha:thaiana;
+Alunos:
+email:lucaschaves2610@gmail.com,senha:lucasch,curso:cc;
+email:matheus.medeiros@gmail.com,senha:matheus,curso:cc;
+email:matheus.guimaraes@gmail.com,senha:guimaraes,curso:cc;
+email:giovani.girardi@gmail.com,senha:giovani,curso:cc;
+email:victor.klann@gmail.com,senha:victor,curso:cc;
+email:arthur.neto@gmail.com,senha:arthur,curso:EM;
+email:johnson.sadao@gmail.com,senha:johnson,curso:PQ;
+
