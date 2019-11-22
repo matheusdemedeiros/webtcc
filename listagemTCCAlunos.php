@@ -43,17 +43,7 @@ include("cabecalhoAluno.php");
             </td>
  
 
-            <td width="10">
- 
-                <Strong>Alterar</Strong>
- 
-            </td>
- 
-            <td Width="10">
- 
-                <strong>Excluir</strong>
- 
-            </td>
+           
             <td>
  
                 <strong>Registro da Reunião</strong>
@@ -188,9 +178,7 @@ include("cabecalhoAluno.php");
            <td>
           <?=$co_orientador?>
             </td>
-            <td alingn="center"><a href="editarTCCAluno.php?editaid=<?=$termPaper['id_tcc']?>"> <i class="material-icons" style="color: #00e676">edit</i></a></td>
-            
-            <td alingn="center"><a href="#" onclick="excluirTCCAluno(<?=$termPaper['id_tcc']?>)"><i class="material-icons" style="color: #00e676">delete</i></a></td>
+           
            
            <td alingn="center"><a href="formularioAcompanhamentoAluno.php?formid=<?=$termPaper['id_tcc']?>">
            <i class="material-icons" style="color: #00e676">library_books</i></a></td>

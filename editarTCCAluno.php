@@ -9,7 +9,7 @@
 		$cabecalho_title = "Editar TCC";
         include("cabecalhoAluno.php"); 
         include("conecta.php");
-        $recid = $_GET['editaid'];
+        $recid = $_GET["editaid"];
         $seleciona = mysqli_query($conexao, "SELECT * FROM termpaper t
         INNER JOIN student s
         INNER JOIN studenttermpaper stp
@@ -208,6 +208,19 @@
             </fieldset>
         </form>
     </div>
+    <?php 
+    if(isset($_GET["aluno"])){
+        if ($_GET["aluno"]==0) {
+            echo "<script>alert('O Aluno selecionado já está associado a um tcc!');</script>";
+        }elseif($_GET["aluno"]==1){
+            echo "<script>alert('O Aluno 1 e Aluno 2 selecionado são iguais!');</script>";
+        }elseif($_GET["aluno"]==2){
+            echo "<script>alert('O Orientador e Co-orientador selecionado são iguais!');</script>";
+        }elseif($_GET["aluno"]==3){
+            echo "<script>alert('A data Inicial deve ser menor que a data Final!');</script>";
+        }
+    }
+   ?>
         <?php include("rodape.php"); ?>
 </body>
 </html>

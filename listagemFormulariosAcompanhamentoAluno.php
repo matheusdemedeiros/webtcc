@@ -24,7 +24,7 @@ f.Topic as assuntos, f.MeetingDate as dataReuniao, f.IdFormTermPaper as id
 formtermpaper f WHERE  f.TermPaperId='$id_tcc' AND t.IdTermPaper=f.TermPaperId ORDER BY dataReuniao");
 
 while ($formulario = mysqli_fetch_array($dados)){?>
-    var_dump(<?=$formulario['id']?>);
+  
     <?php
              include("conecta.php");
              $idAtual=$id_tcc;
