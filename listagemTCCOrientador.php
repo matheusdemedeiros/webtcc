@@ -62,9 +62,7 @@
                 <strong>Ver Registros</strong>
 
             </td>
-            <td>
-                <strong> Gerar Declaração</strong>
-            </td>
+            
  
         </tr>
 
@@ -191,8 +189,7 @@
            <i class="material-icons" style="color: #00e676">library_books</i></a></td>
            <td alingn="center"><a href="listagemFormulariosAcompanhamentoOrientador.php?id=<?=$termPaper['id_tcc']?>">
            <i class="material-icons" style="color: #00e676">list</i></a></td>
-           <td alingn="center"><a href="gerarDeclaracao.php?id=<?=$termPaper['id_tcc']?>">
-           <i class="material-icons" style="color: #00e676">assignment</i></a></td>
+          
         </tr>
     
         <?php

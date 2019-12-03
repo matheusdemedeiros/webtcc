@@ -15,7 +15,7 @@
             <div class="nav-wrapper">
                 <img  src="img/IFSC.png" class="brand-logo">
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="homeAluno.php">Home</a></li>
+                    <!-- <li><a href="homeAluno.php">Home</a></li> -->
                     <li><a href="listagemTCCAlunos.php">Gerenciar TCC</a></li>
                     <li><a href="alterarSenhaAluno.php">Alterar Senha</a></li>
                     <li><a href="logout.php">Sair</a></li>

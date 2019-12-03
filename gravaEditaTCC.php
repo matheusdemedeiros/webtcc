@@ -31,7 +31,7 @@ mysqli_query($conexao, "DELETE FROM studenttermpaper WHERE TermPaperId = '$IdTCC
 
 if($aluno_2==null){
   
-   $primeiro_aluno="FistStudent";
+   $primeiro_aluno="FirstStudent";
    mysqli_query($conexao,"INSERT INTO studenttermpaper(StudentId,TermPaperId,StudentType)
    VALUES('$aluno_1','$IdTCC','$primeiro_aluno')");
 }else {

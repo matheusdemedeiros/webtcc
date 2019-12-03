@@ -17,7 +17,7 @@
             <div class="nav-wrapper">
                 <img  src="img/IFSC.png" class="brand-logo">
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="home.php">Home</a></li>
+                    <!-- <li><a href="home.php">Home</a></li> -->
                     <li><a href="listagemAlunos.php">Gerenciar Aluno</a></li>
                     <li><a href="listagemAreaAtuacao.php">Gerenciar Área Atuação</a></li>
                     <li><a href="listagemCurso.php">Gerenciar Curso</a></li>
