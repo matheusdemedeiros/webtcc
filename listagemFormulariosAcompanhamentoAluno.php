@@ -139,15 +139,7 @@ while ($formulario = mysqli_fetch_array($dados)){?>
                 </strong><br>
                 <?=$formulario["observacao"]?>
             </p>
-            <div class="container">
-                <a class="waves-effect  green accent-3 btn"  
-                href="editarFormularioAcompanhamentoAluno.php?editaid=<?=$formulario['id']?>">
-                <i class="material-icons right">edit</i>Editar</a>
-
-                <a class="waves-effect  green accent-3 btn" 
-                onclick="excluirFormularioAcompanhamentoAluno(<?=$formulario['id']?>)">
-                <i class="material-icons right">delete</i>Excluir</a>
-            </div>
+           
             
           
        </fieldset>
